@@ -1,0 +1,27 @@
+schema_version: 1
+id: dji-mini-4-pro
+profile_version: 1
+origin: official
+status: verified
+updated: "2026-09-11"
+
+device:
+  vendor: DJI
+  model: Mini 4 Pro
+  aliases:
+    - DJI Mini 4 Pro
+  category: Drone
+
+firmware:
+  strategy: dji_release_notes_pdf
+  source:
+    type: html
+    url: https://www.dji.com/nl/mini-4-pro/downloads
+  release_notes:
+    labels:
+      - DJI Mini 4 Pro - Release Notes
+      - Release Notes
+    firmware_labels:
+      - Aircraft Firmware
+      - DJI Mini 4 Pro Firmware
+      - Mini 4 Pro

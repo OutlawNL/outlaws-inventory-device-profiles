@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/OutlawNL/outlaws-inventory-device-profiles/schemas/device-profile-v1.schema.json",
+  "title": "Outlaw's Inventory Device Profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "profile_version", "origin", "status", "updated", "device", "firmware"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$"},
+    "profile_version": {"type": "integer", "minimum": 1},
+    "origin": {"enum": ["official", "community", "custom"]},
+    "status": {"enum": ["verified", "experimental", "deprecated"]},
+    "updated": {"type": "string", "format": "date"},
+    "device": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vendor", "model", "category"],
+      "properties": {
+        "vendor": {"type": "string", "minLength": 1, "maxLength": 120},
+        "model": {"type": "string", "minLength": 1, "maxLength": 160},
+        "aliases": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 160}, "uniqueItems": true},
+        "category": {"type": "string", "minLength": 1, "maxLength": 80}
+      }
+    },
+    "firmware": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "source"],
+      "properties": {
+        "strategy": {"enum": ["dji_release_notes_pdf"]},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "url"],
+          "properties": {
+            "type": {"enum": ["html"]},
+            "url": {"type": "string", "pattern": "^https://"}
+          }
+        },
+        "release_notes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["labels", "firmware_labels"],
+          "properties": {
+            "labels": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 160}},
+            "firmware_labels": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 160}}
+          }
+        }
+      }
+    }
+  }
+}

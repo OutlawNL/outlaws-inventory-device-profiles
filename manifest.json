@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "catalog_version": 1,
+  "generated": "2026-09-11",
+  "files": {
+    "catalog/index.json": "14b7b53aa31216d8f2f98d12db8da7b58191b27707dc3a48f0edc48ac91b09cc"
+  },
+  "signature": null,
+  "signature_status": "not-signed-yet"
+}

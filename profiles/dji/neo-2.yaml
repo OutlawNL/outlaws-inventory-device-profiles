@@ -1,0 +1,26 @@
+schema_version: 1
+id: dji-neo-2
+profile_version: 1
+origin: official
+status: verified
+updated: "2026-09-11"
+
+device:
+  vendor: DJI
+  model: Neo 2
+  aliases:
+    - DJI Neo 2
+  category: Drone
+
+firmware:
+  strategy: dji_release_notes_pdf
+  source:
+    type: html
+    url: https://www.dji.com/nl/downloads/products/neo-2#doc
+  release_notes:
+    labels:
+      - DJI Neo 2 - Release Notes
+      - Release Notes
+    firmware_labels:
+      - DJI Neo 2 Firmware
+      - Aircraft Firmware
