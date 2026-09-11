@@ -1,33 +1,33 @@
 schema_version: 1
-id: dji-rs-4
-profile_version: 2
+id: dji-goggles-n3
+profile_version: 1
 origin: official
 status: verified
 updated: '2026-09-11'
 device:
   vendor: DJI
-  model: RS 4
+  model: Goggles N3
   aliases:
-  - DJI RS 4
-  category: Gimbal
+  - DJI Goggles N3
+  category: FPV Goggles
 firmware:
   strategy: release_notes_pdf
   source:
     type: html
-    url: https://www.dji.com/rs-4/downloads
+    url: https://www.dji.com/global/goggles-n3/downloads
   discovery:
     document_type: pdf
     item_selector: li.groups-download-item
     title_contains:
-    - DJI RS 4  - Release Notes
+    - DJI Goggles N3  - Release Notes
     url_contains:
-    - DJI_RS_4_Release_Notes
+    - DJI_Goggles_N3_Release_Notes
     url_excludes: []
     url_pattern: (?:_|-)en(?:[_.0-9-]|\.pdf)
   extraction:
     version:
       labels:
-      - 'Firmware:'
+      - 'DJI Goggles N3 Firmware:'
       pattern: (?:[Vv]\s*)?([0-9]+(?:\.[0-9]+){2,3})
       group: 1
       max_lines: 12
@@ -51,4 +51,4 @@ firmware:
   validation:
     version_pattern: ^[0-9]+(?:\.[0-9]+){2,3}$
     document_titles:
-    - DJI RS 4 Release Notes
+    - DJI Goggles N3 Release Notes

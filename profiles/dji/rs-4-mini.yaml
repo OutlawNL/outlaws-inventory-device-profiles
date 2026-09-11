@@ -1,6 +1,6 @@
 schema_version: 1
 id: dji-rs-4-mini
-profile_version: 1
+profile_version: 2
 origin: official
 status: verified
 updated: '2026-09-11'
@@ -17,18 +17,18 @@ firmware:
     url: https://www.dji.com/rs-4-mini/downloads
   discovery:
     document_type: pdf
+    item_selector: li.groups-download-item
     title_contains:
-    - DJI RS 4 Mini - Release Notes
+    - DJI RS 4 Mini  - Release Notes
     url_contains:
-    - DJI_RS4_Mini
-    - Release_Notes
-    url_excludes:
-    - assistant
+    - DJI_RS_4_Mini_Release_Notes
+    url_excludes: []
+    url_pattern: (?:_|-)en(?:[_.0-9-]|\.pdf)
   extraction:
     version:
       labels:
       - 'Firmware Version:'
-      pattern: '(?:[Vv]\s*)?([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'
+      pattern: (?:[Vv]\s*)?([0-9]+(?:\.[0-9]+){2,3})
       group: 1
       max_lines: 12
     release_date:
@@ -46,6 +46,9 @@ firmware:
       end_labels:
       - 'Notes:'
       - Notes
-      max_items: 3
+      max_items: 10
+    scope: first_release_first_page
   validation:
     version_pattern: ^[0-9]+(?:\.[0-9]+){2,3}$
+    document_titles:
+    - DJI RS 4 Mini Release Notes

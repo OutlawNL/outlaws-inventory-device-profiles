@@ -65,3 +65,8 @@ Profile revisions use `profile_version`; the generated catalog has its own indep
 Profiles are declarative only. No Python, JavaScript, shell commands or arbitrary executable templates belong in a Device Profile. Runtime profile JSON is hash-pinned from the catalog, in addition to HTTPS transport. Catalog signing remains planned before broad community publishing.
 
 No license has been selected yet. Public visibility does not imply a grant of reuse rights.
+
+
+## Catalog v4 — requires Outlaw's Inventory v0.18.4
+
+Install OI v0.18.4 before publishing this catalog. Then run Settings → Device Profiles → Check Now, followed by a firmware check. All 15 existing DJI profiles were refreshed against live documents; Goggles N3 brings the catalog to 16. Profiles declare item selectors, language filename patterns, document titles and first-release/first-page scope. Ambiguous source matches or missing fields fail closed. Never use the download-page date as a substitute for the PDF release date.
