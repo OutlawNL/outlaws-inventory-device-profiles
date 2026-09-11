@@ -1,35 +1,37 @@
 schema_version: 1
-id: dji-neo-2
-profile_version: 2
+id: dji-osmo-action-4
+profile_version: 1
 origin: official
 status: verified
 updated: "2026-09-11"
 
 device:
   vendor: DJI
-  model: Neo 2
+  model: Osmo Action 4
   aliases:
-    - DJI Neo 2
-  category: Drone
+    - DJI Osmo Action 4
+    - Action 4
+  category: Camera
 
 firmware:
   strategy: release_notes_pdf
   source:
     type: html
-    url: https://www.dji.com/nl/downloads/products/neo-2#doc
+    url: https://www.dji.com/nl/osmo-action-4/downloads
   discovery:
     document_type: pdf
     title_contains:
-      - DJI Neo 2 - Release Notes
+      - Osmo Action 4 - Release Notes
+      - DJI Osmo Action 4 - Release Notes
     url_contains:
-      - neo-2
+      - DJI_Osmo_Action_4
       - Release_Notes
     url_excludes:
       - assistant
   extraction:
     version:
       labels:
-        - "DJI Neo 2 Firmware:"
+        - "Firmware Version:"
       pattern: "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})"
       group: 1
     release_date:

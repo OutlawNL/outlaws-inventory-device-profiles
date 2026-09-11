@@ -1,35 +1,35 @@
 schema_version: 1
-id: dji-neo-2
-profile_version: 2
+id: dji-mini-5-pro
+profile_version: 1
 origin: official
 status: verified
 updated: "2026-09-11"
 
 device:
   vendor: DJI
-  model: Neo 2
+  model: Mini 5 Pro
   aliases:
-    - DJI Neo 2
+    - DJI Mini 5 Pro
   category: Drone
 
 firmware:
   strategy: release_notes_pdf
   source:
     type: html
-    url: https://www.dji.com/nl/downloads/products/neo-2#doc
+    url: https://www.dji.com/nl/downloads/products/mini-5-pro#doc
   discovery:
     document_type: pdf
     title_contains:
-      - DJI Neo 2 - Release Notes
+      - DJI Mini 5 Pro - Release Notes
     url_contains:
-      - neo-2
+      - DJI_Mini_5_Pro
       - Release_Notes
     url_excludes:
       - assistant
   extraction:
     version:
       labels:
-        - "DJI Neo 2 Firmware:"
+        - "Aircraft Firmware:"
       pattern: "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})"
       group: 1
     release_date:

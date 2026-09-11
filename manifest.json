@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "catalog_version": 1,
+  "catalog_version": 2,
   "generated": "2026-09-11",
   "files": {
-    "catalog/index.json": "14b7b53aa31216d8f2f98d12db8da7b58191b27707dc3a48f0edc48ac91b09cc"
+    "catalog/index.json": "5ea450452b5b9462b3d68b41f943641247720d723f5bec782508ba6ba554cef9"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

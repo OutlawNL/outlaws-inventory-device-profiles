@@ -1,7 +1,9 @@
 # Security
 
-Device Profiles are data, never executable code. Profiles must not contain scripts, shell commands, JavaScript or arbitrary templates.
+Device Profiles are data, never executable code. Profiles must not contain scripts, shell commands, JavaScript, arbitrary templates or user-controlled code fragments.
 
-Outlaw's Inventory restricts trusted profile synchronization to the configured official HTTPS catalog. Profile-driven network access is limited by core strategies; a profile cannot introduce a new network protocol or arbitrary code path.
+Outlaw's Inventory implements a fixed allow-list of parser capabilities. A Device Profile may only provide declarative arguments to those capabilities: HTTPS sources, document match hints, labels, constrained regular-expression extraction patterns, date formats, section headings and validation rules.
 
-The initial catalog manifest records SHA-256 hashes. Cryptographic signing of trusted catalog releases is planned before broad community contributions are enabled.
+A new device should not require new executable logic in the application core when existing capabilities are sufficient. New core code is reserved for genuinely new generic capabilities, not individual vendors or models.
+
+Outlaw's Inventory restricts trusted profile synchronization to the configured official HTTPS catalog. The current catalog manifest records SHA-256 hashes. Cryptographic signing of trusted catalog releases is planned before broad community contributions are enabled.
