@@ -1,8 +1,9 @@
 {
   "schema_version": 1,
-  "catalog_version": 4,
-  "generated": "2026-09-11",
+  "catalog_version": 5,
+  "generated": "2026-09-12",
   "files": {
+    "catalog/profiles/dji-goggles-3.json": "76f11531047d1087df5bb04aecd1956245bd54a0a2ed5d8ea8cb643ec5d0ba5e",
     "catalog/profiles/dji-goggles-n3.json": "20d79f533f7fa44a0f58e4652724a65f713e1a1b4df33ca43c54d1af049e7e20",
     "catalog/profiles/dji-mini-4-pro.json": "c651e01fc3fc76a0c4b15d4f4b6d3b756b93b093c4eac287ccdc0c668bf53aa4",
     "catalog/profiles/dji-mini-5-pro.json": "59d4c20d6e1c009967ebd9296adf6a1de64f896f7049f0ce0d43c0e23f23b764",
@@ -19,7 +20,7 @@
     "catalog/profiles/dji-rs-4-pro.json": "d9e2392dc96cf784a0fbd84094b68dd104dadcb311893ad667deace288c8b008",
     "catalog/profiles/dji-rs-4.json": "bd70f7bf17c5d1556fe499f66a98afe8f9c623b78459aaa6b0c394b6189735f3",
     "catalog/profiles/dji-rs-5.json": "1ba4d2e647723cbe5bed1686d1deb00791d3f13f1410d2ef03ff3cbfa0ee41b8",
-    "catalog/index.json": "677cc7c717680033d450cc0c1eb22dca4fa88821fdd6c5d3016deb3afefc9016"
+    "catalog/index.json": "3a392c6c75fedf93cb17d6427e085a55517d99c21747a3d31dcbf8f57aa33384"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

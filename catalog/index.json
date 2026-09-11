@@ -1,9 +1,28 @@
 {
   "schema_version": 1,
-  "catalog_version": 4,
-  "generated": "2026-09-11",
+  "catalog_version": 5,
+  "generated": "2026-09-12",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
+    {
+      "schema_version": 1,
+      "id": "dji-goggles-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Goggles 3",
+        "aliases": [
+          "DJI Goggles 3"
+        ],
+        "category": "FPV Goggles"
+      },
+      "profile_path": "profiles/dji/goggles-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-goggles-3.json",
+      "sha256": "76f11531047d1087df5bb04aecd1956245bd54a0a2ed5d8ea8cb643ec5d0ba5e"
+    },
     {
       "schema_version": 1,
       "id": "dji-goggles-n3",

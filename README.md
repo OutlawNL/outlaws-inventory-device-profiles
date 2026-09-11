@@ -70,3 +70,8 @@ No license has been selected yet. Public visibility does not imply a grant of re
 ## Catalog v4 — requires Outlaw's Inventory v0.18.4
 
 Install OI v0.18.4 before publishing this catalog. Then run Settings → Device Profiles → Check Now, followed by a firmware check. All 15 existing DJI profiles were refreshed against live documents; Goggles N3 brings the catalog to 16. Profiles declare item selectors, language filename patterns, document titles and first-release/first-page scope. Ambiguous source matches or missing fields fail closed. Never use the download-page date as a substitute for the PDF release date.
+
+
+## Catalog v5
+
+Adds DJI Goggles 3, bringing the catalog to 17 device-specific profiles. Verified official Release Notes: 01.00.1500, 2026-09-01. Requires OI v0.18.4 or newer; no core extraction changes are needed for this profile. Existing profiles are unchanged from catalog v4.
