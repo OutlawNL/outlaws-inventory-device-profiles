@@ -1,2 +1,2 @@
-# outlaws-inventory-device-library
+# outlaws-inventory-device-profiles
 Device Profiles for Outlaw's Inventory
