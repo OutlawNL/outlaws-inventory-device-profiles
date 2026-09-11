@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "dji-osmo-action-3",
+  "profile_version": 1,
+  "origin": "official",
+  "status": "verified",
+  "updated": "2026-09-11",
+  "device": {
+    "vendor": "DJI",
+    "model": "Osmo Action 3",
+    "aliases": [
+      "DJI Osmo Action 3",
+      "Action 3"
+    ],
+    "category": "Camera"
+  },
+  "firmware": {
+    "strategy": "release_notes_pdf",
+    "source": {
+      "type": "html",
+      "url": "https://www.dji.com/downloads/products/osmo-action-3"
+    },
+    "discovery": {
+      "document_type": "pdf",
+      "title_contains": [
+        "Osmo Action 3 - Release Notes"
+      ],
+      "url_contains": [
+        "Action",
+        "3",
+        "Release_Notes"
+      ],
+      "url_excludes": [
+        "assistant"
+      ]
+    },
+    "extraction": {
+      "version": {
+        "labels": [
+          "Firmware Version:"
+        ],
+        "pattern": "(?:[Vv]\\s*)?([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)",
+        "group": 1,
+        "max_lines": 12
+      },
+      "release_date": {
+        "labels": [
+          "Date:"
+        ],
+        "formats": [
+          "%Y.%m.%d"
+        ],
+        "max_lines": 12
+      },
+      "whats_new": {
+        "start_labels": [
+          "What's New",
+          "What’s New",
+          "What's New?",
+          "What’s New?"
+        ],
+        "end_labels": [
+          "Notes:",
+          "Notes"
+        ],
+        "max_items": 3
+      }
+    },
+    "validation": {
+      "version_pattern": "^[0-9]+(?:\\.[0-9]+){2,3}$"
+    }
+  }
+}

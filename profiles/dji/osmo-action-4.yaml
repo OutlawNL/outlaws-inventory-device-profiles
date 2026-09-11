@@ -1,18 +1,16 @@
 schema_version: 1
 id: dji-osmo-action-4
-profile_version: 1
+profile_version: 2
 origin: official
 status: verified
-updated: "2026-09-11"
-
+updated: '2026-09-11'
 device:
   vendor: DJI
   model: Osmo Action 4
   aliases:
-    - DJI Osmo Action 4
-    - Action 4
+  - DJI Osmo Action 4
+  - Action 4
   category: Camera
-
 firmware:
   strategy: release_notes_pdf
   source:
@@ -21,31 +19,34 @@ firmware:
   discovery:
     document_type: pdf
     title_contains:
-      - Osmo Action 4 - Release Notes
-      - DJI Osmo Action 4 - Release Notes
+    - Osmo Action 4 - Release Notes
     url_contains:
-      - DJI_Osmo_Action_4
-      - Release_Notes
+    - Action_4
+    - Release_Notes
     url_excludes:
-      - assistant
+    - assistant
   extraction:
     version:
       labels:
-        - "Firmware Version:"
-      pattern: "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})"
+      - 'Firmware Version:'
+      pattern: '(?:[Vv]\s*)?([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'
       group: 1
+      max_lines: 12
     release_date:
       labels:
-        - "Date:"
+      - 'Date:'
       formats:
-        - "%Y.%m.%d"
+      - '%Y.%m.%d'
+      max_lines: 12
     whats_new:
       start_labels:
-        - "What's New"
-        - "What’s New"
+      - What's New
+      - What’s New
+      - What's New?
+      - What’s New?
       end_labels:
-        - "Notes:"
-        - "Notes"
+      - 'Notes:'
+      - Notes
       max_items: 3
   validation:
-    version_pattern: "^[0-9]+(?:\\.[0-9]+){2,3}$"
+    version_pattern: ^[0-9]+(?:\.[0-9]+){2,3}$

@@ -1,17 +1,15 @@
 schema_version: 1
 id: dji-mini-5-pro
-profile_version: 1
+profile_version: 2
 origin: official
 status: verified
-updated: "2026-09-11"
-
+updated: '2026-09-11'
 device:
   vendor: DJI
   model: Mini 5 Pro
   aliases:
-    - DJI Mini 5 Pro
+  - DJI Mini 5 Pro
   category: Drone
-
 firmware:
   strategy: release_notes_pdf
   source:
@@ -20,30 +18,34 @@ firmware:
   discovery:
     document_type: pdf
     title_contains:
-      - DJI Mini 5 Pro - Release Notes
+    - DJI Mini 5 Pro - Release Notes
     url_contains:
-      - DJI_Mini_5_Pro
-      - Release_Notes
+    - DJI_Mini_5_Pro
+    - Release_Notes
     url_excludes:
-      - assistant
+    - assistant
   extraction:
     version:
       labels:
-        - "Aircraft Firmware:"
-      pattern: "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})"
+      - 'Aircraft Firmware:'
+      pattern: '[Vv]\s*([0-9]+(?:\.[0-9]+){2,3})'
       group: 1
+      max_lines: 12
     release_date:
       labels:
-        - "Date:"
+      - 'Date:'
       formats:
-        - "%Y.%m.%d"
+      - '%Y.%m.%d'
+      max_lines: 12
     whats_new:
       start_labels:
-        - "What's New"
-        - "What’s New"
+      - What's New
+      - What’s New
+      - What's New?
+      - What’s New?
       end_labels:
-        - "Notes:"
-        - "Notes"
+      - 'Notes:'
+      - Notes
       max_items: 3
   validation:
-    version_pattern: "^[0-9]+(?:\\.[0-9]+){2,3}$"
+    version_pattern: ^[0-9]+(?:\.[0-9]+){2,3}$

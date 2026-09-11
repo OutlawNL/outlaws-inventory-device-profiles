@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "catalog_version": 2,
+  "catalog_version": 3,
   "generated": "2026-09-11",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
     {
       "schema_version": 1,
       "id": "dji-mini-4-pro",
-      "profile_version": 2,
+      "profile_version": 3,
       "origin": "official",
       "status": "verified",
       "updated": "2026-09-11",
@@ -19,63 +19,14 @@
         ],
         "category": "Drone"
       },
-      "firmware": {
-        "strategy": "release_notes_pdf",
-        "source": {
-          "type": "html",
-          "url": "https://www.dji.com/nl/mini-4-pro/downloads"
-        },
-        "discovery": {
-          "document_type": "pdf",
-          "title_contains": [
-            "DJI Mini 4 Pro - Release Notes"
-          ],
-          "url_contains": [
-            "DJI_Mini_4_Pro",
-            "Release_Notes"
-          ],
-          "url_excludes": [
-            "assistant"
-          ]
-        },
-        "extraction": {
-          "version": {
-            "labels": [
-              "Aircraft Firmware:"
-            ],
-            "pattern": "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})",
-            "group": 1
-          },
-          "release_date": {
-            "labels": [
-              "Date:"
-            ],
-            "formats": [
-              "%Y.%m.%d"
-            ]
-          },
-          "whats_new": {
-            "start_labels": [
-              "What's New",
-              "What’s New"
-            ],
-            "end_labels": [
-              "Notes:",
-              "Notes"
-            ],
-            "max_items": 3
-          }
-        },
-        "validation": {
-          "version_pattern": "^[0-9]+(?:\\.[0-9]+){2,3}$"
-        }
-      },
-      "profile_path": "profiles/dji/mini-4-pro.yaml"
+      "profile_path": "profiles/dji/mini-4-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-4-pro.json",
+      "sha256": "80305dade6397b207c3902259e12ab4fcac2a885c69709a18b6f809d4143c929"
     },
     {
       "schema_version": 1,
       "id": "dji-mini-5-pro",
-      "profile_version": 1,
+      "profile_version": 2,
       "origin": "official",
       "status": "verified",
       "updated": "2026-09-11",
@@ -87,63 +38,14 @@
         ],
         "category": "Drone"
       },
-      "firmware": {
-        "strategy": "release_notes_pdf",
-        "source": {
-          "type": "html",
-          "url": "https://www.dji.com/nl/downloads/products/mini-5-pro#doc"
-        },
-        "discovery": {
-          "document_type": "pdf",
-          "title_contains": [
-            "DJI Mini 5 Pro - Release Notes"
-          ],
-          "url_contains": [
-            "DJI_Mini_5_Pro",
-            "Release_Notes"
-          ],
-          "url_excludes": [
-            "assistant"
-          ]
-        },
-        "extraction": {
-          "version": {
-            "labels": [
-              "Aircraft Firmware:"
-            ],
-            "pattern": "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})",
-            "group": 1
-          },
-          "release_date": {
-            "labels": [
-              "Date:"
-            ],
-            "formats": [
-              "%Y.%m.%d"
-            ]
-          },
-          "whats_new": {
-            "start_labels": [
-              "What's New",
-              "What’s New"
-            ],
-            "end_labels": [
-              "Notes:",
-              "Notes"
-            ],
-            "max_items": 3
-          }
-        },
-        "validation": {
-          "version_pattern": "^[0-9]+(?:\\.[0-9]+){2,3}$"
-        }
-      },
-      "profile_path": "profiles/dji/mini-5-pro.yaml"
+      "profile_path": "profiles/dji/mini-5-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-5-pro.json",
+      "sha256": "762fe9a15cc308f05a4f19ea7309002678a10ec6ea3e64943947fab37fd0cf66"
     },
     {
       "schema_version": 1,
       "id": "dji-neo-2",
-      "profile_version": 2,
+      "profile_version": 3,
       "origin": "official",
       "status": "verified",
       "updated": "2026-09-11",
@@ -155,63 +57,53 @@
         ],
         "category": "Drone"
       },
-      "firmware": {
-        "strategy": "release_notes_pdf",
-        "source": {
-          "type": "html",
-          "url": "https://www.dji.com/nl/downloads/products/neo-2#doc"
-        },
-        "discovery": {
-          "document_type": "pdf",
-          "title_contains": [
-            "DJI Neo 2 - Release Notes"
-          ],
-          "url_contains": [
-            "neo-2",
-            "Release_Notes"
-          ],
-          "url_excludes": [
-            "assistant"
-          ]
-        },
-        "extraction": {
-          "version": {
-            "labels": [
-              "DJI Neo 2 Firmware:"
-            ],
-            "pattern": "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})",
-            "group": 1
-          },
-          "release_date": {
-            "labels": [
-              "Date:"
-            ],
-            "formats": [
-              "%Y.%m.%d"
-            ]
-          },
-          "whats_new": {
-            "start_labels": [
-              "What's New",
-              "What’s New"
-            ],
-            "end_labels": [
-              "Notes:",
-              "Notes"
-            ],
-            "max_items": 3
-          }
-        },
-        "validation": {
-          "version_pattern": "^[0-9]+(?:\\.[0-9]+){2,3}$"
-        }
+      "profile_path": "profiles/dji/neo-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-neo-2.json",
+      "sha256": "f5a6f54978cdeaafec28201b9abf75bc08d7b3995721e731eb80d60b73bd2b57"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-360",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo 360",
+        "aliases": [
+          "DJI Osmo 360"
+        ],
+        "category": "Camera"
       },
-      "profile_path": "profiles/dji/neo-2.yaml"
+      "profile_path": "profiles/dji/osmo-360.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-360.json",
+      "sha256": "70a4a0cd54cd3164a3e24d85230cf31d5a357a1ec1a48a840acfb1a80323b8a2"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action 3",
+        "aliases": [
+          "DJI Osmo Action 3",
+          "Action 3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-action-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-3.json",
+      "sha256": "167b64308726c78c441fac3c424bd2c62dd325a3b7cf2fd83e07b255d6f3e23f"
     },
     {
       "schema_version": 1,
       "id": "dji-osmo-action-4",
-      "profile_version": 1,
+      "profile_version": 2,
       "origin": "official",
       "status": "verified",
       "updated": "2026-09-11",
@@ -224,59 +116,185 @@
         ],
         "category": "Camera"
       },
-      "firmware": {
-        "strategy": "release_notes_pdf",
-        "source": {
-          "type": "html",
-          "url": "https://www.dji.com/nl/osmo-action-4/downloads"
-        },
-        "discovery": {
-          "document_type": "pdf",
-          "title_contains": [
-            "Osmo Action 4 - Release Notes",
-            "DJI Osmo Action 4 - Release Notes"
-          ],
-          "url_contains": [
-            "DJI_Osmo_Action_4",
-            "Release_Notes"
-          ],
-          "url_excludes": [
-            "assistant"
-          ]
-        },
-        "extraction": {
-          "version": {
-            "labels": [
-              "Firmware Version:"
-            ],
-            "pattern": "[Vv]?([0-9]+(?:\\.[0-9]+){2,3})",
-            "group": 1
-          },
-          "release_date": {
-            "labels": [
-              "Date:"
-            ],
-            "formats": [
-              "%Y.%m.%d"
-            ]
-          },
-          "whats_new": {
-            "start_labels": [
-              "What's New",
-              "What’s New"
-            ],
-            "end_labels": [
-              "Notes:",
-              "Notes"
-            ],
-            "max_items": 3
-          }
-        },
-        "validation": {
-          "version_pattern": "^[0-9]+(?:\\.[0-9]+){2,3}$"
-        }
+      "profile_path": "profiles/dji/osmo-action-4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-4.json",
+      "sha256": "54d0cd386f1d2715b2de53d02317179797872968a9f2e43d13d2a22922776779"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action-5-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action 5 Pro",
+        "aliases": [
+          "DJI Osmo Action 5 Pro",
+          "Action 5 Pro"
+        ],
+        "category": "Camera"
       },
-      "profile_path": "profiles/dji/osmo-action-4.yaml"
+      "profile_path": "profiles/dji/osmo-action-5-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-5-pro.json",
+      "sha256": "dab78542b48f512c726b32aa44a84ce39e3893861742b8d88753b5ca4f72b507"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action-6",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action 6",
+        "aliases": [
+          "DJI Osmo Action 6",
+          "Action 6"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-action-6.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-6.json",
+      "sha256": "b85b7ff0c5a87e66d27878724405e31c6bf042e2abf735d2fd9bed0b1da35eb3"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-7",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 7",
+        "aliases": [
+          "DJI Osmo Mobile 7",
+          "OM 7"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-7.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-7.json",
+      "sha256": "92323387aaaed7e1df5e04325d11077cdcc698cee390a1d44c59bacd2c3ca4a0"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-7p",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 7P",
+        "aliases": [
+          "DJI Osmo Mobile 7P",
+          "OM 7P"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-7p.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-7p.json",
+      "sha256": "2a06b443e823828285211031c54510405c62f8ff1dc267ffcdc3e8d36ea68815"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-pocket-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Pocket 3",
+        "aliases": [
+          "DJI Osmo Pocket 3",
+          "Pocket 3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-pocket-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-pocket-3.json",
+      "sha256": "0be30d4b19d9233750d8b7ff3b09edff9248e93dfdf4d4b5b7a5df5b3949db53"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-4-mini",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 4 Mini",
+        "aliases": [
+          "DJI RS 4 Mini"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-4-mini.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-4-mini.json",
+      "sha256": "bde628bc961ff4a3bec617e25f02c5102e9240c40d462eb68341244d3a737e52"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-4-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 4 Pro",
+        "aliases": [
+          "DJI RS 4 Pro"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-4-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-4-pro.json",
+      "sha256": "f924db838c959cdf577391f0e35ab9c3291be7c969416c718b721f192d2e4edb"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-4",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 4",
+        "aliases": [
+          "DJI RS 4"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-4.json",
+      "sha256": "3222ca13a0dab1831b2bf54d1f90f2072f34cfdc411f0088b2565ec4333ccc34"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-5",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 5",
+        "aliases": [
+          "DJI RS 5"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-5.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-5.json",
+      "sha256": "6c810a50c8dcf7c781b87c3a650d5a0d15e5eb2f9b6dd15df2de057f4d085e73"
     }
   ]
 }

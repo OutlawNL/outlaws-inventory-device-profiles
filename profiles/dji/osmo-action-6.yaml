@@ -1,34 +1,35 @@
 schema_version: 1
-id: dji-mini-4-pro
-profile_version: 3
+id: dji-osmo-action-6
+profile_version: 1
 origin: official
 status: verified
 updated: '2026-09-11'
 device:
   vendor: DJI
-  model: Mini 4 Pro
+  model: Osmo Action 6
   aliases:
-  - DJI Mini 4 Pro
-  category: Drone
+  - DJI Osmo Action 6
+  - Action 6
+  category: Camera
 firmware:
   strategy: release_notes_pdf
   source:
     type: html
-    url: https://www.dji.com/nl/mini-4-pro/downloads
+    url: https://www.dji.com/osmo-action-6/downloads
   discovery:
     document_type: pdf
     title_contains:
-    - DJI Mini 4 Pro - Release Notes
+    - Osmo Action 6 - Release Notes
     url_contains:
-    - DJI_Mini_4_Pro
+    - Action_6
     - Release_Notes
     url_excludes:
     - assistant
   extraction:
     version:
       labels:
-      - 'Aircraft Firmware:'
-      pattern: '[Vv]\s*([0-9]+(?:\.[0-9]+){2,3})'
+      - 'Firmware Version:'
+      pattern: '(?:[Vv]\s*)?([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'
       group: 1
       max_lines: 12
     release_date:
