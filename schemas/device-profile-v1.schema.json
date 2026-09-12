@@ -85,14 +85,14 @@
       "required": [
         "strategy",
         "source",
-        "discovery",
         "extraction"
       ],
       "properties": {
         "strategy": {
           "enum": [
             "release_notes_pdf",
-            "dji_release_notes_pdf"
+            "dji_release_notes_pdf",
+            "html_release"
           ]
         },
         "source": {
@@ -181,7 +181,79 @@
               "$ref": "#/$defs/section"
             },
             "scope": {
-              "const": "first_release_first_page"
+              "enum": [
+                "first_release_first_page",
+                "first_release_for_target"
+              ]
+            },
+            "pdf_text": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "x_tolerance": {
+                  "type": "number",
+                  "minimum": 0.1,
+                  "maximum": 5
+                }
+              }
+            },
+            "skip_when_labels": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              }
+            },
+            "max_pages": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30
+            },
+            "html": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title_selector",
+                "header_selector",
+                "release_selector",
+                "release_version_selector",
+                "release_version_pattern",
+                "summary_selector"
+              ],
+              "properties": {
+                "title_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "header_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "release_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "release_version_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "release_version_pattern": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "summary_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                }
+              }
             }
           }
         },
@@ -230,7 +302,44 @@
             }
           }
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "enum": [
+                  "release_notes_pdf",
+                  "dji_release_notes_pdf"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "discovery"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "const": "html_release"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "extraction": {
+                "required": [
+                  "html"
+                ]
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "$defs": {
@@ -267,6 +376,11 @@
           "minimum": 1,
           "maximum": 30,
           "default": 12
+        },
+        "header_pattern": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
         }
       }
     },
@@ -301,6 +415,11 @@
           "minimum": 1,
           "maximum": 30,
           "default": 12
+        },
+        "header_pattern": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
         }
       }
     },
