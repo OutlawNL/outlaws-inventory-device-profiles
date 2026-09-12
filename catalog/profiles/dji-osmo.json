@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "dji-osmo",
+  "profile_version": 1,
+  "origin": "official",
+  "status": "verified",
+  "updated": "2026-09-12",
+  "device": {
+    "vendor": "DJI",
+    "model": "Osmo",
+    "aliases": [
+      "DJI Osmo"
+    ],
+    "category": "Camera"
+  },
+  "firmware": {
+    "strategy": "release_notes_pdf",
+    "source": {
+      "type": "html",
+      "url": "https://www.dji.com/global/downloads/products/osmo"
+    },
+    "discovery": {
+      "document_type": "pdf",
+      "item_selector": "div[class^=\"style__document-item___\"], li.groups-download-item",
+      "title_contains": [
+        "Osmo  - Release Notes"
+      ],
+      "url_contains": [
+        "Osmo_Release_Notes"
+      ],
+      "url_excludes": [],
+      "url_pattern": "Osmo_Release_Notes\\.pdf$"
+    },
+    "extraction": {
+      "version": {
+        "labels": [
+          "1. Firmware Version:"
+        ],
+        "pattern": "(?:[Vv]\\s*)?([0-9]+(?:\\.[0-9]+){2,3})",
+        "group": 1,
+        "max_lines": 12
+      },
+      "release_date": {
+        "labels": [
+          "Date:"
+        ],
+        "formats": [
+          "%Y.%m.%d"
+        ],
+        "max_lines": 12,
+        "header_pattern": "^(\\d{4}\\.\\d{1,2}\\.\\d{1,2})$"
+      },
+      "whats_new": {
+        "start_labels": [
+          "Major Updates"
+        ],
+        "end_labels": [
+          "Notes",
+          "Notes:",
+          "https://www.dji.com/mic-mini"
+        ],
+        "max_items": 10
+      },
+      "scope": "first_release_first_page",
+      "pdf_text": {
+        "x_tolerance": 1
+      }
+    },
+    "validation": {
+      "version_pattern": "^[0-9]+(?:\\.[0-9]+){2,3}$",
+      "document_titles": [
+        "OSMO Release Notes"
+      ]
+    }
+  }
+}
