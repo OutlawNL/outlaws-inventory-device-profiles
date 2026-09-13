@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+{% block title %}System Checks{% endblock %}
+{% block subtitle %}Online status, disk usage and software updates for servers.{% endblock %}
+{% block content %}
+
+<div class="page-actions">
+  <div class="summary-inline">
+    {{ counts.total }} servers · {{ counts.ok }} OK · {{ counts.attention }} attention ·
+    {{ counts.critical }} critical{% if counts.reboot %} · {{ counts.reboot }} reboot required{% endif %}
+    {% if counts.maintenance %} · {{ counts.maintenance }} maintenance{% endif %}
+    {% if counts.unknown %} · {{ counts.unknown }} unknown{% endif %}
+  </div>
+  <div class="rowactions compact">
+    <form id="system-check-all-form" method="post" action="/system-checks/check-all" class="system-check-all-form">
+      <button id="system-check-all-button" class="button secondary" data-check-label data-running="{{ 'true' if check_all_running else 'false' }}"{% if check_all_running %} disabled{% endif %}>{% if check_all_running %}<span class="button-spinner" aria-hidden="true"></span>Checking…{% else %}Check All{% endif %}</button>
+    </form>
+    <a class="button" href="/devices/new?type=server">+ Add Server</a>
+  </div>
+</div>
+
+<div class="card full system-checks-classic-card">
+{% if not servers %}
+  <div class="empty">No servers configured.</div>
+{% else %}
+<table class="system-checks-classic-table system-checks-desktop-table" data-ui-table="system-overview">
+  <thead>
+    <tr>
+      <th>Name</th><th>System</th><th>Application</th><th>Last Checked</th><th>Status</th><th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for server in servers %}
+    <tr class="system-checks-host-row">
+      <td data-label="Name">
+        <a class="device-link" href="/devices/{{ server.id }}">{{ server.display_name or server.name }}</a>
+        {% if server.updates and server.updates.package_count %}
+        <button class="classic-name-update-toggle" type="button"
+                data-update-target="update-details-{{ server.id }}"
+                aria-expanded="false">
+          {{ server.updates.package_count }} update{% if server.updates.package_count != 1 %}s{% endif %} available
+        </button>
+        {% endif %}
+      </td>
+      <td data-label="System">
+        <a class="system-checks-check-link" href="/system-checks/{{ server.id }}"><span class="health-check-list">
+          {% if server.ping_check %}<span class="health-check-item"><b class="health-check-mark {% if server.ping_check.status=='online' %}online{% elif server.ping_check.status in ['critical','offline','failed'] %}offline{% else %}unknown{% endif %}">{% if server.ping_check.status=='online' %}✓{% elif server.ping_check.status in ['critical','offline','failed'] %}!{% else %}–{% endif %}</b>Ping</span>{% endif %}
+          {% if server.disk_check %}<span class="health-check-item"><b class="health-check-mark {% if server.disk_check.status=='online' %}online{% elif server.disk_check.status in ['warning','attention'] %}warning{% elif server.disk_check.status in ['critical','failed'] %}offline{% else %}unknown{% endif %}">{% if server.disk_check.status=='online' %}✓{% elif server.disk_check.status in ['critical','failed'] %}!{% else %}–{% endif %}</b>Disk{% if server.disk_usage is not none %}<small>{{ server.disk_usage }}%</small>{% endif %}</span>{% endif %}
+        </span></a>
+      </td>
+      <td data-label="Application">
+        <a class="system-checks-check-link" href="/system-checks/{{ server.id }}"><span class="health-check-list">
+          {% if server.http_check %}<span class="health-check-item"><b class="health-check-mark {% if server.http_check.status=='online' %}online{% elif server.http_check.status in ['critical','offline','failed'] %}offline{% else %}unknown{% endif %}">{% if server.http_check.status=='online' %}✓{% elif server.http_check.status in ['critical','offline','failed'] %}!{% else %}–{% endif %}</b>HTTP(S)</span>{% endif %}
+          {% if server.pihole %}<span class="health-check-item"><b class="health-check-mark {% if server.pihole.status=='ok' %}online{% elif server.pihole.status=='available' %}warning{% elif server.pihole.status=='failed' %}offline{% else %}unknown{% endif %}">{% if server.pihole.status=='ok' %}✓{% elif server.pihole.status=='available' %}–{% elif server.pihole.status=='failed' %}!{% else %}–{% endif %}</b>Pi-hole{% if server.pihole.status=='available' %}<small>update</small>{% endif %}</span>{% endif %}
+          {% if server.minecraft %}<span class="health-check-item"><b class="health-check-mark {% if server.minecraft.status=='ok' %}online{% elif server.minecraft.status in ['available','attention'] %}warning{% elif server.minecraft.status=='failed' %}offline{% else %}unknown{% endif %}">{% if server.minecraft.status=='ok' %}✓{% elif server.minecraft.status in ['available','attention'] %}–{% elif server.minecraft.status=='failed' %}!{% else %}–{% endif %}</b>Minecraft</span>{% endif %}
+        </span></a>
+      </td>
+      <td data-label="Last Checked">{{ server.last_checked_combined or 'Never' }}</td>
+      <td data-label="Status">
+        <a class="status-link" href="/system-checks/{{ server.id }}">
+          <span class="pill {% if server.overall_status=='ok' %}ok{% elif server.overall_status=='attention' %}attention{% elif server.overall_status=='reboot' %}reboot-required{% elif server.overall_status=='critical' %}offline{% elif server.overall_status=='maintenance' %}maintenance{% else %}unknown{% endif %}">
+            {% if server.overall_status=='ok' %}OK
+            {% elif server.overall_status=='attention' and ((server.updates and server.updates.package_count) or (server.pihole and server.pihole.status=='available') or (server.minecraft and server.minecraft.status=='available')) %}Update
+            {% elif server.overall_status=='attention' %}Attention
+            {% elif server.overall_status=='reboot' %}Reboot Required
+            {% elif server.overall_status=='critical' %}Critical
+            {% elif server.overall_status=='maintenance' %}Maintenance
+            {% else %}Unknown{% endif %}
+          </span>
+        </a>
+      </td>
+      <td data-label="Action">
+        <div class="rowactions compact system-checks-row-actions">
+          {% if server.updates and server.updates.reboot_required %}
+          <form method="post" action="/system-checks/{{ server.id }}/reboot" class="reboot-form" data-reboot-name="{{ server.display_name or server.name }}">
+            <button class="button reboot-button small-button row-action" data-reboot-label>Reboot</button>
+          </form>
+          {% elif server.updates and server.updates.status=='available' and server.updates.system_type in ['debian','proxmox','pihole'] %}
+          <form method="post" action="/system-checks/{{ server.id }}/upgrade" class="upgrade-form" data-upgrade-name="{{ server.display_name or server.name }}" data-upgrade-count="{{ server.updates.package_count }}">
+            <button class="button attention-button small-button row-action" data-upgrade-label>Upgrade Now</button>
+          </form>
+          {% elif server.pihole and server.pihole.status=='available' %}
+          <form method="post" action="/system-checks/{{ server.id }}/applications/pihole/update" class="pihole-upgrade-form" data-pihole-name="{{ server.display_name or server.name }}">
+            <button class="button attention-button small-button row-action" data-pihole-upgrade-label>Update Pi-hole</button>
+          </form>
+          {% else %}
+          <a class="button secondary small-button row-action" href="/system-checks/{{ server.id }}">Details</a>
+          {% endif %}
+        </div>
+      </td>
+    </tr>
+
+    {% if server.updates and server.updates.packages %}
+    <tr id="update-details-{{ server.id }}" class="details-row classic-system-update-details" hidden>
+      <td colspan="6" data-label="">
+        <ul class="package-list compact-package-list">
+          {% for p in server.updates.packages %}
+          <li class="{% if p.name.startswith('linux-image') or p.name.startswith('linux-headers') %}kernel-package{% endif %}">
+            <strong>{{ p.name }}</strong>
+            <span>{{ p.current }} → {{ p.new }}</span>
+            {% if p.name.startswith('linux-image') or p.name.startswith('linux-headers') %}<em>Kernel</em>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    {% endif %}
+
+    {% if server.updates and server.updates.reboot_required %}
+    <tr class="details-row">
+      <td colspan="6" data-label="">
+        <div class="reboot-notice">
+          <div class="reboot-notice-title">Reboot Required</div>
+          <div class="reboot-notice-reason">{{ server.updates.reboot_reason or 'A newer kernel or system component is installed but not active yet.' }}</div>
+        </div>
+      </td>
+    </tr>
+    {% endif %}
+  {% endfor %}
+  </tbody>
+
+</table>
+
+<table class="system-checks-mobile-table" data-ui-compact-mobile="true" aria-label="System Checks mobile overview">
+  <thead>
+    <tr><th>Name</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+  {% for server in servers %}
+    <tr>
+      <td><a class="device-link" href="/devices/{{ server.id }}">{{ server.display_name or server.name }}</a></td>
+      <td>
+        <a class="status-link" href="/system-checks/{{ server.id }}">
+          <span class="pill {% if server.overall_status=='ok' %}ok{% elif server.overall_status=='attention' %}attention{% elif server.overall_status=='reboot' %}reboot-required{% elif server.overall_status=='critical' %}offline{% elif server.overall_status=='maintenance' %}maintenance{% else %}unknown{% endif %}">
+            {% if server.overall_status=='ok' %}OK
+            {% elif server.overall_status=='attention' and ((server.updates and server.updates.package_count) or (server.pihole and server.pihole.status=='available') or (server.minecraft and server.minecraft.status=='available')) %}Update
+            {% elif server.overall_status=='attention' %}Attention
+            {% elif server.overall_status=='reboot' %}Reboot Required
+            {% elif server.overall_status=='critical' %}Critical
+            {% elif server.overall_status=='maintenance' %}Maintenance
+            {% else %}Unknown{% endif %}
+          </span>
+        </a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+</div>
+
+<div class="operation-overlay" data-operation-overlay hidden aria-live="polite" aria-busy="true">
+  <div class="operation-dialog" role="status">
+    <div class="operation-spinner" aria-hidden="true"></div>
+    <h3 data-operation-title>Installing Updates…</h3>
+    <p data-operation-message>This can take several minutes. The server will be checked again automatically.</p>
+    <div class="indeterminate-progress" aria-hidden="true"><span></span></div>
+    <p class="muted operation-note">Keep this page open until the operation finishes.</p>
+  </div>
+</div>
+
+<script>
+function lockPageActions(activeButton) {
+  document.querySelectorAll('button, .button').forEach(control => {
+    if (control !== activeButton) {
+      if (control.tagName === 'BUTTON') control.disabled = true;
+      control.classList.add('temporarily-disabled');
+    }
+  });
+}
+
+document.addEventListener('click', event => {
+  const button = event.target.closest('.classic-name-update-toggle');
+  if (!button) return;
+  const row = document.getElementById(button.dataset.updateTarget);
+  if (!row) return;
+  const opening = row.hidden;
+  row.hidden = !opening;
+  button.setAttribute('aria-expanded', opening ? 'true' : 'false');
+});
+
+document.addEventListener('submit', event => {
+  const form = event.target;
+  if (!(form instanceof HTMLFormElement)) return;
+
+  if (form.matches('.system-check-all-form')) {
+    event.preventDefault();
+    const button=form.querySelector('[data-check-label]');
+    if(button){button.disabled=true;button.innerHTML='<span class="button-spinner" aria-hidden="true"></span>Checking…';}
+    button.dataset.running='true';
+    fetch(form.action, {method:'POST', credentials:'same-origin', headers:{'X-Requested-With':'fetch'}})
+      .then(response => { if(!response.ok) throw new Error(`HTTP ${response.status}`); pollSystemCheckAll(); })
+      .catch(() => { window.location.replace('/system-checks'); });
+    return;
+  }
+
+  if (form.matches('.upgrade-form')) {
+    const name=form.dataset.upgradeName||'this server';
+    const count=Number(form.dataset.upgradeCount||0);
+    if(!window.confirm(`Install ${count} available package update${count===1?'':'s'} on ${name}?`)){event.preventDefault();return;}
+    const button=form.querySelector('[data-upgrade-label]');
+    if(button){button.disabled=true;button.textContent='Upgrading…';}
+    lockPageActions(button);
+    const overlay=document.querySelector('[data-operation-overlay]');
+    const title=document.querySelector('[data-operation-title]');
+    if(title)title.textContent=`Upgrading ${name}…`;
+    if(overlay){overlay.hidden=false;document.body.classList.add('operation-running');}
+    return;
+  }
+
+  if (form.matches('.reboot-form')) {
+    const name=form.dataset.rebootName||'this server';
+    if(!window.confirm(`Reboot ${name} now? Active sessions and services will be interrupted.`)){event.preventDefault();return;}
+    const button=form.querySelector('[data-reboot-label]');
+    if(button){button.disabled=true;button.textContent='Rebooting…';}
+    lockPageActions(button);
+    const overlay=document.querySelector('[data-operation-overlay]');
+    const title=document.querySelector('[data-operation-title]');
+    const message=document.querySelector('[data-operation-message]');
+    if(title)title.textContent=`Rebooting ${name}…`;
+    if(message)message.textContent='Waiting for the server to restart and come back online.';
+    if(overlay){overlay.hidden=false;document.body.classList.add('operation-running');}
+    return;
+  }
+
+  if (form.matches('.pihole-upgrade-form')) {
+    const name=form.dataset.piholeName || 'server';
+    if(!confirm(`Update Pi-hole on ${name} now?`)){ event.preventDefault(); return; }
+    const overlay=document.querySelector('[data-operation-overlay]');
+    const title=document.querySelector('[data-operation-title]');
+    const message=document.querySelector('[data-operation-message]');
+    if(title) title.textContent=`Updating Pi-hole on ${name}…`;
+    if(message) message.textContent='Pi-hole Core, Web Interface and FTL will be updated. The application check runs again automatically afterwards.';
+    if(overlay){ overlay.hidden=false; document.body.classList.add('operation-running'); }
+    const button=form.querySelector('[data-pihole-upgrade-label]'); if(button) button.disabled=true;
+  }
+});
+
+async function pollSystemCheckAll() {
+  const button=document.getElementById('system-check-all-button');
+  if(!button) return;
+  try {
+    const response=await fetch(`/system-checks/check-all/status?_=${Date.now()}`, {cache:'no-store', credentials:'same-origin'});
+    if(!response.ok) return;
+    const state=await response.json();
+    if(state.running){
+      button.disabled=true;
+      button.dataset.running='true';
+      button.innerHTML='<span class="button-spinner" aria-hidden="true"></span>Checking…';
+      return;
+    }
+    if(button.dataset.running==='true'){
+      button.dataset.running='false';
+      window.location.replace('/system-checks');
+    }
+  } catch (_) {
+    // Keep the current visual state; the next poll retries.
+  }
+}
+const systemCheckAllButton=document.getElementById('system-check-all-button');
+if(systemCheckAllButton?.dataset.running==='true') pollSystemCheckAll();
+window.setInterval(pollSystemCheckAll, 1500);
+
+async function refreshSystemChecksOverview() {
+  if (document.hidden || document.body.classList.contains('operation-running')) return;
+  try {
+    const response = await fetch(`/system-checks?_live=${Date.now()}`, {
+      cache: 'no-store',
+      credentials: 'same-origin',
+      headers: {'X-Requested-With': 'fetch'}
+    });
+    if (!response.ok) return;
+    const html = await response.text();
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const currentSummary = document.querySelector('.summary-inline');
+    const freshSummary = parsed.querySelector('.summary-inline');
+    const currentCard = document.querySelector('.system-checks-classic-card');
+    const freshCard = parsed.querySelector('.system-checks-classic-card');
+
+    if (currentSummary && freshSummary && currentSummary.innerHTML !== freshSummary.innerHTML) {
+      currentSummary.innerHTML = freshSummary.innerHTML;
+    }
+    if (currentCard && freshCard && currentCard.innerHTML !== freshCard.innerHTML) {
+      // Replace only the status card contents. The page itself never reloads, so
+      // there is no flash, scroll jump or visible refresh when nothing changed.
+      currentCard.innerHTML = freshCard.innerHTML;
+    }
+  } catch (_) {
+    // A missed background refresh is harmless; the next minute retries silently.
+  }
+}
+window.setInterval(refreshSystemChecksOverview, 60000);
+// Safari and other browsers may restore this overview from the back/forward
+// cache. Refresh immediately whenever the page becomes visible again so a
+// status changed on a detail page is reflected without a manual reload.
+window.addEventListener('pageshow', () => {
+  refreshSystemChecksOverview();
+});
+</script>
+{% endblock %}

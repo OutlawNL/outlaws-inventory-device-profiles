@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Help{% endblock %}
+{% block subtitle %}Instructions and project documentation.{% endblock %}
+{% block content %}
+<div class="help-layout">
+  <aside class="card help-navigation">
+    <h3>Documentation</h3>
+    <nav class="help-document-list">
+      {% for filename, title in documents %}
+      <a class="{{ 'active' if filename == selected_document else '' }}" href="/help?document={{ filename|urlencode }}">{{ title }}</a>
+      {% endfor %}
+    </nav>
+  </aside>
+  <section class="card help-document">
+    <h2>{{ selected_title }}</h2>
+    <pre>{{ document_content }}</pre>
+  </section>
+</div>
+{% endblock %}

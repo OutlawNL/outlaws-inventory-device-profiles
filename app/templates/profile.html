@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Account{% endblock %}
+{% block subtitle %}Manage account and security.{% endblock %}
+{% block content %}
+{% if profile_message %}<div class="notice {{ 'success' if profile_ok == '1' else 'error' }}">{{ profile_message }}</div>{% endif %}
+<div class="profile-grid">
+  <section class="card profile-card profile-identity-card">
+    <div class="profile-heading">
+      <span class="user-avatar user-avatar-profile" aria-hidden="true">
+        {% if current_user['avatar_filename'] %}<img src="/profile/avatar?v={{ current_user['avatar_updated_at']|urlencode }}" alt="">{% else %}<span>{{ profile_initials }}</span>{% endif %}
+      </span>
+      <div><h2>{{ current_user['display_name'] or current_user['username'] }}</h2><p class="muted">@{{ current_user['username'] }}</p></div>
+    </div>
+    <form class="profile-avatar-form" method="post" action="/profile/avatar" enctype="multipart/form-data">
+      <label>Account Picture<input type="file" name="avatar" accept="image/jpeg,image/png,image/webp" required></label>
+      <p class="form-help">JPG, PNG or WEBP. Maximum 5 MB. Images are centred, cropped and stored as 256 × 256 WEBP.</p>
+      <div class="actions"><button class="button" type="submit">Upload Avatar</button>{% if current_user['avatar_filename'] %}<button class="button danger-outline" type="submit" formaction="/profile/avatar/delete" formmethod="post" formnovalidate>Remove</button>{% endif %}</div>
+    </form>
+  </section>
+
+  <section class="card profile-card">
+    <div class="settings-section-head"><div><h3>General</h3><p class="muted">Your display name is shown throughout the interface.</p></div></div>
+    <form method="post" action="/profile" class="profile-general-form">
+      <label>Display Name<input type="text" name="display_name" maxlength="100" value="{{ current_user['display_name'] or current_user['username'] }}" required></label>
+      <label>Username<input type="text" value="{{ current_user['username'] }}" readonly aria-readonly="true"></label>
+      <p class="form-help">Usernames are stored in lowercase.</p>
+      <div class="profile-meta-list">
+        <div><span>Role</span><strong>{{ 'Administrator' if current_user['role']=='admin' else 'User' }}</strong></div>
+        <div><span>Last Login</span><strong>{{ current_user['last_login_at'] or 'Not recorded' }}</strong></div>
+      </div>
+      <div class="actions"><button class="button" type="submit">Save Account</button></div>
+    </form>
+  </section>
+
+  <section id="security" class="card profile-card profile-security-card">
+    <div class="settings-section-head"><div><h3>Security</h3><p class="muted">Change the password and protect the account with an authenticator app.</p></div></div>
+    <div class="profile-security-grid">
+      <form method="post" action="/profile/change-password" class="profile-security-panel">
+        <div><h4>Change Password</h4><p class="muted">Changing the password signs out other sessions.</p></div>
+        <label>Current Password<input name="current_password" type="password" autocomplete="current-password" required></label>
+        <div class="profile-password-grid"><label>New Password<input name="new_password" type="password" minlength="12" autocomplete="new-password" required></label><label>Confirm New Password<input name="new_password_confirm" type="password" minlength="12" autocomplete="new-password" required></label></div>
+        <div class="actions"><button class="button primary">Change Password</button></div>
+      </form>
+
+      <div class="profile-security-panel">
+        <div class="profile-security-panel-head"><div><h4>Multi-Factor Authentication</h4><p class="muted">Use a standard TOTP authenticator app.</p></div><span class="pill {{ 'ok' if current_user['mfa_enabled'] else 'unknown' }}">{{ 'Enabled' if current_user['mfa_enabled'] else 'Disabled' }}</span></div>
+        {% if current_user['mfa_enabled'] %}
+          <details class="mfa-manage"><summary>Manage MFA</summary><div class="mfa-manage-grid"><form method="post" action="/profile/mfa/recovery-codes"><h4>Generate New Recovery Codes</h4><label>Current Password<input type="password" name="current_password" required></label><label>Verification Code<input name="verification_code" inputmode="numeric" autocomplete="one-time-code" required></label><button class="button secondary">Generate Codes</button></form><form method="post" action="/profile/mfa/disable" onsubmit="return confirm('Disable MFA for this account?');"><h4>Disable MFA</h4><label>Current Password<input type="password" name="current_password" required></label><label>Verification or Recovery Code<input name="verification_code" required></label><button class="button danger-outline">Disable MFA</button></form></div></details>
+        {% elif mfa_setup == '1' and mfa_secret %}
+          <div class="profile-mfa-setup"><div class="mfa-qr"><img src="{{ mfa_qr_data_uri }}" alt="MFA QR code"></div><div><p class="form-help">Scan the QR code with Microsoft Authenticator, Google Authenticator, 2FAS, Aegis or Apple Passwords.</p><code class="mfa-secret">{{ mfa_secret }}</code><form method="post" action="/profile/mfa/enable" class="mfa-confirm-form"><label>Current Password<input type="password" name="current_password" autocomplete="current-password" required></label><label>Six-Digit Verification Code<input name="verification_code" inputmode="numeric" autocomplete="one-time-code" required></label><div class="actions"><button class="button primary">Enable MFA</button><a class="button secondary" href="/profile#security">Cancel</a></div></form></div></div>
+        {% else %}
+          <p class="muted">MFA is not enabled for this account.</p><div class="actions"><a class="button primary" href="/profile/mfa/setup">Set Up MFA</a></div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

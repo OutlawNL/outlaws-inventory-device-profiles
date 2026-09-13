@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}{% if request.query_params.get('reconfigure') == '1' or return_to in ['device','system-checks'] %}Reconfigure System Checks{% else %}System Check Setup{% endif %}{% endblock %}
+{% block subtitle %}{% if request.query_params.get('reconfigure') == '1' or return_to in ['device','system-checks'] %}Restore and verify managed access for this server.{% else %}Configure and verify server access and checks.{% endif %}{% endblock %}
+{% block content %}
+<div class="breadcrumb"><a href="/devices">Inventory</a><span>/</span><a href="/devices/{{ device.id }}">{{ device.display_name or device.name }}</a><span>/</span><span>{% if request.query_params.get('reconfigure') == '1' or return_to in ['device','system-checks'] %}Reconfigure System Checks{% else %}System Check Setup{% endif %}</span></div>
+
+{% if result == 'ready' %}
+<div class="notice success host-success-message">
+  <strong>System Check Setup Completed</strong>
+  <span>{{ device.display_name or device.name }} is ready for System Checks. SSH access, permissions and selected checks were validated.</span>
+</div>
+{% elif result == 'failed' %}
+<div class="notice error host-setup-result">
+  <strong>Setup Failed</strong>
+  <span>{{ device.integration_message }}</span>
+  {% if inspection and inspection.validation_steps %}
+  <div class="host-validation-steps">
+    {% for step in inspection.validation_steps %}
+    <span><b class="{{ 'validation-ok' if step.ok else 'validation-failed' }}">{{ 'OK' if step.ok else 'Failed' }}</b>{{ step.label }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% elif request.query_params.get('validated') %}
+<div class="notice {{ 'success' if device.integration_status == 'ready' else 'warning' }}"><strong>Validation Completed</strong><span>{{ device.integration_message }}</span></div>
+{% endif %}
+
+{% set reconfigure = request.query_params.get('reconfigure') == '1' or return_to in ['device','system-checks'] %}
+{% set configured = device.managed_host and device.integration_status in ['ready','warning'] and not reconfigure %}
+{% if configured %}
+<div class="actions">
+  {% if return_to == 'first-run' %}
+    <a class="button primary" href="/first-run?step=items">Back to Setup Wizard</a>
+  {% else %}
+    <a class="button secondary" href="/devices/{{ device.id }}">Back to Device</a>
+    <a class="button primary" href="/system-checks/{{ device.id }}">Open System Checks</a>
+  {% endif %}
+</div>
+{% else %}
+{% include 'host_integration_form.html' %}
+{% endif %}
+
+<div class="operation-overlay" id="host-setup-overlay" hidden aria-live="assertive">
+  <div class="operation-dialog">
+    <div class="operation-spinner"></div>
+    <h3>Setting up {{ device.display_name or device.name }}…</h3>
+    <p>Creating the service account, installing the SSH key and validating System Checks.</p>
+    <div class="indeterminate-progress"><span></span></div>
+    <small>Do not close this page. This can take up to a minute.</small>
+  </div>
+</div>
+<script>
+function startHostSetup(form){
+  const target={{ (inspection.target if inspection else (device.ipv4_address or device.hostname or ''))|tojson }};
+  if(!confirm(`Set up System Checks on ${target || 'this host'}?`)) return false;
+  document.getElementById('host-setup-overlay').hidden=false;
+  form.querySelectorAll('button').forEach(el=>el.disabled=true);
+  return true;
+}
+</script>
+{% endblock %}

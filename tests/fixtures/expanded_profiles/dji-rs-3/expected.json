@@ -1,0 +1,7 @@
+{
+  "latest": "01.04.00.00",
+  "release_date": "2023-05-16",
+  "summary": "Added support for autofocus when using DJI Ronin 3D Focus System.\nOptimized the calibration experience for DJI Focus Motor by reducing the stiffness.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/DJI_RS_3/20230516/DJI_RS_3_Release_Notes_en.pdf"
+}

@@ -1,0 +1,7 @@
+{
+  "latest": "01.10.00.30",
+  "release_date": "2019-12-10",
+  "summary": "Optimized phase detection auto focus. Autofocus is now smoother when switching scenarios.\nOptimized gimbal performance when powering on with some third-party wide-angle lenses.\nFixed issue: red noise appeared in D-Cinelike mode video in some scenarios.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/Osmo Pocket/20191210/Osmo_Pocket_Release_Notes_en_.pdf"
+}

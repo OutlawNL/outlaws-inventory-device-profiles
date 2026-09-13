@@ -1,0 +1,229 @@
+#!/usr/bin/env bash
+set -euo pipefail
+APP_DIR="/opt/outlaws-inventory"
+SERVICE_USER="outlaws-inventory"
+STAGING="$APP_DIR/data/update-staging"
+PENDING="$STAGING/pending.json"
+RESULT="$STAGING/result.json"
+ROLLBACK_STATE="$STAGING/rollback.json"
+LOG="$STAGING/update.log"
+LOCK_DIR="/run/outlaws-inventory-updater.lock"
+BACKUP_ROOT="/var/backups/outlaws-inventory"
+ROLLBACK_ROOT="$BACKUP_ROOT/rollback"
+ROLLBACK_HISTORY="$BACKUP_ROOT/rollback-history"
+ROLLBACK_RETENTION=3
+MIN_FREE_BYTES=$((256 * 1024 * 1024))
+ROLLBACK_APP="$ROLLBACK_ROOT/app"
+ROLLBACK_META="$ROLLBACK_ROOT/metadata.json"
+VERSION=""
+TMP=""
+JOB_ID="$(date +%s)-$$"
+STARTED_AT="$(date +%s)"
+HEARTBEAT_PID=""
+CURRENT_STATE="queued"
+CURRENT_STAGE="Starting update"
+CURRENT_PROGRESS="1"
+CURRENT_MESSAGE="The independent update job is starting."
+
+write_status() {
+  local state="$1" stage="$2" progress="$3" message="$4" version="${5:-$VERSION}"
+  CURRENT_STATE="$state"; CURRENT_STAGE="$stage"; CURRENT_PROGRESS="$progress"; CURRENT_MESSAGE="$message"
+  local temporary="${RESULT}.tmp.$$"
+  runuser -u "$SERVICE_USER" -- python3 - "$temporary" "$state" "$stage" "$progress" "$message" "$version" "$JOB_ID" "$STARTED_AT" <<'PY'
+import json, sys, time
+from pathlib import Path
+payload = {
+    "state": sys.argv[2], "stage": sys.argv[3], "progress": int(sys.argv[4]),
+    "message": sys.argv[5], "version": sys.argv[6], "job_id": sys.argv[7],
+    "started_at_epoch": int(sys.argv[8]), "updated_at_epoch": int(time.time()),
+    "heartbeat_at_epoch": int(time.time()),
+}
+Path(sys.argv[1]).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+PY
+  true
+  runuser -u "$SERVICE_USER" -- chmod 600 "$temporary" 2>/dev/null || true
+  runuser -u "$SERVICE_USER" -- mv -f "$temporary" "$RESULT"
+}
+heartbeat() {
+  while true; do
+    sleep 5
+    [[ -f "$RESULT" ]] || continue
+    runuser -u "$SERVICE_USER" -- python3 - "$RESULT" <<'PY' || true
+import json, os, sys, tempfile, time
+from pathlib import Path
+p=Path(sys.argv[1])
+try: data=json.loads(p.read_text(encoding='utf-8'))
+except Exception: raise SystemExit(0)
+if data.get('state') not in {'queued','installing','restarting','validating'}: raise SystemExit(0)
+data['heartbeat_at_epoch']=int(time.time()); data['updated_at_epoch']=int(time.time())
+tmp=p.with_name(p.name+'.heartbeat.tmp')
+tmp.write_text(json.dumps(data, indent=2), encoding='utf-8')
+os.chmod(tmp,0o600); os.replace(tmp,p)
+PY
+    true
+    runuser -u "$SERVICE_USER" -- chmod 600 "$RESULT" 2>/dev/null || true
+  done
+}
+start_heartbeat() { heartbeat & HEARTBEAT_PID=$!; }
+stop_heartbeat() { [[ -n "$HEARTBEAT_PID" ]] && kill "$HEARTBEAT_PID" 2>/dev/null || true; HEARTBEAT_PID=""; }
+
+cleanup_backups() {
+  mkdir -p "$BACKUP_ROOT" "$ROLLBACK_HISTORY"
+  find "$BACKUP_ROOT" -maxdepth 1 -type d -name 'pre-rollback-*' -exec rm -rf {} + 2>/dev/null || true
+  find "$BACKUP_ROOT" -mindepth 1 -maxdepth 1 -type d -regextype posix-extended -regex '.*/[0-9]{8}-[0-9]{6}' -exec rm -rf {} + 2>/dev/null || true
+  find "$ROLLBACK_HISTORY" -mindepth 1 -maxdepth 1 -type d | while read -r item; do
+    [[ -f "$item/metadata.json" && -f "$item/app/app/main.py" ]] || rm -rf "$item"
+  done
+  local keep_history=$((ROLLBACK_RETENTION - 1))
+  mapfile -t history < <(find "$ROLLBACK_HISTORY" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' 2>/dev/null | sort -nr | awk '{print $2}')
+  local i
+  for ((i=keep_history; i<${#history[@]}; i++)); do rm -rf "${history[$i]}"; done
+}
+cleanup_staging_after_success() {
+  local installed_version="$1" previous_version="$2" item base keep
+  for item in "$STAGING"/outlaws-inventory-v*.zip; do
+    [[ -e "$item" ]] || continue
+    base="$(basename "$item")"
+    keep=0
+    [[ "$base" == "outlaws-inventory-v${installed_version}.zip" ]] && keep=1
+    [[ -n "$previous_version" && "$base" == "outlaws-inventory-v${previous_version}.zip" ]] && keep=1
+    (( keep == 1 )) || runuser -u "$SERVICE_USER" -- rm -f "$item"
+  done
+  runuser -u "$SERVICE_USER" -- rm -f "$STAGING/SHA256SUMS" "$STAGING/pending.json"
+  runuser -u "$SERVICE_USER" -- find "$STAGING" -maxdepth 1 -type f \( -name '*.tmp*' -o -name '*.part' \) -delete 2>/dev/null || true
+}
+
+archive_current_rollback() {
+  if [[ -f "$ROLLBACK_META" && -f "$ROLLBACK_APP/app/main.py" ]]; then
+    local stamp version destination
+    stamp="$(date +%Y%m%d-%H%M%S)"
+    version="$(python3 - "$ROLLBACK_META" <<'PY2'
+import json,sys
+try: print(json.load(open(sys.argv[1])).get('version','unknown'))
+except Exception: print('unknown')
+PY2
+)"
+    destination="$ROLLBACK_HISTORY/${stamp}-v${version}"
+    mv "$ROLLBACK_ROOT" "$destination"
+  else
+    rm -rf "$ROLLBACK_ROOT"
+  fi
+}
+require_free_space() {
+  local app_bytes zip_bytes required available
+  app_bytes="$(du -sb --exclude="$APP_DIR/data" --exclude="$APP_DIR/venv" "$APP_DIR" 2>/dev/null | awk '{print $1}')"
+  zip_bytes="$(stat -c %s "$ZIP_PATH")"
+  required=$(( ${app_bytes:-0} + (${zip_bytes:-0} * 3) + MIN_FREE_BYTES ))
+  available="$(df -PB1 "$BACKUP_ROOT" | awk 'NR==2 {print $4}')"
+  if (( available < required )); then
+    local required_mb=$(( (required + 1048575) / 1048576 )) free_mb=$(( available / 1048576 ))
+    write_status failed "Pre-flight checks failed" 5 "Insufficient free disk space: ${free_mb} MB available; at least ${required_mb} MB required." "$VERSION"
+    exit 1
+  fi
+}
+publish_rollback() {
+  local version="${1:-}"
+  if [[ -n "$version" ]]; then
+    runuser -u "$SERVICE_USER" -- python3 - "$ROLLBACK_STATE" "$version" <<'PY'
+import json,sys
+from pathlib import Path
+Path(sys.argv[1]).write_text(json.dumps({'state':'available','message':'Previous version available.','version':sys.argv[2]},indent=2),encoding='utf-8')
+PY
+  else runuser -u "$SERVICE_USER" -- rm -f "$ROLLBACK_STATE"; fi
+}
+cleanup() { stop_heartbeat; [[ -n "$TMP" ]] && rm -rf "$TMP"; rmdir "$LOCK_DIR" 2>/dev/null || true; }
+fail() {
+  local rc=$?
+  stop_heartbeat
+  write_status failed "Update failed" "$CURRENT_PROGRESS" "Update failed during: $CURRENT_STAGE. Review data/update-staging/update.log." "$VERSION" || true
+  runuser -u "$SERVICE_USER" -- rm -f "$PENDING" "$STAGING/SHA256SUMS"
+  [[ -n "${ZIP_PATH:-}" && "$ZIP_PATH" == "$STAGING"/outlaws-inventory-v*.zip ]] && rm -f "$ZIP_PATH" || true
+  cleanup
+  exit "$rc"
+}
+trap fail ERR
+runuser -u "$SERVICE_USER" -- mkdir -p "$STAGING"
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then write_status failed "Update not started" 0 "Another update or rollback job is already running." ""; exit 1; fi
+trap cleanup EXIT
+start_heartbeat
+write_status queued "Starting update" 1 "The independent update job has started." ""
+[[ -f "$PENDING" ]] || { write_status failed "Update not started" 1 "No verified update is pending." ""; exit 1; }
+TMP="$(mktemp -d /tmp/outlaws-inventory-update.XXXXXX)"
+python3 /usr/local/sbin/outlaws-inventory-verify-release "$PENDING" "$TMP" > "$TMP/verified.json"
+readarray -t VALUES < <(python3 - "$TMP/verified.json" <<'PY'
+import json, sys
+p=json.load(open(sys.argv[1])); print(p.get('version','')); print(p.get('zip','')); print(p.get('sha256',''))
+PY
+)
+VERSION="${VALUES[0]}"; ZIP_PATH="${VALUES[1]}"; EXPECTED="${VALUES[2]}"
+write_status installing "Pre-flight checks" 5 "Validating the pending release and available disk space." "$VERSION"
+[[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-][A-Za-z0-9]+)?$ ]] || { write_status failed "Pre-flight checks failed" 5 "Invalid pending version." "$VERSION"; exit 1; }
+[[ "$ZIP_PATH" == "$TMP"/outlaws-inventory-v*.zip && -f "$ZIP_PATH" ]] || { write_status failed "Pre-flight checks failed" 5 "Pending package path is invalid." "$VERSION"; exit 1; }
+ACTUAL="$(sha256sum "$ZIP_PATH" | awk '{print $1}')"
+[[ -n "$EXPECTED" && "$ACTUAL" == "$EXPECTED" ]] || { write_status failed "Pre-flight checks failed" 5 "Package checksum no longer matches." "$VERSION"; exit 1; }
+CURRENT_VERSION="$(python3 - "$APP_DIR/app/main.py" <<'PY'
+import re, sys
+text=open(sys.argv[1], encoding='utf-8').read(); m=re.search(r'^APP_VERSION\s*=\s*["\']([^"\']+)', text, re.M); print(m.group(1) if m else '')
+PY
+)"
+python3 - "$CURRENT_VERSION" "$VERSION" <<'PY'
+import re, sys
+def version(v): return tuple(int(x) for x in re.findall(r'\d+', v)[:4]) or (0,)
+if version(sys.argv[2]) <= version(sys.argv[1]): raise SystemExit(1)
+PY
+cleanup_backups; require_free_space
+write_status installing "Extracting release" 15 "Extracting and validating the release package." "$VERSION"
+unzip -q "$ZIP_PATH" -d "$TMP"
+RELEASE_DIR="$TMP/outlaws-inventory-v$VERSION"
+[[ -x "$RELEASE_DIR/update.sh" && -f "$RELEASE_DIR/app/main.py" ]] || { write_status failed "Package validation failed" 15 "The release package has an invalid structure." "$VERSION"; exit 1; }
+grep -q "APP_VERSION = \"$VERSION\"" "$RELEASE_DIR/app/main.py" || { write_status failed "Package validation failed" 15 "Package version does not match the pending release." "$VERSION"; exit 1; }
+write_status installing "Creating rollback snapshot" 25 "Saving the current application code for rollback." "$VERSION"
+archive_current_rollback; mkdir -p "$ROLLBACK_APP"; rsync -a --delete --exclude venv --exclude data "$APP_DIR/" "$ROLLBACK_APP/"
+python3 - "$ROLLBACK_META" "$CURRENT_VERSION" <<'PY'
+import json, sys
+from datetime import datetime
+from pathlib import Path
+Path(sys.argv[1]).write_text(json.dumps({'version':sys.argv[2],'created_at':datetime.now().isoformat(timespec='seconds')},indent=2),encoding='utf-8')
+PY
+chmod 700 "$ROLLBACK_ROOT"; publish_rollback "$CURRENT_VERSION"; cleanup_backups
+runuser -u "$SERVICE_USER" -- sh -c ': > "$1"' sh "$LOG"
+write_status installing "Installing application" 35 "Installing application files and dependencies." "$VERSION"
+{
+  echo "[$(date -Is)] Installing v$VERSION"
+  cd "$RELEASE_DIR"
+  OUTLAWS_INTERNAL_UPDATE=1 OUTLAWS_UPDATE_RESULT="$RESULT" OUTLAWS_UPDATE_VERSION="$VERSION" OUTLAWS_UPDATE_JOB_ID="$JOB_ID" OUTLAWS_UPDATE_STARTED_AT="$STARTED_AT" ./update.sh
+  echo "[$(date -Is)] Update completed"
+} 2>&1 | runuser -u "$SERVICE_USER" -- tee -a "$LOG" >/dev/null
+write_status validating "Validating updated service" 95 "Confirming that the new application version is responding." "$VERSION"
+INSTALLED_VERSION="$(python3 - "$APP_DIR/app/main.py" <<'PY'
+import re, sys
+text=open(sys.argv[1], encoding='utf-8').read()
+m=re.search(r'^APP_VERSION\s*=\s*["\']([^"\']+)', text, re.M)
+print(m.group(1) if m else '')
+PY
+)"
+if [[ "$INSTALLED_VERSION" != "$VERSION" ]]; then
+  write_status failed "Version verification failed" 95 "Update files were processed, but installed APP_VERSION is v${INSTALLED_VERSION:-unknown}; expected v$VERSION." "$VERSION"
+  exit 1
+fi
+RUNTIME_VERSION="$(python3 - "$VERSION" <<'PY'
+import json, sys, urllib.request
+expected=sys.argv[1]
+request=urllib.request.Request(
+    'http://127.0.0.1:8000/system/ready',
+    headers={'Cache-Control':'no-cache','Pragma':'no-cache'},
+)
+with urllib.request.urlopen(request, timeout=5) as response:
+    payload=json.loads(response.read().decode('utf-8'))
+running=str(payload.get('app_version') or '')
+print(running)
+if payload.get('ready') is not True or running != expected:
+    raise SystemExit(1)
+PY
+)" || {
+  write_status failed "Runtime version verification failed" 96 "The updated files report v$VERSION, but the running application did not confirm that version." "$VERSION"
+  exit 1
+}
+cleanup_staging_after_success "$VERSION" "$CURRENT_VERSION"
+write_status success "Update completed" 100 "Outlaw's Inventory was updated to v$VERSION." "$VERSION"
+trap - ERR

@@ -1,0 +1,7 @@
+{
+  "latest": "01.04.06.20",
+  "release_date": "2023-03-30",
+  "summary": "Video will include gyro data in following camera settings: Stabilization: off; FOV: Wide; Resolution: 4K (4:3) 24/25/30/48/50/60 or 4K (16:9) 100/120. Gyroflow version v1.4.2 or above is recommended for gyro-based video stabilization.\nImproved the compatibility with Android 13.0.\nFix some minor bugs.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/DJI_Action_2/20230330RN/DJI Action 2_Release_Notes_en_20230330.pdf"
+}

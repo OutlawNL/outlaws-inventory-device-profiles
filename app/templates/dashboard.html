@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% from "icons.html" import icon %}
+{% block title %}Dashboard{% endblock %}
+{% block subtitle %}{% endblock %}
+{% block content %}
+<section class="hero dashboard-hero status-{{ overall }}">
+  <div>
+    <div class="eyebrow">Current Status</div>
+    <h2>{% if overall == 'ok' %}Everything looks fine{% elif overall == 'problem' %}Critical attention required{% elif overall == 'attention' %}Attention needed{% else %}Status incomplete{% endif %}</h2>
+    <p>{% if overall == 'ok' %}No action required right now.{% elif overall == 'unknown' %}{{ health_counts.unknown }} device{% if health_counts.unknown != 1 %}s{% endif %} {% if health_counts.unknown == 1 %}has{% else %}have{% endif %} no complete result yet.{% else %}{{ actions|length }} firmware item(s), {{ system_update_actions|length + application_update_actions|length }} software update item(s), {{ health_counts.warning + health_counts.critical + health_counts.offline }} device{% if health_counts.warning + health_counts.critical + health_counts.offline != 1 %}s{% endif %} {% if health_counts.warning + health_counts.critical + health_counts.offline == 1 %}needs{% else %}need{% endif %} attention.{% endif %}</p>
+  </div>
+</section>
+
+{% if application_update.update_available %}
+<a class="dashboard-application-update-banner" href="/settings?update_open=1#application-version">
+  <span><strong>Outlaw's Inventory v{{ application_update.latest_version }} is available</strong><small>Open Application Version to review and install the update.</small></span>
+  <span class="dashboard-update-link">View Update</span>
+</a>
+{% endif %}
+
+<div class="grid cards4 dashboard-kpis dashboard-kpis-four">
+  <a class="card card-link" href="/devices"><span class="label dashboard-label-icon">{{ icon('inventory', 'kpi-icon') }}<span>Inventory</span></span><strong>{{ devices|length }}</strong><small>Total Devices</small></a>
+  {% set firmware_updates = counts.attention + counts.deferred %}
+  <a class="card card-link {% if firmware_updates > 0 %}attention-card{% endif %}" href="/firmware">
+    <span class="label dashboard-label-icon">{{ icon('firmware', 'kpi-icon') }}<span>Firmware</span></span>
+    <strong>{% if firmware_updates > 0 %}{{ firmware_updates }}{% else %}{{ counts.ok }}{% endif %}</strong>
+    <small>{% if firmware_updates > 0 %}Update{% if firmware_updates != 1 %}s{% endif %} available · {{ counts.ok }} Up to Date{% elif counts.unknown > 0 %}{{ counts.ok }} Up to Date · {{ counts.unknown }} unknown{% else %}Up to date{% endif %}</small>
+  </a>
+  <a class="card card-link {% if health_counts.critical + health_counts.offline > 0 %}problem-card{% elif health_counts.warning > 0 %}attention-card{% elif health_counts.unknown > 0 %}unknown-card{% elif health_counts.maintenance > 0 %}maintenance-card{% endif %}" href="/system-checks"><span class="label dashboard-label-icon">{{ icon('system-checks', 'kpi-icon') }}<span>System Checks</span></span><strong>{{ health_counts.total }}</strong><small>{{ health_counts.online }} OK / {{ health_counts.warning }} attention / {{ health_counts.critical + health_counts.offline }} critical / {{ health_counts.unknown }} unknown{% if health_counts.maintenance %} / {{ health_counts.maintenance }} maintenance{% endif %}</small></a>
+  <a class="card card-link {% if software_update_count > 0 %}attention-card{% elif software_failed_count > 0 %}problem-card{% endif %}" href="/system-checks"><span class="label dashboard-label-icon">{{ icon('package', 'kpi-icon') }}<span>Software Updates</span></span><strong>{{ software_update_count }}</strong><small>{{ software_ok_count }} Up to Date / {{ software_failed_count }} failed</small></a>
+</div>
+
+<div class="dashboard-action-grid">
+  <div class="card dashboard-action-card">
+    <div class="cardhead"><h3>Firmware Action Items</h3><span>Device Details</span></div>
+    {% if actions|length == 0 %}<div class="empty">No firmware action items.</div>{% else %}
+    <table class="dashboard-action-table"><thead><tr><th>Device</th><th>Version</th><th>Status</th></tr></thead><tbody>
+    {% for d in actions %}<tr><td><a class="device-link" href="/devices/{{ d.id }}">{{ d.display_name or d.name }}</a><small class="dashboard-action-date">{{ d.release_date or '-' }}</small></td><td>{{ d.current_firmware or '-' }} → {{ d.latest_firmware or '-' }}</td><td><a class="firmware-status-link" href="/devices/{{ d.id }}#firmware"><span class="pill {{ d.status or 'unknown' }}">{{ d.status|status_label }}</span></a></td></tr>{% endfor %}
+    </tbody></table>{% endif %}
+  </div>
+
+  <div class="card dashboard-action-card">
+    <div class="cardhead"><h3>Software Update Action Items</h3><span>System Checks</span></div>
+    {% if system_update_actions|length == 0 and application_update_actions|length == 0 %}<div class="empty">No software update action items.</div>{% else %}
+    <table class="dashboard-action-table"><thead><tr><th>System</th><th>Update</th><th>Status</th></tr></thead><tbody>
+    {% for c in system_update_actions %}<tr><td><a class="device-link" href="/system-checks/{{ c.device_id }}">{{ c.name }}</a><small class="dashboard-action-date">{{ c.last_checked or '-' }}</small></td><td>{% if c.status=='available' %}{{ c.package_count }} package{% if c.package_count != 1 %}s{% endif %}{% else %}System{% endif %}</td><td><a class="dashboard-status-link" href="/system-checks/{{ c.device_id }}"><span class="pill {% if c.reboot_required %}reboot-required{% elif c.status=='available' %}attention{% else %}offline{% endif %}">{% if c.reboot_required %}Reboot required{% elif c.status=='available' %}Update{% else %}Failed{% endif %}</span></a></td></tr>{% endfor %}
+    {% for c in application_update_actions %}<tr><td><a class="device-link" href="/system-checks/{{ c.device_id }}">{{ c.display_name or c.device_name }}</a><small class="dashboard-action-date">{{ c.last_checked or '-' }}</small></td><td>Pi-hole</td><td><a class="dashboard-status-link" href="/system-checks/{{ c.device_id }}#pihole-updates"><span class="pill {% if c.status=='available' %}attention{% else %}offline{% endif %}">{% if c.status=='available' %}Update{% else %}Failed{% endif %}</span></a></td></tr>{% endfor %}
+    </tbody></table>{% endif %}
+  </div>
+</div>
+
+<script>
+async function refreshDashboardOverview() {
+  if (document.hidden) return;
+  try {
+    const response = await fetch(`/?_live=${Date.now()}`, {
+      cache: 'no-store',
+      credentials: 'same-origin',
+      headers: {'X-Requested-With': 'fetch'}
+    });
+    if (!response.ok) return;
+    const html = await response.text();
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+
+    const currentHero = document.querySelector('.dashboard-hero');
+    const freshHero = parsed.querySelector('.dashboard-hero');
+    const currentKpis = document.querySelector('.dashboard-kpis');
+    const freshKpis = parsed.querySelector('.dashboard-kpis');
+    const currentActions = document.querySelector('.dashboard-action-grid');
+    const freshActions = parsed.querySelector('.dashboard-action-grid');
+
+    if (currentHero && freshHero) {
+      if (currentHero.className !== freshHero.className) currentHero.className = freshHero.className;
+      if (currentHero.innerHTML !== freshHero.innerHTML) currentHero.innerHTML = freshHero.innerHTML;
+    }
+    if (currentKpis && freshKpis && currentKpis.innerHTML !== freshKpis.innerHTML) {
+      currentKpis.innerHTML = freshKpis.innerHTML;
+    }
+    if (currentActions && freshActions && currentActions.innerHTML !== freshActions.innerHTML) {
+      currentActions.innerHTML = freshActions.innerHTML;
+    }
+  } catch (_) {
+    // A missed background refresh is harmless; the next minute retries silently.
+  }
+}
+window.setInterval(refreshDashboardOverview, 60000);
+window.addEventListener('pageshow', () => {
+  refreshDashboardOverview();
+});
+</script>
+{% endblock %}

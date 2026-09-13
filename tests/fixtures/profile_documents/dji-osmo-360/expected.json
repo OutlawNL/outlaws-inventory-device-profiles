@@ -1,0 +1,7 @@
+{
+  "url": "https://dl.djicdn.com/downloads/Osmo_360/20260224/DJI_Osmo_360_Release_Notes_en.pdf",
+  "latest": "01.03.08.70",
+  "release_date": "2026-02-24",
+  "summary": "Added the Adaptive Tone feature. In Panoramic Video mode, tap the image/audio parameters icon on the right, then tap Adaptive Tone to enable this feature. Footage recorded with this feature enabled will be rendered with enhanced contrast and depth in the DJI Mimo app. (App version 2.7.2 or later is required. Support for this feature varies by shooting specifications. Refer to the actual interface)\nImproved color performance in snow scenes.\nFixed some minor bugs.",
+  "error": ""
+}

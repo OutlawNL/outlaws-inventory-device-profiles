@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% from "icons.html" import icon %}
+{% block title %}Inventory{% endblock %}
+{% block subtitle %}Manage tracked devices and systems.{% endblock %}
+{% block content %}
+<div class="list-summary"><span id="deviceCount">{{ devices|length }}</span> devices</div>
+<div class="toolbar device-toolbar inventory-toolbar">
+  <input id="deviceSearch" placeholder="Search name, vendor, model..." oninput="filterDevices()">
+  <select id="categoryFilter" onchange="filterDevices()"><option value="">All Categories</option>{% for c in categories %}<option value="{{ c }}" {% if active_category == c %}selected{% endif %}>{{ c }}</option>{% endfor %}</select>
+  <a id="clearCategoryFilter" class="button secondary compact-button" href="/devices" {% if not active_category %}hidden{% endif %}>Clear Filter</a>
+  <a class="button" href="/devices/new">+ Add Item</a>
+</div>
+<div class="card full">
+  <table id="devicesTable">
+    <thead><tr>
+      <th class="sortable" onclick="sortTable(0)">Name</th>
+      <th class="sortable" onclick="sortTable(1)">Category</th>
+      <th class="sortable" onclick="sortTable(2)">Vendor</th>
+      <th class="sortable" onclick="sortTable(3)">Model</th>
+    </tr></thead>
+    <tbody>
+    {% for d in devices %}
+      <tr data-category="{{ d.category }}">
+        <td><a class="device-link" href="/devices/{{ d.id }}">{{ d.display_name or d.name }}</a></td>
+        <td>{{ d.category }}</td>
+        <td>{{ d.vendor }}</td>
+        <td>{{ d.model }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<script>
+let sortDirections = {};
+function textOf(row, index){ return row.cells[index].innerText.trim().toLowerCase(); }
+function sortTable(index){
+  const table = document.getElementById('devicesTable');
+  const body = table.tBodies[0];
+  const rows = Array.from(body.rows);
+  sortDirections[index] = !sortDirections[index];
+  rows.sort((a,b)=> textOf(a,index).localeCompare(textOf(b,index), undefined, {numeric:true}) * (sortDirections[index] ? 1 : -1));
+  rows.forEach(r=>body.appendChild(r));
+}
+function filterDevices(){
+  const q = document.getElementById('deviceSearch').value.toLowerCase();
+  const cat = document.getElementById('categoryFilter').value;
+  let count = 0;
+  document.querySelectorAll('#devicesTable tbody tr').forEach(row=>{
+    const text = row.innerText.toLowerCase();
+    const ok = (!q || text.includes(q)) && (!cat || row.dataset.category === cat);
+    row.style.display = ok ? '' : 'none';
+    if (ok) count++;
+  });
+  document.getElementById('deviceCount').innerText = count;
+  const clear = document.getElementById('clearCategoryFilter');
+  if (clear) clear.hidden = !cat;
+}
+sortTable(0);
+filterDevices();
+</script>
+{% endblock %}

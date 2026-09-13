@@ -1,0 +1,165 @@
+#!/usr/bin/env bash
+set -euo pipefail
+APP_DIR="/opt/outlaws-inventory"
+SERVICE_USER="outlaws-inventory"
+SERVICE="outlaws-inventory.service"
+BACKUP_ROOT="/var/backups/outlaws-inventory"
+ROLLBACK_ROOT="$BACKUP_ROOT/rollback"
+ROLLBACK_HISTORY="$BACKUP_ROOT/rollback-history"
+ROLLBACK_RETENTION=3
+MIN_FREE_BYTES=$((256 * 1024 * 1024))
+ROLLBACK_APP="$ROLLBACK_ROOT/app"
+ROLLBACK_META="$ROLLBACK_ROOT/metadata.json"
+STAGING="$APP_DIR/data/update-staging"
+RESULT="$STAGING/result.json"
+ROLLBACK_STATE="$STAGING/rollback.json"
+LOCK_DIR="/run/outlaws-inventory-updater.lock"
+STAMP="$(date +%Y%m%d-%H%M%S)"
+RECOVERY="$BACKUP_ROOT/pre-rollback-$STAMP"
+TARGET_VERSION=""
+
+cleanup_backups() {
+  mkdir -p "$BACKUP_ROOT" "$ROLLBACK_HISTORY"
+  find "$BACKUP_ROOT" -maxdepth 1 -type d -name 'pre-rollback-*' ! -path "$RECOVERY" -exec rm -rf {} + 2>/dev/null || true
+  find "$ROLLBACK_HISTORY" -mindepth 1 -maxdepth 1 -type d | while read -r item; do
+    [[ -f "$item/metadata.json" && -f "$item/app/app/main.py" ]] || rm -rf "$item"
+  done
+  local keep_history=$((ROLLBACK_RETENTION - 1))
+  mapfile -t history < <(find "$ROLLBACK_HISTORY" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p
+' 2>/dev/null | sort -nr | awk '{print $2}')
+  local i
+  for ((i=keep_history; i<${#history[@]}; i++)); do rm -rf "${history[$i]}"; done
+}
+require_free_space() {
+  local app_bytes required available
+  app_bytes="$(du -sb --exclude="$APP_DIR/data" --exclude="$APP_DIR/venv" "$APP_DIR" 2>/dev/null | awk '{print $1}')"
+  required=$(( ${app_bytes:-0} + MIN_FREE_BYTES ))
+  available="$(df -PB1 "$BACKUP_ROOT" | awk 'NR==2 {print $4}')"
+  if (( available < required )); then
+    local required_mb=$(( (required + 1048575) / 1048576 )) free_mb=$(( available / 1048576 ))
+    write_result failed "Rollback not started: insufficient free disk space. ${free_mb} MB available; at least ${required_mb} MB required." "$TARGET_VERSION"
+    exit 1
+  fi
+}
+
+atomic_json() {
+  local destination="$1" state="$2" message="$3" version="${4:-}"
+  local temporary="${destination}.tmp.$$"
+  runuser -u "$SERVICE_USER" -- python3 - "$temporary" "$state" "$message" "$version" <<'PY'
+import json, sys
+from pathlib import Path
+Path(sys.argv[1]).parent.mkdir(parents=True, exist_ok=True)
+Path(sys.argv[1]).write_text(json.dumps({"state": sys.argv[2], "message": sys.argv[3], "version": sys.argv[4]}, indent=2), encoding="utf-8")
+PY
+  true
+  runuser -u "$SERVICE_USER" -- chmod 600 "$temporary" 2>/dev/null || true
+  runuser -u "$SERVICE_USER" -- mv -f "$temporary" "$destination"
+}
+write_result() { atomic_json "$RESULT" "$1" "$2" "${3:-}"; }
+publish_rollback() {
+  local version="${1:-}"
+  if [[ -n "$version" ]]; then
+    atomic_json "$ROLLBACK_STATE" available "Previous version available." "$version"
+  else
+    runuser -u "$SERVICE_USER" -- rm -f "$ROLLBACK_STATE"
+  fi
+}
+# Keep the current live data in place while swapping application code.
+install_code() {
+  local source="$1"
+  rsync -a --delete --exclude data --exclude venv --exclude '__pycache__' "$source/" "$APP_DIR/"
+  rm -rf "$APP_DIR/venv"
+  python3 -m venv "$APP_DIR/venv"
+  "$APP_DIR/venv/bin/pip" install --upgrade pip >/dev/null
+  "$APP_DIR/venv/bin/pip" install -r "$APP_DIR/requirements.txt" >/dev/null
+  chown -R root:root "$APP_DIR"
+  chown -R "$SERVICE_USER:$SERVICE_USER" "$APP_DIR/data"
+  chmod 750 "$APP_DIR/data" "$APP_DIR/data/uploads" 2>/dev/null || true
+  chmod 700 "$APP_DIR/data/keys" "$APP_DIR/data/secrets" "$APP_DIR/data/update-staging" "$APP_DIR/data/backups" "$APP_DIR/data/setup-state" "$APP_DIR/data/avatars" 2>/dev/null || true
+  find "$APP_DIR" -type d -name '__pycache__' -prune -exec rm -rf {} + 2>/dev/null || true
+  find "$APP_DIR" -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete 2>/dev/null || true
+}
+runtime_version_check() {
+  local expected="$1"
+  python3 - "$expected" <<'PY'
+import json, sys, time, urllib.request
+expected=sys.argv[1]
+last_error="service did not respond"
+for _ in range(40):
+    try:
+        request=urllib.request.Request('http://127.0.0.1:8000/system/ready', headers={'Cache-Control':'no-cache','Pragma':'no-cache'})
+        with urllib.request.urlopen(request, timeout=2) as response:
+            payload=json.loads(response.read().decode('utf-8'))
+        running=str(payload.get('app_version') or '')
+        if payload.get('ready') is True and running == expected:
+            raise SystemExit(0)
+        last_error=f"running APP_VERSION is {running or 'unknown'}; expected {expected}"
+    except SystemExit:
+        raise
+    except Exception as exc:
+        last_error=str(exc)
+    time.sleep(1)
+print(f"Rollback runtime verification failed: {last_error}", file=sys.stderr)
+raise SystemExit(1)
+PY
+}
+cleanup() { rmdir "$LOCK_DIR" 2>/dev/null || true; }
+restore_current() {
+  local rc=$?
+  systemctl stop "$SERVICE" 2>/dev/null || true
+  if [[ -d "$RECOVERY/app" ]]; then
+    install_code "$RECOVERY/app" || true
+    systemctl restart "$SERVICE" || true
+  fi
+  write_result failed "Rollback failed; the current installation was restored." "$TARGET_VERSION" || true
+  cleanup
+  exit "$rc"
+}
+
+runuser -u "$SERVICE_USER" -- mkdir -p "$STAGING"
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+  write_result failed "Another update or rollback job is already running." ""
+  exit 1
+fi
+trap cleanup EXIT
+cleanup_backups
+[[ -d "$ROLLBACK_APP" && -f "$ROLLBACK_META" ]] || { write_result failed "No previous version is available." ""; exit 1; }
+TARGET_VERSION="$(python3 - "$ROLLBACK_META" <<'PY'
+import json, sys
+print(json.load(open(sys.argv[1])).get('version',''))
+PY
+)"
+[[ "$TARGET_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-][A-Za-z0-9]+)?$ ]] || { write_result failed "Rollback metadata is invalid." ""; exit 1; }
+[[ -f "$ROLLBACK_APP/app/main.py" ]] || { write_result failed "Rollback snapshot is incomplete." "$TARGET_VERSION"; exit 1; }
+
+require_free_space
+CURRENT_VERSION="$(python3 - "$APP_DIR/app/main.py" <<'PY'
+import re, sys
+text=open(sys.argv[1], encoding='utf-8').read()
+m=re.search(r'^APP_VERSION\s*=\s*["\']([^"\']+)', text, re.M)
+print(m.group(1) if m else '')
+PY
+)"
+mkdir -p "$RECOVERY/app"
+rsync -a --delete --exclude venv --exclude data "$APP_DIR/" "$RECOVERY/app/"
+trap restore_current ERR
+write_result installing "Reverting to v$TARGET_VERSION…" "$TARGET_VERSION"
+systemctl stop "$SERVICE"
+install_code "$ROLLBACK_APP"
+systemctl restart "$SERVICE"
+runtime_version_check "$TARGET_VERSION"
+
+# The code version we just left becomes the next rollback target.
+rm -rf "$ROLLBACK_ROOT"
+mv "$RECOVERY" "$ROLLBACK_ROOT"
+python3 - "$ROLLBACK_META" "$CURRENT_VERSION" <<'PY'
+import json, sys
+from datetime import datetime
+from pathlib import Path
+Path(sys.argv[1]).write_text(json.dumps({"version": sys.argv[2], "created_at": datetime.now().isoformat(timespec='seconds')}, indent=2), encoding='utf-8')
+PY
+chmod 700 "$ROLLBACK_ROOT"
+publish_rollback "$CURRENT_VERSION"
+cleanup_backups
+write_result success "Outlaw's Inventory was reverted to v$TARGET_VERSION." "$TARGET_VERSION"
+trap - ERR

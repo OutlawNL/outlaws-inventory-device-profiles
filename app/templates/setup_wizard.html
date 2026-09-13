@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Setup · Outlaw's Inventory</title><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/app.css?v={{ app_version }}"></head>
+<body class="auth-page setup-page"><main class="setup-shell"><section class="setup-card">
+<header class="setup-brand"><strong>Outlaw's Inventory</strong><span>Know. Your. Gear.</span></header>
+{% if error %}<div class="notice error">{{ error }}</div>{% endif %}
+{% if step == 'welcome' %}
+<div class="setup-intro setup-intro-left"><h1>Setup</h1><p class="muted">Choose how this installation should be configured.</p></div>
+<div class="setup-choice-grid"><a class="setup-choice" href="/setup/new"><span class="setup-choice-icon">+</span><span><strong>New Installation</strong><small>Create a new administrator and configure this instance.</small></span></a><a class="setup-choice" href="/setup/restore"><span class="setup-choice-icon restore">↶</span><span><strong>Restore from Backup</strong><small>Restore an existing Outlaw's Inventory installation.</small></span></a></div>
+<h3>System Check</h3><div class="setup-checks">{% for check in checks %}<div class="setup-check {{ check.status }}"><span class="setup-check-icon">{% if check.status == "ok" %}✓{% elif check.status == "attention" %}!{% else %}×{% endif %}</span><strong>{{ check.label }}</strong><span class="setup-check-detail">{{ check.detail }}</span><span class="setup-check-status">{{ "OK" if check.status == "ok" else ("Attention" if check.status == "attention" else "Failed") }}</span></div>{% endfor %}</div>
+{% elif step == 'new' %}
+<h1>New Installation</h1><p class="muted">Create the first administrator account.</p>
+<form method="post" action="/setup/new" class="auth-form setup-form">
+<label class="setup-full-field">Administrator Username<input name="username" value="{{ username or '' }}" autocomplete="username" minlength="3" maxlength="64" required autofocus></label>
+<label class="setup-full-field">Administrator Display Name<input name="display_name" value="{{ display_name or '' }}" maxlength="80"></label>
+<label class="setup-password-field">Password<input name="password" type="password" autocomplete="new-password" minlength="12" required><small>At least 12 characters.</small></label>
+<label class="setup-password-field">Confirm Password<input name="password_confirm" type="password" autocomplete="new-password" minlength="12" required></label>
+<label class="setup-checkbox"><input type="checkbox" name="configure_mfa" value="1" checked> Configure MFA Now</label>
+<div class="actions"><a class="button secondary" href="/setup">Back</a><button class="button primary">Continue</button></div></form>
+{% elif step == 'mfa' %}
+<h1>Configure MFA</h1><p class="muted">Scan the QR code with an authenticator app and enter the generated code.</p><div class="setup-mfa"><img src="{{ mfa_qr_data_uri }}" alt="MFA QR code"><code>{{ mfa_secret }}</code></div>
+<form method="post" action="/setup/mfa" class="auth-form"><label>Verification Code<input name="verification_code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autofocus></label><button class="button primary">Enable MFA</button></form>
+{% elif step == 'recovery' %}
+<h1>Save Recovery Codes</h1><p class="muted">Store these codes securely. Each code can be used once.</p><div class="recovery-code-grid">{% for code in recovery_codes %}<code>{{ code }}</code>{% endfor %}</div><a class="button primary" href="/setup/complete">Continue</a>
+{% elif step == 'restore' %}
+<h1>Restore from Backup</h1><p class="muted">Upload a complete <code>.oi-backup</code> file. Application data, users, settings, SSH keys and locally stored secrets will be restored. Debian networking and the VM hostname are not changed.</p><div class="notice warning"><strong>Existing application data on this installation will be replaced.</strong></div>
+<form method="post" action="/setup/restore" enctype="multipart/form-data" class="auth-form" onsubmit="const b=this.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Validating and restoring…'; document.getElementById('restore-progress').hidden=false;"><label>Backup File<input type="file" name="file" accept=".oi-backup,application/zip" required></label><div class="actions"><a class="button secondary" href="/setup">Back</a><button type="submit" class="button primary">Validate and Restore</button></div><div id="restore-progress" class="setup-progress" hidden><span class="setup-spinner"></span><span>Validating backup and restoring application data…</span></div></form>
+{% elif step == 'restore_complete' %}
+<h1>Restore Completed</h1>
+<p class="muted">Recovery is finishing in two verified steps.</p>
+
+<div class="setup-recovery-steps">
+  <section class="setup-recovery-step complete">
+    <span class="setup-recovery-icon">✓</span>
+    <div>
+      <strong>Backup restored successfully</strong>
+      <small>The backup was validated before any application data was replaced.</small>
+    </div>
+  </section>
+
+  <section id="restore-check-step" class="setup-recovery-step {% if restore_phase == 'checked' %}complete{% else %}running{% endif %}">
+    <span class="setup-recovery-icon">{% if restore_phase == 'checked' %}✓{% else %}<span class="setup-spinner"></span>{% endif %}</span>
+    <div>
+      <strong id="restore-check-title">{% if restore_phase == 'checked' %}System Checks completed{% else %}Refreshing System Checks…{% endif %}</strong>
+      <small id="restore-check-detail">{% if restore_phase == 'checked' %}Current server status has been refreshed. Hosts that need reconfiguration can now be identified immediately.{% else %}Refreshing current System Checks. This may take a moment.{% endif %}</small>
+    </div>
+  </section>
+</div>
+
+<div class="setup-stat-grid">
+  <div><strong>{{ restore_statistics.devices or 0 }}</strong><span>Inventory Items</span></div>
+  <div><strong>{{ restore_statistics.categories or 0 }}</strong><span>Categories</span></div>
+  <div><strong>{{ restore_statistics.users or 0 }}</strong><span>Users</span></div>
+  <div><strong>{{ restore_statistics.ssh_profiles or 0 }}</strong><span>SSH Profiles</span></div>
+</div>
+
+<div id="restore-refresh-warning" class="notice warning" hidden>
+  <strong>Backup restore succeeded.</strong>
+  <span>Current System Checks could not be refreshed automatically. The restored data is intact; checks can be run after login.</span>
+</div>
+
+<a id="restore-login-button" class="button primary setup-wide-button{% if restore_phase != 'checked' %} temporarily-disabled{% endif %}"
+   href="/setup/restore-finish?token={{ restore_token }}"
+   {% if restore_phase != 'checked' %}aria-disabled="true" tabindex="-1"{% endif %}>Continue to Login</a>
+
+{% if restore_phase != 'checked' %}
+<script>
+(async function refreshRestoredSystemChecks(){
+  const step=document.getElementById('restore-check-step');
+  const title=document.getElementById('restore-check-title');
+  const detail=document.getElementById('restore-check-detail');
+  const button=document.getElementById('restore-login-button');
+  const warning=document.getElementById('restore-refresh-warning');
+  try{
+    const body=new URLSearchParams({token: {{ restore_token|tojson }}});
+    const response=await fetch('/setup/restore-refresh',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:body.toString()
+    });
+    const payload=await response.json();
+    if(!response.ok || !payload.ok) throw new Error(payload.detail || 'Status refresh failed.');
+    step.classList.remove('running');
+    step.classList.add('complete');
+    step.querySelector('.setup-recovery-icon').textContent='✓';
+    title.textContent='System Checks completed';
+    detail.textContent='Current server status has been refreshed. Hosts that need reconfiguration can now be identified immediately.';
+  }catch(error){
+    step.classList.remove('running');
+    step.classList.add('attention');
+    step.querySelector('.setup-recovery-icon').textContent='!';
+    title.textContent='System Checks need attention';
+    detail.textContent='The backup restore is complete, but the automatic status refresh did not finish. Checks can be run after login.';
+    warning.hidden=false;
+  }finally{
+    button.classList.remove('temporarily-disabled');
+    button.removeAttribute('aria-disabled');
+    button.removeAttribute('tabindex');
+  }
+})();
+</script>
+{% endif %}
+{% elif step == 'complete' %}
+<h1>Setup Complete</h1><p class="muted">Outlaw's Inventory is ready.</p><div class="setup-complete-list"><span>Application Version <strong>v{{ app_version }}</strong></span><span>Configuration <strong>Complete</strong></span></div><div class="setup-complete-action"><a class="button primary" href="/">Open Outlaw's Inventory</a></div>
+{% endif %}<footer><span>Outlaw's Inventory v{{ app_version }}</span><span>Powered by Outlaw's Inventory</span></footer></section></main></body></html>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Release Notes{% endblock %}
+{% block subtitle %}Changes included in each release.{% endblock %}
+{% block content %}
+<div class="rowactions release-notes-actions"><a class="button secondary" href="/settings?update_open=1#application-version">Back</a></div>
+<div class="release-notes-list">
+  {% for entry in release_entries %}
+  <section class="card release-note-card">
+    <div class="release-note-heading"><div><h2>{{ entry.version or entry.title }}</h2>{% if entry.summary %}<p class="release-note-summary">{{ entry.summary }}</p>{% endif %}</div>{% if entry.date %}<time>{{ entry.date }}</time>{% endif %}</div>
+    {% for section in entry.sections %}
+      {% if section.title %}<h3>{{ section.title }}</h3>{% endif %}
+      {% if section["items"] %}
+      <ul>
+        {% for item in section["items"] %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    {% endfor %}
+  </section>
+  {% else %}
+  <div class="card"><p class="muted">No release notes are available.</p></div>
+  {% endfor %}
+</div>
+{% endblock %}

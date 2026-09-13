@@ -1,0 +1,384 @@
+{% extends "base.html" %}
+{% block title %}{% if device %}{{ device.display_name or device.name }}{% else %}New Item{% endif %}
+<script>
+(function(){
+  const createForm={% if not device %}document.getElementById('device-main-form'){% else %}null{% endif %};
+  if(createForm){
+    createForm.addEventListener('submit', async event=>{
+      if(createForm.dataset.duplicateConfirmed==='1') return;
+      const data=new FormData(createForm);
+      const params=new URLSearchParams({
+        hostname:String(data.get('hostname')||''),
+        ipv4_address:String(data.get('ipv4_address')||''),
+        mac_address:String(data.get('mac_address')||'')
+      });
+      if(!params.get('hostname')&&!params.get('ipv4_address')&&!params.get('mac_address')) return;
+      event.preventDefault();
+      try{
+        const response=await fetch('/devices/check-duplicate?'+params.toString(),{headers:{'Accept':'application/json'}});
+        const result=await response.json();
+        if(!result.duplicate){createForm.dataset.duplicateConfirmed='1';createForm.submit();return;}
+        const addAnyway=window.confirm(`A device or server named "${result.name}" already uses this hostname, IP address or MAC Address.\n\nOK: add anyway\nCancel: open the existing item`);
+        if(addAnyway){createForm.dataset.duplicateConfirmed='1';createForm.submit();}
+        else{window.location.href=`/devices/${result.device_id}`;}
+      }catch(error){
+        createForm.dataset.duplicateConfirmed='1';
+        createForm.submit();
+      }
+    });
+  }
+  const provider=document.getElementById('firmware-provider');
+  const help=document.getElementById('vendor-managed-help');
+  function refreshProviderHelp(){if(help&&provider)help.hidden=provider.value!=='Vendor-managed';}
+  if(provider){provider.addEventListener('change',refreshProviderHelp);refreshProviderHelp();}
+})();
+</script>
+
+{% endblock %}
+{% block subtitle %}{% if device %}Identity, services and maintenance.{% else %}Add an item to track.{% endif %}{% endblock %}
+{% block content %}
+{% if device %}<div class="breadcrumb"><a href="/devices">Inventory</a><span>/</span><span>{{ device.display_name or device.name }}</span></div>{% endif %}
+<form method="post" action="{% if device %}/devices/{{ device.id }}{% else %}/devices{% endif %}" class="formgrid" id="device-main-form" {% if not device %}enctype="multipart/form-data"{% endif %}>
+  {% if request.query_params.get('first_run') %}<input type="hidden" name="first_run" value="1">{% endif %}
+  <div class="card">
+    <h3>General</h3>
+    <fieldset class="device-type-fieldset">
+      <legend>Type</legend>
+      <label class="device-type-option"><input type="radio" name="item_type" value="device" {% if not device or device.category|lower != 'server' %}checked{% endif %}> Device</label>
+      <label class="device-type-option"><input type="radio" name="item_type" value="server" {% if device and device.category|lower == 'server' %}checked{% endif %}> Server</label>
+      <label class="device-type-option virtual-device-option"><input type="checkbox" name="virtual_device" value="1" {% if device and device.virtual_device %}checked{% endif %}> Virtual Machine or Container</label>
+    </fieldset>
+    <label>Display Name<input required name="display_name" value="{{ device.display_name or device.name if device else '' }}"></label>
+    <label>Category<select name="category">{% for c in categories %}<option value="{{ c }}" {% if device and device.category==c %}selected{% endif %}>{{ c }}</option>{% endfor %}</select></label>
+    <div data-physical-fields>
+    <label>Vendor<input name="vendor" value="{{ device.vendor if device else '' }}"></label>
+    <label>Model<input name="model" value="{{ device.model if device else '' }}"></label>
+    <label>Serial Number<input name="serial_number" value="{{ device.serial_number if device else '' }}"></label>
+    </div>
+    <label data-physical-field>Support Status<select name="lifecycle">{% for l in lifecycles %}<option value="{{ l }}" {% if device and device.lifecycle==l %}selected{% endif %}>{{ l }}</option>{% endfor %}</select></label>
+  </div>
+  <div class="card category-section" data-section="network">
+    <h3>Network</h3>
+    <label>Hostname<input name="hostname" value="{{ device.hostname if device else '' }}" placeholder="server-01"></label>
+    <label>IPv4 Address<input name="ipv4_address" value="{{ device.ipv4_address if device else '' }}" placeholder="192.168.1.10"></label>
+    <label>MAC Address<input name="mac_address" value="{{ device.mac_address if device else '' }}" placeholder="Optional"></label>
+    <p class="muted">System Checks use the IPv4 Address first, then hostname.</p>
+  </div>
+  <div class="card category-section" data-section="ownership" data-physical-section>
+    <h3>Ownership & Warranty</h3>
+    <label>Purchase Date<input type="text" name="purchase_date" value="{{ device.purchase_date|display_date if device else '' }}" placeholder="DD-MM-YYYY (optional)"></label>
+    <label>Purchased From<input name="purchased_from" value="{{ device.purchased_from if device else '' }}" placeholder="Store, webshop, Marktplaats..."></label>
+    <label>Purchase Price<input name="purchase_price" value="{{ device.purchase_price|format_euro if device else '' }}" placeholder="€ 0,00"></label>
+    <label>Condition<select name="condition">
+      <option value="" {% if not device or not device.condition %}selected{% endif %}>Not set</option>
+      <option value="New" {% if device and device.condition=='New' %}selected{% endif %}>New</option>
+      <option value="Used" {% if device and device.condition=='Used' %}selected{% endif %}>Used</option>
+    </select></label>
+    <label>Warranty<select name="warranty_status">
+      <option value="" {% if not device or not device.warranty_status %}selected{% endif %}>Not set</option>
+      <option value="None" {% if device and device.warranty_status=='None' %}selected{% endif %}>None</option>
+      <option value="Legal Warranty" {% if device and device.warranty_status=='Legal Warranty' %}selected{% endif %}>Legal Warranty</option>
+      <option value="Extended Warranty" {% if device and device.warranty_status=='Extended Warranty' %}selected{% endif %}>Extended Warranty</option>
+      <option value="Expired" {% if device and device.warranty_status=='Expired' %}selected{% endif %}>Expired</option>
+    </select></label>
+    <label>Warranty Until<input type="text" name="warranty_until" value="{{ device.warranty_until|display_date if device else '' }}" placeholder="DD-MM-YYYY (optional)"></label>
+    <label class="check"><input type="checkbox" name="extended_warranty" {% if device and device.extended_warranty %}checked{% endif %}> Extra coverage / Care Refresh</label>
+  </div>
+  <div class="card category-section" data-section="firmware" id="firmware">
+    <h3>Firmware</h3>
+    <label>Current Version<input name="current_firmware" value="{{ device.current_firmware if device else '' }}"></label>
+    {% if device %}<label>Latest Version <span class="hint">automatically detected</span><input name="latest_firmware" value="{{ device.latest_firmware if device else '' }}" readonly></label>{% else %}<input type="hidden" name="latest_firmware" value="">{% endif %}
+    <label>Latest Version override <span class="hint">optional; automatic newer versions still win</span><input name="latest_firmware_override" value="{{ device.latest_firmware_override if device else '' }}" placeholder="e.g. 1.0"></label>
+    {% if device %}<input type="hidden" name="status" value="{{ device.status or 'unknown' }}">{% else %}<input type="hidden" name="status" value="unknown">{% endif %}
+    
+    {% if device %}
+      <div class="firmware-actions firmware-summary">
+        <div class="firmware-status-line"><span class="field-label">Status</span><span class="pill {{ device.status or 'unknown' }}">{{ device.status|status_label }}</span></div>
+      </div>
+    {% endif %}
+    <details class="advanced-firmware">
+      <summary>Advanced Firmware Information</summary>
+      <div id="device-profile-match" class="device-profile-match" {% if not device_profile %}hidden{% endif %} aria-live="polite">
+        {% if device_profile %}
+          <strong>Device Profile found</strong>
+          <span>{{ device_profile.device.vendor }} {{ device_profile.device.model }} · {{ device_profile.origin|title }} Profile v{{ device_profile.profile_version }}</span>
+          <small>Firmware checking is managed automatically by this Device Profile.</small>
+          {% if device_profile.firmware.source.url %}<small class="device-profile-source">Source: {{ device_profile.firmware.source.url }}</small>{% endif %}
+        {% endif %}
+      </div>
+      {% if request.query_params.get('firmware_check_error') %}<p class="device-profile-check-error">{{ request.query_params.get('firmware_check_error') }}</p>{% endif %}
+      {% if device %}
+      <div class="firmware-meta-grid">
+        <div><span>Released</span><strong>{{ device.release_date|display_date if device.release_date else '-' }}</strong></div>
+        <div><span>Last Checked</span><strong>{{ device.last_checked or 'Never' }}</strong></div>
+        <div><span>Last Firmware Update</span><strong>{{ device.last_firmware_update or 'Not recorded' }}</strong></div>
+      </div>
+      <div class="firmware-command-row">
+        <button class="button secondary firmware-check-action" type="submit" formaction="/devices/{{ device.id }}/check" formmethod="post">Check Now</button>
+        {% if device.release_notes_url %}<a class="mini-link firmware-link-action" target="_blank" href="{{ device.release_notes_url }}">Open Release Notes ↗</a>{% elif device.firmware_url %}<a class="mini-link firmware-link-action" target="_blank" href="{{ device.firmware_url }}">Open Firmware Page ↗</a>{% endif %}
+        {% if device.latest_firmware and device.latest_firmware != device.current_firmware and device.status=='attention' %}<button class="button firmware-mark-action" type="submit" formaction="/devices/{{ device.id }}/mark-updated" formmethod="post">Mark as Updated</button>{% endif %}
+      </div>
+      {% if device.status=='attention' %}
+      <div class="defer-box">
+        <label>Defer Update Reason<input name="deferred_reason" value="{{ device.deferred_reason if device else '' }}" placeholder="Waiting for bugfixes, compatibility, stable setup..."></label>
+        <input type="hidden" name="deferred_until" value="Next firmware release">
+        <button class="button secondary" type="submit" formaction="/devices/{{ device.id }}/defer" formmethod="post">Defer Update</button>
+      </div>
+      {% elif device.status=='deferred' %}
+      <p class="muted">Deferred version: {{ device.deferred_version or device.latest_firmware or '-' }}<br>Reason: {{ device.deferred_reason or '-' }}<br>Until: {{ device.deferred_until or 'Next firmware release' }}</p>
+      {% endif %}
+      {% endif %}
+      <div id="generic-firmware-config" class="generic-firmware-config" {% if device_profile %}hidden{% endif %}>
+        <label>Firmware URL<input name="firmware_url" value="{{ device.firmware_url if device else '' }}" placeholder="https://..."></label>
+        <label>Firmware Filter / Keyword <span class="hint">optional; model, product key or text that identifies the correct firmware on the page</span><input name="firmware_lookup" value="{{ device.firmware_lookup if device else '' }}" placeholder="e.g. CR4CU220812S11 or exact model name"></label>
+        <p class="muted">Without a Device Profile, Outlaw's Inventory uses the generic parser and this URL/filter to find the latest firmware.</p>
+      </div>
+      <input type="hidden" name="firmware_provider" value="{{ device.firmware_provider if device else 'Auto' }}">
+      <input type="hidden" name="firmware_identifier" value="{{ device.firmware_identifier if device else '' }}">
+      <input type="hidden" name="firmware_source" value="{{ device.firmware_source if device else 'Unknown' }}">
+      <input type="hidden" name="check_method" value="{{ device.check_method if device else 'Not configured' }}">
+      <input type="hidden" name="confidence" value="{{ device.confidence if device else 'Unknown' }}">
+    </details>
+  </div>
+  <div class="card category-section" data-section="firmware">
+    <div class="cardhead inline-head"><h3>Release Notes</h3>{% if device and device.release_notes_url %}<a class="mini-link" target="_blank" href="{{ device.release_notes_url }}">Open ↗</a>{% endif %}</div>
+    <label>Full Release Notes URL<input name="release_notes_url" value="{{ device.release_notes_url if device else '' }}" placeholder="https://..."></label>
+    <label>What's New <span class="hint">max. 3 bullets; one per line</span><textarea name="release_summary" rows="5">{{ device.release_summary if device else '' }}</textarea></label>
+  </div>
+
+  <div class="card wide services-card category-section" data-section="services">
+    <h3>Services</h3>
+    <p class="muted">Choose which Outlaw's Inventory modules apply to this item.</p>
+    <div class="service-grid">
+      <label class="service-item active-service firmware-service">
+        <span><strong>Firmware</strong><small>Version and update checks</small></span>
+        <input type="checkbox" name="auto_check" {% if not device or device.auto_check %}checked{% endif %}>
+      </label>
+      <div class="service-item system-check-service {% if device and device.managed_host %}active-service{% endif %}">
+        <span><strong>System Checks</strong><small>Online status, disk usage and package updates</small></span>
+        {% if device %}
+          <a class="mini-link" href="/system-checks/{{ device.id }}">{{ 'Open' if device.managed_host else 'Set Up' }}</a>
+        {% else %}
+          <span class="service-pending">Not Configured</span>
+        {% endif %}
+      </div>
+      <div class="service-item disabled-service"><span><strong>Notifications</strong><small>Alerts and summaries</small></span><span class="service-pending">Not Configured</span></div>
+    </div>
+  </div>
+  {% if not device %}
+  <div class="card wide initial-attachment-card" data-physical-section>
+    <h3>Initial Attachment <span class="hint">optional</span></h3>
+    <p class="muted">Add a receipt, manual, photo, configuration file or PDF while creating the item.</p>
+    <div class="initial-attachment-grid">
+      <label>Description<input name="attachment_description" placeholder="Purchase receipt, manual, photo..."></label>
+      <label>File<input type="file" name="attachment_file"></label>
+    </div>
+  </div>
+  {% endif %}
+  {% if device and device.category|lower == 'server' %}
+  <div class="card wide category-section device-system-checks-summary" data-section="system_checks">
+    <div class="cardhead">
+      <h3>System Checks</h3>
+      {% if device.managed_host and system_check and system_check.configuration_issue %}
+      <span class="pill attention">Attention</span>
+      {% elif device.managed_host %}
+      <span class="pill online">Enabled</span>
+      {% else %}
+      <span class="pill unknown">Not Configured</span>
+      {% endif %}
+    </div>
+    {% if device.managed_host %}
+    {% if system_check and system_check.configuration_issue %}
+    <div class="managed-config-warning">
+      <div>
+        <strong>{{ system_check.configuration_issue.title }}</strong>
+        <span>{{ system_check.configuration_issue.message }}</span>
+      </div>
+      <a class="button attention-button" href="/devices/{{ device.id }}/host-integration?reconfigure=1&return_to=device">Reconfigure System Checks</a>
+    </div>
+    {% endif %}
+    <div class="device-system-checks-summary-grid">
+      <a href="/system-checks/{{ device.id }}#online-status"><span>Address</span><strong>{{ device.ipv4_address or device.hostname or '-' }}</strong></a>
+      <a href="/system-checks/{{ device.id }}#online-status"><span>Online Status</span><strong>{% if system_check and system_check.ping_check %}{{ 'Online' if system_check.ping_check.status=='online' else system_check.ping_check.status|title }}{% else %}Not Configured{% endif %}</strong></a>
+      <a href="/system-checks/{{ device.id }}#updates"><span>Updates</span><strong>{% if system_check and system_check.updates %}{{ system_check.updates.package_count or 0 }} Available{% else %}Not Configured{% endif %}</strong></a>
+      <a href="/system-checks/{{ device.id }}#uptime"><span>Uptime</span><strong>{{ device_uptime }}</strong></a>
+    </div>
+    <div class="rowactions compact">
+      <a class="button secondary" href="/system-checks/{{ device.id }}">Open Details</a>
+      {% if not (system_check and system_check.configuration_issue) %}
+      <a class="button secondary" href="/devices/{{ device.id }}/host-integration?reconfigure=1&return_to=device">Reconfigure System Checks</a>
+      {% endif %}
+    </div>
+    {% else %}
+    <p class="muted">System Checks are not configured for this server.</p>
+    <div class="rowactions compact"><a class="button secondary" href="/devices/{{ device.id }}/host-integration">Set Up System Checks</a></div>
+    {% endif %}
+  </div>
+  {% endif %}
+  <div class="card wide"><h3>Notes</h3><textarea name="notes" rows="6">{{ device.notes if device else '' }}</textarea></div>
+  {% if not device %}<div class="actions wide form-bottom-actions"><a class="button secondary" href="/devices">Back</a><button class="button" type="submit">{% if request.query_params.get('first_run') %}Next →{% else %}Save{% endif %}</button></div>{% endif %}
+</form>
+{% if device %}
+{% if activity_history %}
+<details class="card full device-history">
+  <summary><span><strong>History</strong><small>Meaningful updates and maintenance activity</small></span><span class="history-summary-actions"><span class="history-count">{{ activity_history|length }}</span><svg class="ui-icon history-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span></summary>
+  <div class="device-activity-list">
+    {% for event in activity_history %}
+    <details><summary><span><strong>{{ event.title }}</strong><small>{{ event.created_at }}{% if event.summary %} · {{ event.summary }}{% endif %}</small></span><svg class="ui-icon history-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></summary>{% if event.result or event.details %}<div class="device-history-event-details">{% if event.result %}<div class="activity-history-meta"><span>Result</span><strong>{% if event.result=='success' %}Successful{% elif event.result=='failed' %}Failed{% else %}{{ event.result|title }}{% endif %}</strong></div>{% endif %}{% if event.details %}<pre class="command-output">{{ event.details }}</pre>{% endif %}</div>{% endif %}</details>
+    {% endfor %}
+  </div>
+</details>
+{% endif %}
+<div class="card full device-attachments-card">
+  <div class="cardhead"><h3>Attachments</h3><span>Receipts, manuals, configs, photos or PDFs.</span></div>
+  <form class="upload" method="post" action="/devices/{{ device.id }}/attachments" enctype="multipart/form-data">
+    <input name="description" placeholder="Description, e.g. Purchase receipt, Manual, Config backup">
+    <input type="file" name="file" required>
+    <button class="button secondary icon-button"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M5 20h14"/></svg><span>Upload</span></button>
+  </form>
+  {% if attachments|length == 0 %}<div class="empty empty-with-icon"><svg class="ui-icon empty-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg><span>No attachments.</span></div>{% else %}
+  <ul class="attachments">{% for a in attachments %}<li><div><strong>{{ a.description or 'Attachment' }}</strong><br><a href="/attachments/{{ a.id }}">{{ a.original_name }}</a><small>{{ a.created_at }}</small></div><form method="post" action="/attachments/{{ a.id }}/delete"><button>Delete</button></form></li>{% endfor %}</ul>
+  {% endif %}
+</div>
+<div class="device-bottom-actions"><a class="button secondary" href="/devices">Back</a><div class="device-bottom-actions-right"><details class="export-menu"><summary class="button secondary">Export</summary><div class="export-menu-popover"><a href="/devices/{{ device.id }}/export"><strong>Device Backup</strong><span>.oi-device</span></a>{% if not device.virtual_device %}<a href="/devices/{{ device.id }}/report.pdf"><strong>Device Report</strong><span>PDF</span></a>{% endif %}</div></details><button class="button" type="submit" form="device-main-form">Save</button><button class="button danger" type="button" data-delete-device-open>Delete</button></div></div>
+{% endif %}
+
+
+<div class="destructive-dialog-backdrop" data-delete-device-dialog hidden>
+  <section class="destructive-dialog" role="dialog" aria-modal="true" aria-labelledby="delete-device-title" aria-describedby="delete-device-description">
+    <div class="destructive-dialog-heading">
+      <h2 id="delete-device-title">Delete Device</h2>
+      <p id="delete-device-description">This action permanently deletes this device and cannot be undone.</p>
+    </div>
+    <div class="destructive-dialog-device">
+      <span>Device</span>
+      <strong>{{ device.display_name or device.name }}</strong>
+    </div>
+    <label class="destructive-confirm-check">
+      <input type="checkbox" data-delete-device-confirm>
+      <span>I understand that this device will be permanently deleted.</span>
+    </label>
+    <div class="destructive-dialog-actions">
+      <button class="button secondary" type="button" data-delete-device-cancel>Cancel</button>
+      <form method="post" action="/devices/{{ device.id }}/delete">
+        <button class="button danger" type="submit" data-delete-device-submit disabled>Delete Device</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<script>
+const deleteDeviceDialog=document.querySelector('[data-delete-device-dialog]');
+const deleteDeviceOpen=document.querySelector('[data-delete-device-open]');
+const deleteDeviceCancel=document.querySelector('[data-delete-device-cancel]');
+const deleteDeviceConfirm=document.querySelector('[data-delete-device-confirm]');
+const deleteDeviceSubmit=document.querySelector('[data-delete-device-submit]');
+function closeDeleteDeviceDialog(){
+  if(!deleteDeviceDialog) return;
+  deleteDeviceDialog.hidden=true;
+  document.body.classList.remove('modal-open');
+  if(deleteDeviceConfirm) deleteDeviceConfirm.checked=false;
+  if(deleteDeviceSubmit) deleteDeviceSubmit.disabled=true;
+  deleteDeviceOpen?.focus();
+}
+deleteDeviceOpen?.addEventListener('click',()=>{
+  if(!deleteDeviceDialog) return;
+  deleteDeviceDialog.hidden=false;
+  document.body.classList.add('modal-open');
+  deleteDeviceConfirm?.focus();
+});
+deleteDeviceCancel?.addEventListener('click',closeDeleteDeviceDialog);
+deleteDeviceConfirm?.addEventListener('change',()=>{
+  if(deleteDeviceSubmit) deleteDeviceSubmit.disabled=!deleteDeviceConfirm.checked;
+});
+deleteDeviceDialog?.addEventListener('click',(event)=>{
+  if(event.target===deleteDeviceDialog) closeDeleteDeviceDialog();
+});
+document.addEventListener('keydown',(event)=>{
+  if(event.key==='Escape'&&deleteDeviceDialog&&!deleteDeviceDialog.hidden) closeDeleteDeviceDialog();
+});
+
+const categoryConfig = {
+{% for c in category_configs %}"{{ c.name|e }}": {ownership: {{ 'true' if c.show_ownership else 'false' }}, firmware: {{ 'true' if c.show_firmware else 'false' }}, network: {{ 'true' if c.show_network else 'false' }}, system_checks: {{ 'true' if (c.show_system_checks or c.show_health or c.show_updates) else 'false' }}},{% endfor %}
+};
+
+function applyVirtualFields(){
+  const category=document.querySelector('select[name="category"]')?.value || '';
+  const toggleWrap=document.querySelector('[data-virtual-toggle]');
+  const toggle=document.querySelector('input[name="virtual_device"]');
+  const isServer=category.trim().toLowerCase()==='server';
+  if(toggleWrap) toggleWrap.hidden=!isServer;
+  if(toggle && !isServer) toggle.checked=false;
+  const isVirtual=!!(isServer&&toggle&&toggle.checked);
+  document.querySelectorAll('[data-physical-fields],[data-physical-field]').forEach(el=>el.hidden=isVirtual);
+  document.querySelectorAll('[data-physical-section]').forEach(el=>{
+    const categoryVisible=el.dataset.categoryVisible!=="false";
+    el.hidden=isVirtual||!categoryVisible;
+  });
+}
+function applyCategorySections(){
+  const select=document.querySelector('select[name="category"]');
+  if(!select) return;
+  const cfg=categoryConfig[select.value] || {ownership:true,firmware:true,network:false,system_checks:false};
+  document.querySelectorAll('[data-section="ownership"]').forEach(el=>{el.dataset.categoryVisible=cfg.ownership?'true':'false'; el.hidden=!cfg.ownership;});
+  document.querySelectorAll('[data-section="firmware"]').forEach(el=>el.hidden=!cfg.firmware);
+  document.querySelectorAll('[data-section="network"]').forEach(el=>el.hidden=!cfg.network);
+  document.querySelectorAll('[data-section="system_checks"]').forEach(el=>el.hidden=!cfg.system_checks);
+  document.querySelectorAll('.service-item').forEach(el=>{
+    const text=(el.querySelector('strong')?.textContent||'').toLowerCase();
+    if(text==='firmware') el.hidden=!cfg.firmware;
+    if(text==='system checks') el.hidden=!cfg.system_checks;
+  });
+  const services=document.querySelector('[data-section="services"]');
+  if(services) services.hidden=!(cfg.firmware||cfg.system_checks);
+  applyVirtualFields();
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const typeInputs=document.querySelectorAll('input[name="item_type"]');
+  typeInputs.forEach(input=>input.addEventListener('change',()=>{
+    const category=document.querySelector('select[name="category"]');
+    if(input.checked && input.value==='server' && category){category.value='Server'; document.querySelector('.virtual-device-option')?.classList.add('visible');}
+    if(input.checked && input.value==='device' && category && category.value.toLowerCase()==='server'){category.value='Other'; document.querySelector('.virtual-device-option')?.classList.remove('visible');}
+    applyCategorySections();
+  }));
+  const selectedType=document.querySelector('input[name="item_type"]:checked'); if(selectedType?.value==='server'){document.querySelector('.virtual-device-option')?.classList.add('visible');}
+  const preset=new URLSearchParams(window.location.search).get('type');
+  if(preset==='server'){
+    const serverType=document.querySelector('input[name="item_type"][value="server"]');
+    if(serverType){serverType.checked=true;serverType.dispatchEvent(new Event('change'));}
+  }
+  const s=document.querySelector('select[name="category"]');
+  if(s) s.addEventListener('change',applyCategorySections);
+  const v=document.querySelector('input[name="virtual_device"]'); if(v) v.addEventListener('change',applyVirtualFields);
+
+  const vendorInput=document.querySelector('input[name="vendor"]');
+  const modelInput=document.querySelector('input[name="model"]');
+  const profileBox=document.getElementById('device-profile-match');
+  let profileTimer;
+  async function checkDeviceProfile(){
+    if(!vendorInput||!modelInput||!profileBox) return;
+    const vendor=vendorInput.value.trim(), model=modelInput.value.trim();
+    if(!vendor||!model){profileBox.hidden=true;profileBox.textContent='';const genericConfig=document.getElementById('generic-firmware-config');if(genericConfig)genericConfig.hidden=false;return;}
+    try{
+      const response=await fetch(`/device-profiles/match?vendor=${encodeURIComponent(vendor)}&model=${encodeURIComponent(model)}`,{headers:{'Accept':'application/json'}});
+      if(!response.ok) throw new Error('profile lookup failed');
+      const result=await response.json();
+      const genericConfig=document.getElementById('generic-firmware-config');
+      if(!result.match){profileBox.hidden=true;profileBox.textContent='';if(genericConfig)genericConfig.hidden=false;return;}
+      const origin=(result.origin||'official').replace(/^./,c=>c.toUpperCase());
+      const escapeProfileText = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      for (const key of ['vendor','model','profile_version','source_url']) result[key] = escapeProfileText(result[key]);
+      profileBox.innerHTML=`<strong>Device Profile found</strong><span>${result.vendor} ${result.model} · ${origin} Profile v${result.profile_version}</span><small>Firmware checking is managed automatically by this Device Profile.</small>${result.source_url?`<small class="device-profile-source">Source: ${result.source_url}</small>`:''}`;
+      profileBox.hidden=false;
+      if(genericConfig)genericConfig.hidden=true;
+    }catch(error){profileBox.hidden=true;profileBox.textContent='';const genericConfig=document.getElementById('generic-firmware-config');if(genericConfig)genericConfig.hidden=false;}
+  }
+  function scheduleProfileCheck(){clearTimeout(profileTimer);profileTimer=setTimeout(checkDeviceProfile,350);}
+  vendorInput?.addEventListener('input',scheduleProfileCheck);
+  modelInput?.addEventListener('input',scheduleProfileCheck);
+  if(vendorInput?.value&&modelInput?.value) checkDeviceProfile();
+
+  applyCategorySections();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,7 @@
+{
+  "latest": "1.5.40",
+  "release_date": "2017-11-24",
+  "summary": "Fixed an issue where the screen could blur when scrolling through videos in the Editor.\nFixed an issue where the progress bar displayed incorrectly during firmware updating.\nAdded working frequency and channel settings for the remote controller.\nImproved firmware updating stability.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/phantom_3_se/20171124/Phantom_3_SE_Release_Notes.pdf"
+}

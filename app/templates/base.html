@@ -1,0 +1,98 @@
+{% from "icons.html" import icon %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outlaw's Inventory</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css?v={{ app_version }}">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body class="icons-on">
+<button class="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+<div class="mobile-nav-backdrop" hidden></div>
+<div class="shell">
+  <aside id="primary-navigation" class="sidebar">
+    <div class="brand">
+      <div class="brand-text"><strong>Outlaw's Inventory</strong><span>Know. Your. Gear.</span></div>
+    </div>
+    <nav>
+      <a class="{{ 'active' if page=='dashboard' else '' }}" href="/">{{ icon('dashboard', 'nav-icon') }}<span>Dashboard</span></a>
+      <a class="{{ 'active' if page=='devices' else '' }}" href="/devices">{{ icon('inventory', 'nav-icon') }}<span>Inventory</span></a>
+      <a class="{{ 'active' if page=='firmware' else '' }}" href="/firmware">{{ icon('firmware', 'nav-icon') }}<span>Firmware</span></a>
+      <a class="{{ 'active' if page=='system_checks' else '' }}" href="/system-checks">{{ icon('system-checks', 'nav-icon') }}<span>System Checks</span></a>
+      <a class="{{ 'active' if page=='settings' else '' }}" href="/settings">{{ icon('settings', 'nav-icon') }}<span>Settings</span></a>
+    </nav>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div><h1>{% block title %}{% endblock %}</h1><p>{% block subtitle %}{% endblock %}</p></div>
+      <div class="topbar-actions">
+        {% if current_user %}
+        <details class="user-menu">
+          <summary>
+            <span class="user-avatar user-avatar-header" aria-hidden="true">
+              {% if current_user['avatar_filename'] %}<img src="/profile/avatar?v={{ current_user['avatar_updated_at']|urlencode }}" alt="">{% else %}<span>{{ current_user_initials }}</span>{% endif %}
+            </span>
+            <span class="user-menu-name">{{ current_user['display_name'] or current_user['username'] }}</span>
+          </summary>
+          <div class="user-menu-panel">
+            <div class="user-menu-identity">
+              <span class="user-avatar user-avatar-menu" aria-hidden="true">
+                {% if current_user['avatar_filename'] %}<img src="/profile/avatar?v={{ current_user['avatar_updated_at']|urlencode }}" alt="">{% else %}<span>{{ current_user_initials }}</span>{% endif %}
+              </span>
+              <div><strong>{{ current_user['display_name'] or current_user['username'] }}</strong><small>{{ current_user['username'] }} · {{ 'Administrator' if current_user['role']=='admin' else 'User' }}</small></div>
+            </div>
+            <a href="/settings?account_open=1">Settings</a>
+            <form method="post" action="/logout"><button type="submit">Sign Out</button></form>
+          </div>
+        </details>
+        {% endif %}
+      </div>
+    </header>
+    {% block content %}{% endblock %}
+  </main>
+</div>
+<script>
+window.OUTLAWS_CSRF={{ csrf_token|tojson }};
+(() => {
+  const button = document.querySelector('.mobile-menu-button');
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.mobile-nav-backdrop');
+  if (button && sidebar && backdrop) {
+    const closeMenu = () => {
+      document.body.classList.remove('mobile-nav-open');
+      button.setAttribute('aria-expanded', 'false');
+      backdrop.hidden = true;
+    };
+    button.addEventListener('click', () => {
+      const opening = !document.body.classList.contains('mobile-nav-open');
+      document.body.classList.toggle('mobile-nav-open', opening);
+      button.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      backdrop.hidden = !opening;
+    });
+    backdrop.addEventListener('click', closeMenu);
+    sidebar.querySelectorAll('a:not(.disabled)').forEach(link => link.addEventListener('click', closeMenu));
+    window.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 700) closeMenu(); });
+  }
+
+  const applyMobileTableLabels = () => {
+    document.querySelectorAll('table').forEach(table => {
+      const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+      if (!headers.length) return;
+      if (table.dataset.uiCompactMobile === 'true') return;
+      table.classList.add('mobile-card-table');
+      table.querySelectorAll('tbody tr').forEach(row => {
+        Array.from(row.children).forEach((cell, index) => {
+          if (cell.tagName === 'TD' && !cell.dataset.label) cell.dataset.label = headers[index] || '';
+        });
+      });
+    });
+  };
+  applyMobileTableLabels();
+})();
+</script>
+</body>
+</html>

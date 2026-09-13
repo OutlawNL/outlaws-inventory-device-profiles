@@ -1,0 +1,7 @@
+{
+  "latest": "01.00.0400",
+  "release_date": "2024-11-06",
+  "summary": "Added support for DJI Goggles N3.\nAdded liveview stabilization when used with DJI Goggles N3 or DJI Goggles 3.\nAdded support for vertical shooting. Select the corresponding ratio in resolution settings for this mode.\nIn Mobile App Control, added support for manual control in full screen and control stick mode switch in Control settings.\nAdded support for audio recording via app when using the DJI RC-N3 or DJI RC-N2 remote controller Go to › Camera to enable the function.\nSupported to set the noise reduction effect for audio recording to a natural style to preserve ambient sounds.\nOptimized positioning performance and increased flight speed during tracking.\nFixed some known issues.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/neo/20241106/DJI_Neo_Release_Notes_en_20241106_.pdf"
+}

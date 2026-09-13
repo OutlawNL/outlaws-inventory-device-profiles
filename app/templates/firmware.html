@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Firmware{% endblock %}
+{% block subtitle %}Check devices for firmware updates.{% endblock %}
+{% block content %}
+<div class="page-actions">
+  <div class="summary-inline"><span>{{ devices|length }}</span> firmware item{% if devices|length != 1 %}s{% endif %}</div>
+  <div class="rowactions compact"><form id="firmware-check-all-form" method="post" action="/firmware/check-all"><button id="firmware-check-all-button" class="button secondary" type="submit" data-running="{{ 'true' if check_all_running else 'false' }}"{% if check_all_running %} disabled{% endif %}>{% if check_all_running %}<span class="button-spinner" aria-hidden="true"></span>Checking…{% else %}Check All{% endif %}</button></form></div>
+</div>
+<div class="card full">
+  <table class="firmware-table" data-ui-table="firmware-overview">
+    <thead><tr><th>Device</th><th>Current</th><th>Latest</th><th>Released</th><th>Last Checked</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+    {% for d in devices %}
+      <tr>
+        <td><a class="device-link" href="/devices/{{ d.id }}#firmware">{{ d.display_name or d.name }}</a></td>
+        <td>{{ d.current_firmware or '-' }}</td>
+        <td>{{ (d.latest_firmware|effective_latest(d.latest_firmware_override)) or '-' }}</td>
+        <td>{{ d.release_date|display_date if d.release_date else '-' }}</td>
+        <td>{{ d.last_checked or '-' }}</td>
+        <td><a class="firmware-status-link" href="/devices/{{ d.id }}#firmware" aria-label="Open firmware details for {{ d.display_name or d.name }}"><span class="pill {{ d.status or 'unknown' }}">{{ d.status|status_label }}</span></a></td>
+        <td>{% set effective_latest = d.latest_firmware|effective_latest(d.latest_firmware_override) %}{% if effective_latest and effective_latest != d.current_firmware and d.status=='attention' %}<form method="post" action="/devices/{{ d.id }}/mark-updated"><input type="hidden" name="return_to" value="firmware"><button class="mini row-action">Mark Updated</button></form>{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <table class="firmware-mobile-table" data-ui-compact-mobile="true" aria-label="Firmware mobile overview">
+    <thead><tr><th>Device</th><th>Status</th></tr></thead>
+    <tbody>
+    {% for d in devices %}
+      <tr>
+        <td><a class="device-link" href="/devices/{{ d.id }}#firmware">{{ d.display_name or d.name }}</a></td>
+        <td><a class="firmware-status-link" href="/devices/{{ d.id }}#firmware" aria-label="Open firmware details for {{ d.display_name or d.name }}"><span class="pill {{ d.status or 'unknown' }}">{{ d.status|status_label }}</span></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<script>
+(() => {
+  const form = document.getElementById('firmware-check-all-form');
+  const button = document.getElementById('firmware-check-all-button');
+  if (!form || !button) return;
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    button.disabled = true;
+    button.dataset.running = 'true';
+    button.innerHTML = '<span class="button-spinner" aria-hidden="true"></span>Checking…';
+    fetch(form.action, {method:'POST', credentials:'same-origin', headers:{'X-Requested-With':'fetch'}})
+      .then(response => { if(!response.ok) throw new Error(`HTTP ${response.status}`); poll(); })
+      .catch(() => { window.location.replace('/firmware'); });
+  });
+
+  async function poll() {
+    try {
+      const response = await fetch(`/firmware/check-all/status?_=${Date.now()}`, {cache:'no-store', credentials:'same-origin'});
+      if (!response.ok) return;
+      const state = await response.json();
+      if (state.running) {
+        button.disabled = true;
+        button.dataset.running = 'true';
+        button.innerHTML = '<span class="button-spinner" aria-hidden="true"></span>Checking…';
+        return;
+      }
+      if (button.dataset.running === 'true') {
+        button.dataset.running = 'false';
+        window.location.replace('/firmware');
+      }
+    } catch (_) {
+      // Keep the current visual state; the next poll retries.
+    }
+  }
+
+  if (button.dataset.running === 'true') poll();
+  window.setInterval(poll, 1500);
+})();
+</script>
+{% endblock %}

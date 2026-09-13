@@ -1,0 +1,7 @@
+{
+  "latest": "01.00.00.90",
+  "release_date": "2021-02-01",
+  "summary": "Added support for AI Life when using a Huawei phone (requires EMUI v11.0 or above and AI Life v11.1.0.302 or above). If no prompt appears after updating the firmware, the system of the phone needs to be updated to EMUI v11.0 or above.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/Osmo_Mobile_3/20210201/Osmo_Mobile_3_Release_Notes_en.pdf"
+}

@@ -1,0 +1,7 @@
+{
+  "latest": "01.00.01.56",
+  "release_date": "2025-03-12",
+  "summary": "Fixed some known issues. Firmware Update: RS Intelligent Tracking Module needs to be connected to a computer for firmware update. 1. Visit https://www.dji.com/rs-4-mini/downloads and download the corresponding firmware package. 2. Use the included USB-C cable to connect the tracking module to the computer. 3. Place the downloaded firmware package (file ending in .bin) in the root directory of the tracking module. 4. Once copied, disconnect the USB connection. * * Eject the \"NO NAME\" USB drive after copying is complete on the Mac. 5. Reconnect the tracking module to the computer. The tracking module will automatically start the update process. The status indicator will blink red and green alternately. DO NOT disconnect the connection during the process. 6. The status indicator remaining solid red indicates that the update is complete. Verify the firmware version in the \"product_version\" file in the root directory to ensure the update was successful.\nIf the update fails, re-download the firmware package and retry the steps above.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/DJI_RS4_Mini/20250312/20250312DJI_RS_Intelligent_Tracking_module_U2_Release_Notes_EN.pdf"
+}

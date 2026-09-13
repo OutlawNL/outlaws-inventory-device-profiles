@@ -1,0 +1,7 @@
+{
+  "latest": "01.01.71.31",
+  "release_date": "2026-09-03",
+  "summary": "Added Camera Cloud Service, supporting uploading camera files to cloud storage. The supported cloud services vary depending on country/region and mobile device type. Currently supported services include Google Drive, OneDrive, and the user's own NAS. Supported services may be adjusted in future updates.\nAdded joystick support for 45° diagonal gimbal movement.\nUpdated the D-Log to Rec.709 and D-Log to Rec.709 vivid LUT files to v2.0, improving the accuracy and consistency of color reproduction.\nAdded a D-Log 10-bit color mode for slow motion. It is recommended to use with the updated v2.0 LUT files.\nOptimized the interaction experience and image quality in certain scenarios.\nFixed some known issues.",
+  "error": "",
+  "url": "https://terra-1-g.djicdn.com/6189933d30024fc1b331bffe4fe41837/osmo-pocket-4p/RN/20260903/DJI_Osmo_Pocket_4P_Release_Notes_en.pdf"
+}

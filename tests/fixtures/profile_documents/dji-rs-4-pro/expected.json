@@ -1,0 +1,7 @@
+{
+  "url": "https://dl.djicdn.com/downloads/DJI_RS_4_Pro/20260121/DJI_RS_4_Pro_Release_Notes_en20260121.pdf",
+  "latest": "01.06.00.00",
+  "release_date": "2026-01-21",
+  "summary": "Added support for DJI RS Enhanced Intelligent Tracking Module (firmware V01.00.03.07 or later required).\nAdded support for Panasonic S1RM2, S1M2, and S1M2ES Bluetooth control. For details, refer to the camera compatibility list on the official website.\nOptimized the zoom lag issue when controlling Sony cameras via Bluetooth",
+  "error": ""
+}

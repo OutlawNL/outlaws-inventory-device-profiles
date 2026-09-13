@@ -1,0 +1,7 @@
+{
+  "latest": "01.03.14.04",
+  "release_date": "2026-09-08",
+  "summary": "Added HDR 10-bit color mode, supporting 10-bit high dynamic range video capture. Play back footage on a device that supports high dynamic range display for the best viewing experience.\nAdded support for HDR Enhancement in Photo mode. Play back footage on a device that supports high dynamic range display for the best viewing experience.\nAdded a D-Log 10-bit color mode for slow motion.\nAdded joystick support for 45° diagonal gimbal movement.\nOptimized the interaction experience and image quality in certain scenarios.\nFixed some known issues.",
+  "error": "",
+  "url": "https://terra-1-g.djicdn.com/6189933d30024fc1b331bffe4fe41837/osmo-pocket-4/RN/20260908/DJI_Osmo_Pocket_4_Release_Notes_en.pdf"
+}

@@ -1,0 +1,7 @@
+{
+  "latest": "1.11.20",
+  "release_date": "2017-07-06",
+  "summary": "1. Updated No Fly Zone Management. 2. For increased safety, the flight is restricted to a height of 30 m and distance of 50 m when not connected or logged into the app during flight, including DJI GO and all apps compatible with DJI aircraft. 3. Fixed an issue causing occasional ESC self-diagnostic testing failure.",
+  "error": "",
+  "url": "https://dl.djicdn.com/downloads/phantom_3/20170706/Phantom+3+Professional+Release+Notes_.pdf"
+}
