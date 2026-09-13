@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "fujifilm-xf56mmf12-r-wr",
+  "profile_version": 1,
+  "origin": "official",
+  "status": "verified",
+  "updated": "2026-09-13",
+  "device": {
+    "vendor": "Fujifilm",
+    "model": "XF56mmF1.2 R WR",
+    "aliases": [
+      "Fujifilm XF56mmF1.2 R WR",
+      "XF56mmF1.2 R WR"
+    ],
+    "category": "Lens"
+  },
+  "firmware": {
+    "strategy": "html_release",
+    "source": {
+      "type": "html",
+      "url": "https://www.fujifilm-x.com/global/support/download/firmware/lenses/xf56mmf12-r-wr/"
+    },
+    "extraction": {
+      "scope": "first_release_first_page",
+      "version": {
+        "labels": [
+          "Version:"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+)",
+        "group": 1
+      },
+      "release_date": {
+        "labels": [
+          "Last Updated:"
+        ],
+        "formats": [
+          "%m.%d.%Y"
+        ]
+      },
+      "whats_new": {
+        "start_labels": [
+          "What's New"
+        ],
+        "end_labels": [
+          "Notes:"
+        ],
+        "max_items": 10
+      },
+      "html": {
+        "title_selector": ".support-header__name",
+        "header_selector": ".support-header__data",
+        "release_selector": ".accordion-item",
+        "release_version_selector": ".accordion-title",
+        "release_version_pattern": "Ver\\.([0-9]+\\.[0-9]+)",
+        "summary_selector": ".accordion-content > ol > li"
+      }
+    },
+    "validation": {
+      "version_pattern": "[0-9]+\\.[0-9]+",
+      "document_titles": [
+        "XF56mmF1.2 R WR Firmware update"
+      ]
+    }
+  }
+}

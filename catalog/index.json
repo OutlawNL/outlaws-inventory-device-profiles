@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": 8,
-  "generated": "2026-09-12",
+  "catalog_version": 9,
+  "generated": "2026-09-13",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
     {
@@ -2048,6 +2048,726 @@
     },
     {
       "schema_version": 1,
+      "id": "fujifilm-x-a1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-A1",
+        "aliases": [
+          "Fujifilm X-A1",
+          "X-A1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-a1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-a1.json",
+      "sha256": "21b19513701676bc6fe97589382625f3bcb1c47edc9ee8db937f422cf0dba684"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-a10",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-A10",
+        "aliases": [
+          "Fujifilm X-A10",
+          "X-A10"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-a10.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-a10.json",
+      "sha256": "c7c0f2e76eae7bf841a950c8d597a8c0632b1804ea4aafb133fb89f76a099e09"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-a2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-A2",
+        "aliases": [
+          "Fujifilm X-A2",
+          "X-A2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-a2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-a2.json",
+      "sha256": "bf518c7183e43421abcbc6ba65e7bebe569a688a17036425ab035a32cd19bda3"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-a20",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-A20",
+        "aliases": [
+          "Fujifilm X-A20",
+          "X-A20"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-a20.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-a20.json",
+      "sha256": "6e94d3d5bf20ac9626ee36ad21a200692aef80a1c05c803373cd0fb49bbc19f7"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-a3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-A3",
+        "aliases": [
+          "Fujifilm X-A3",
+          "X-A3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-a3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-a3.json",
+      "sha256": "0ffba4f09cc9af498a979a17e5cd20d1fcc1529d360f9bd6dd7b3b8907125a4f"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-a5",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-A5",
+        "aliases": [
+          "Fujifilm X-A5",
+          "X-A5"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-a5.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-a5.json",
+      "sha256": "a3ed805a35279956b1271fa695d40b4a29a6ee7221ca8fb7a01612631e254404"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-a7",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-A7",
+        "aliases": [
+          "Fujifilm X-A7",
+          "X-A7"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-a7.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-a7.json",
+      "sha256": "325eae41e6f86ea95b0918cdaa4561d7a3df0c1e42081f79a40c757fca2f5be3"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-e1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-E1",
+        "aliases": [
+          "Fujifilm X-E1",
+          "X-E1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-e1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-e1.json",
+      "sha256": "9a8a9c414206dc2b3f20e0d256b8c59b4af471b27cbe1dc1209c9a8afb4f69a6"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-e2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-E2",
+        "aliases": [
+          "Fujifilm X-E2",
+          "X-E2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-e2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-e2.json",
+      "sha256": "cd175b3c51fe16bade01d20051b1bed8c2025a14ceddd977181f480ac8d8254b"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-e2s",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-E2S",
+        "aliases": [
+          "Fujifilm X-E2S",
+          "X-E2S"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-e2s.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-e2s.json",
+      "sha256": "a6fc95c2c383073b31f1e0c2a34a1ca2884fca04b43a4958431ecfcdcd9b0f3b"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-e3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-E3",
+        "aliases": [
+          "Fujifilm X-E3",
+          "X-E3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-e3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-e3.json",
+      "sha256": "41bd97ef61620aabaf775f80ce2ffcd78ac6f7736a751abebcc46b5b1dd0d3fd"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-e4",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-E4",
+        "aliases": [
+          "Fujifilm X-E4",
+          "X-E4"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-e4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-e4.json",
+      "sha256": "d6e982e7203496785380317b005984ced9b4ceaf7748ad9a5583e7fe6e4529ab"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-e5",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-E5",
+        "aliases": [
+          "Fujifilm X-E5",
+          "X-E5"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-e5.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-e5.json",
+      "sha256": "1953d0ac271b1b6622cffb0588cf75bfc056211f0c19db121862e2fd289906b5"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-h1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-H1",
+        "aliases": [
+          "Fujifilm X-H1",
+          "X-H1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-h1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-h1.json",
+      "sha256": "b283b45eea25efced26898e71be7c3fb2c1efb3ec6c4bb92773ca8d9c35a5a7d"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-h2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-H2",
+        "aliases": [
+          "Fujifilm X-H2",
+          "X-H2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-h2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-h2.json",
+      "sha256": "c218b3d2d0501344c745ed59ad11c857861df750934af4a6a5216175311adee0"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-h2s",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-H2S",
+        "aliases": [
+          "Fujifilm X-H2S",
+          "X-H2S"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-h2s.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-h2s.json",
+      "sha256": "830e294ed035601ed7de23b6584649020fe5bb9a2dcfd3fecb5217f64441c89f"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-hf1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X half",
+        "aliases": [
+          "Fujifilm X half",
+          "X half"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-hf1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-hf1.json",
+      "sha256": "f5efe3b20502e7ea58b334277128e7665f992e0405efc4d5b14ea5e83d4c5e81"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-m1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-M1",
+        "aliases": [
+          "Fujifilm X-M1",
+          "X-M1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-m1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-m1.json",
+      "sha256": "c36325b996fde52a728b7acdcca11599af910b1ffc74144d0252cb6d850e0c26"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-m5",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-M5",
+        "aliases": [
+          "Fujifilm X-M5",
+          "X-M5"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-m5.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-m5.json",
+      "sha256": "c639a48ca42471c07eb8897792d3a0c5782490345220535249a02a77248d006f"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-pro1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-Pro1",
+        "aliases": [
+          "Fujifilm X-Pro1",
+          "X-Pro1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-pro1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-pro1.json",
+      "sha256": "3cb5bb978989f0d99a6c6fbda2ed3a86ae2413515fbdd9c32a2801060afece45"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-pro2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-Pro2",
+        "aliases": [
+          "Fujifilm X-Pro2",
+          "X-Pro2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-pro2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-pro2.json",
+      "sha256": "0848422284a2739c308edac9d957d386f2862db3113447f1595714475f30c4f7"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-pro3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-Pro3",
+        "aliases": [
+          "Fujifilm X-Pro3",
+          "X-Pro3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-pro3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-pro3.json",
+      "sha256": "7bb314be824126758c3803e7cde05872584cb8bdd081ea9ee9fa2272e56d23bf"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-s1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-S1",
+        "aliases": [
+          "Fujifilm X-S1",
+          "X-S1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-s1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-s1.json",
+      "sha256": "cfd1756b749f092b90da98b7872e1072bb1d9dd8cda6f1f2bc20aa5216813594"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-s10",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-S10",
+        "aliases": [
+          "Fujifilm X-S10",
+          "X-S10"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-s10.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-s10.json",
+      "sha256": "2961ff72773807f437ea3804d51f3c1730955e453b18f9d92cf013991c807e8e"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-s20",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-S20",
+        "aliases": [
+          "Fujifilm X-S20",
+          "X-S20"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-s20.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-s20.json",
+      "sha256": "2d7e6633f806b67e6689ea0ff69be5d54caa5bd770a0eaa607ece7ff64ca9f87"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T1",
+        "aliases": [
+          "Fujifilm X-T1",
+          "X-T1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t1.json",
+      "sha256": "e172a705215d23290383ab026dfdf7db5e7a3c695ccf509e66752ac7a61305c5"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t10",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T10",
+        "aliases": [
+          "Fujifilm X-T10",
+          "X-T10"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t10.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t10.json",
+      "sha256": "ab7c9e542ebca1ec62494818c191ecb04bcef0605403dce9b0060028b86ed6fd"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t100",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T100",
+        "aliases": [
+          "Fujifilm X-T100",
+          "X-T100"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t100.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t100.json",
+      "sha256": "13f89689ccb0403e594b1d39b44fa291d3571fe3b9035e4eadd7c93236c5ffc6"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T2",
+        "aliases": [
+          "Fujifilm X-T2",
+          "X-T2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t2.json",
+      "sha256": "bfb3dceec2948e7b2d1b1dd0ac0abf462992b1dbb4476b3d4e039a073db0ab29"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t20",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T20",
+        "aliases": [
+          "Fujifilm X-T20",
+          "X-T20"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t20.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t20.json",
+      "sha256": "617fd9039369039ca9de53d90e9eef2e1d63d35dce26f6aec1d9be2240de780b"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t200",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T200",
+        "aliases": [
+          "Fujifilm X-T200",
+          "X-T200"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t200.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t200.json",
+      "sha256": "3e80b5db636fa40ed4bffa11bd6d182fb84df851cecef9240f2e932037811746"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T3",
+        "aliases": [
+          "Fujifilm X-T3",
+          "X-T3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t3.json",
+      "sha256": "bde1b9af5ad4a19818bc7aa8b8ea2a6a615e4f2e0bfd35bc0ac8063ddb2457d3"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t30-ii",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T30 II",
+        "aliases": [
+          "Fujifilm X-T30 II",
+          "X-T30 II"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t30-ii.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t30-ii.json",
+      "sha256": "24aff51cbd66af6330990b4ab80694c956a2d582d5394552201900b559dfb53b"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t30-iii",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T30 III",
+        "aliases": [
+          "Fujifilm X-T30 III",
+          "X-T30 III"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t30-iii.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t30-iii.json",
+      "sha256": "b70953532b9270812b5177d2c114ab67af338df034d2e488ca459e988435b503"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t30",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T30",
+        "aliases": [
+          "Fujifilm X-T30",
+          "X-T30"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t30.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t30.json",
+      "sha256": "87005c72c0b16232e33a80ab3d426f3457ce3da4b3edfc76996b238be1968d55"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t4",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T4",
+        "aliases": [
+          "Fujifilm X-T4",
+          "X-T4"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t4.json",
+      "sha256": "10ee01d127a79409aa9aae3a925f0f54ff1bb94c1c66d15322e103bb9b6bd8bf"
+    },
+    {
+      "schema_version": 1,
       "id": "fujifilm-x-t5",
       "profile_version": 1,
       "origin": "official",
@@ -2065,6 +2785,406 @@
       "profile_path": "profiles/fujifilm/x-t5.yaml",
       "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t5.json",
       "sha256": "86b2c4baa946ebc2a893c396f83c54ba12c5bb380af91fa2aa1b165dd5239dee"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t50",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T50",
+        "aliases": [
+          "Fujifilm X-T50",
+          "X-T50"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t50.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t50.json",
+      "sha256": "ec3df84403ec0479b795cefb3d273609c0bc5c7ca6396bc2b6922a3b71e3bf9c"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x10",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X10",
+        "aliases": [
+          "Fujifilm X10",
+          "X10"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x10.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x10.json",
+      "sha256": "8bd4936ac574671fde9e972d9ec0c42470aecf0e1c8621a036dca6715fd48f4d"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x100",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X100",
+        "aliases": [
+          "Fujifilm X100",
+          "X100"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x100.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x100.json",
+      "sha256": "26dd7eece2dae180a4f2885f7716b7edb515e6beffe413bbc3c918dacaad31b6"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x100f",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X100F",
+        "aliases": [
+          "Fujifilm X100F",
+          "X100F"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x100f.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x100f.json",
+      "sha256": "621b4cdb8ae75e5c45afe1bcb76945e18cce4be8486d5b2547c11479c52900b3"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x100s",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X100S",
+        "aliases": [
+          "Fujifilm X100S",
+          "X100S"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x100s.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x100s.json",
+      "sha256": "60847f694eff36e3914427d20449c02c1df3844a9d6c6c6c8aec9637488bb988"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x100t",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X100T",
+        "aliases": [
+          "Fujifilm X100T",
+          "X100T"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x100t.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x100t.json",
+      "sha256": "ec71b75646710cb76a7bbca8e7684a89904cd91317cca8cb712bfed6024e4e93"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x100v",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X100V",
+        "aliases": [
+          "Fujifilm X100V",
+          "X100V"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x100v.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x100v.json",
+      "sha256": "08b197081f375f2f3e0de4e07d456012ba3348a63f0e9d78cb3603afc49e693f"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x100vi",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X100VI",
+        "aliases": [
+          "Fujifilm X100VI",
+          "X100VI"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x100vi.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x100vi.json",
+      "sha256": "f78b036e94c7cb20ea3a29ab955a345ccb14acf80bf3c51e5b4fb2bb18f23f60"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x20",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X20",
+        "aliases": [
+          "Fujifilm X20",
+          "X20"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x20.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x20.json",
+      "sha256": "35d3919b72783ee4fdbb57ec2e1efee8d2da765614c885bb66028da53a3a1a7d"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x30",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X30",
+        "aliases": [
+          "Fujifilm X30",
+          "X30"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x30.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x30.json",
+      "sha256": "cf4a3f8eaed343fe9d8f4c674cf7dff7b2740824ae7bbfcdbca0fbabbade216c"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xc13-33mmf35-63-ois",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XC13-33mmF3.5-6.3 OIS",
+        "aliases": [
+          "Fujifilm XC13-33mmF3.5-6.3 OIS",
+          "XC13-33mmF3.5-6.3 OIS"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xc13-33mmf35-63-ois.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xc13-33mmf35-63-ois.json",
+      "sha256": "14c9f25f59a0a198ce5acd50baaa185103afb31269fb6ec4eced136647cde487"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xc15-45mmf35-56-ois-pz",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XC15-45mmF3.5-5.6 OIS PZ",
+        "aliases": [
+          "Fujifilm XC15-45mmF3.5-5.6 OIS PZ",
+          "XC15-45mmF3.5-5.6 OIS PZ"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xc15-45mmf35-56-ois-pz.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xc15-45mmf35-56-ois-pz.json",
+      "sha256": "c413647a7c167d14ffdb295fc643995f43a9d347b8c72e158fd6266a4d501cbb"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xc16-50mmf35-56-ois-ii",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XC16-50mmF3.5-5.6 OIS II",
+        "aliases": [
+          "Fujifilm XC16-50mmF3.5-5.6 OIS II",
+          "XC16-50mmF3.5-5.6 OIS II"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xc16-50mmf35-56-ois-ii.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xc16-50mmf35-56-ois-ii.json",
+      "sha256": "6a23cf8be8b60118d4e3e69e0a134e31183afc996b2e745de1760caa71584b32"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xc16-50mmf35-56-ois",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XC16-50mmF3.5-5.6 OIS",
+        "aliases": [
+          "Fujifilm XC16-50mmF3.5-5.6 OIS",
+          "XC16-50mmF3.5-5.6 OIS"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xc16-50mmf35-56-ois.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xc16-50mmf35-56-ois.json",
+      "sha256": "a36e1a90299a1884168e523a537a70a84e84fe41003949f8bb27a4bf1ab15b4d"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xc50-230mmf45-67-ois-ii",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XC50-230mmF4.5-6.7 OIS II",
+        "aliases": [
+          "Fujifilm XC50-230mmF4.5-6.7 OIS II",
+          "XC50-230mmF4.5-6.7 OIS II"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xc50-230mmf45-67-ois-ii.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xc50-230mmf45-67-ois-ii.json",
+      "sha256": "9474dd80c3d05269c5577396a7ab8c82f878425dad62affdbd1939626f194d81"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF1",
+        "aliases": [
+          "Fujifilm XF1",
+          "XF1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/xf1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf1.json",
+      "sha256": "7a2146a404016194e14d17463993cd7b213f487c590be60e49d6c782501712c7"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf10-24mmf4-r-ois",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF10-24mmF4 R OIS",
+        "aliases": [
+          "Fujifilm XF10-24mmF4 R OIS",
+          "XF10-24mmF4 R OIS"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf10-24mmf4-r-ois.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf10-24mmf4-r-ois.json",
+      "sha256": "4b53db48c34ecb76f1ed4ce2b65d6c6ed4bb0bd661763fc3185f7600bf1ebd62"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf10",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF10",
+        "aliases": [
+          "Fujifilm XF10",
+          "XF10"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/xf10.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf10.json",
+      "sha256": "869208e582ccaed6bcef8b2fb98460894cb44e93ec668fef28d84b179726daa8"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf100-400mmf45-56-r-lm-ois-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF100-400mmF4.5-5.6 R LM OIS WR",
+        "aliases": [
+          "Fujifilm XF100-400mmF4.5-5.6 R LM OIS WR",
+          "XF100-400mmF4.5-5.6 R LM OIS WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf100-400mmf45-56-r-lm-ois-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf100-400mmf45-56-r-lm-ois-wr.json",
+      "sha256": "60a60886b4bf614a674da6cb1d9ed571df039d2d610129a0afa3c2d022b97100"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf16-55mmf28-r-lm-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF16-55mmF2.8 R LM WR",
+        "aliases": [
+          "Fujifilm XF16-55mmF2.8 R LM WR",
+          "XF16-55mmF2.8 R LM WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf16-55mmf28-r-lm-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf16-55mmf28-r-lm-wr.json",
+      "sha256": "048a9a7561a07ad8df3abc578b684fd42e1631e78bfcbbce04dfcb43f70562a2"
     },
     {
       "schema_version": 1,
@@ -2091,6 +3211,66 @@
     },
     {
       "schema_version": 1,
+      "id": "fujifilm-xf16mmf14-r-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF16mmF1.4 R WR",
+        "aliases": [
+          "Fujifilm XF16mmF1.4 R WR",
+          "XF16mmF1.4 R WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf16mmf14-r-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf16mmf14-r-wr.json",
+      "sha256": "1d39eb9f2c79fa1aa93247ebf2bbd6c344a4dc7c332ad3eb4e50c3d1c054e065"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf18-120mmf4-lm-pz-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF18-120mmF4 LM PZ WR",
+        "aliases": [
+          "Fujifilm XF18-120mmF4 LM PZ WR",
+          "XF18-120mmF4 LM PZ WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf18-120mmf4-lm-pz-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf18-120mmf4-lm-pz-wr.json",
+      "sha256": "7d68614b9909c9d2772c9689f854313dbae8b62e8e6090c3624608632aba0ea3"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf18-135mmf35-56-r-lm-ois-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF18-135mmF3.5-5.6 R LM OIS WR",
+        "aliases": [
+          "Fujifilm XF18-135mmF3.5-5.6 R LM OIS WR",
+          "XF18-135mmF3.5-5.6 R LM OIS WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf18-135mmf35-56-r-lm-ois-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf18-135mmf35-56-r-lm-ois-wr.json",
+      "sha256": "e887b66460bad04ca02e6618ca873e16b2caf13e8d4ca790220c03acc18b3a12"
+    },
+    {
+      "schema_version": 1,
       "id": "fujifilm-xf18-55mmf28-4-r-lm-ois",
       "profile_version": 1,
       "origin": "official",
@@ -2111,6 +3291,326 @@
       "profile_path": "profiles/fujifilm/xf18-55mmf28-4-r-lm-ois.yaml",
       "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf18-55mmf28-4-r-lm-ois.json",
       "sha256": "3906fcd6067fcc5b45141984f5cc2a5cbcae256dd0180e811c6f4751586f884f"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf18mmf2-r",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF18mmF2 R",
+        "aliases": [
+          "Fujifilm XF18mmF2 R",
+          "XF18mmF2 R"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf18mmf2-r.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf18mmf2-r.json",
+      "sha256": "3ac3a3e455800c3817ad33b4ad8ab7313e7b3affd1d5ef8e7677271a80b45fe5"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf200mmf2-r-lm-ois-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF200mmF2 R LM OIS WR",
+        "aliases": [
+          "Fujifilm XF200mmF2 R LM OIS WR",
+          "XF200mmF2 R LM OIS WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf200mmf2-r-lm-ois-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf200mmf2-r-lm-ois-wr.json",
+      "sha256": "6b19cce16ee4ec2f3e695f880bc31a341c8a2994a388befdcaf340f4e2446dd8"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf23mmf14-r",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF23mmF1.4 R",
+        "aliases": [
+          "Fujifilm XF23mmF1.4 R",
+          "XF23mmF1.4 R"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf23mmf14-r.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf23mmf14-r.json",
+      "sha256": "5a46b2312ef0e4db7091d0724deccc7de9f2c70bd7a65d9cb3ed0ad1c6ab7023"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf27mmf28",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF27mmF2.8",
+        "aliases": [
+          "Fujifilm XF27mmF2.8",
+          "XF27mmF2.8"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf27mmf28.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf27mmf28.json",
+      "sha256": "2c6fb757fadec5621aa0f4b2d7ec890b0615fc15af03988c0867ef9d2cbc7e64"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf35mmf14-r",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF35mmF1.4 R",
+        "aliases": [
+          "Fujifilm XF35mmF1.4 R",
+          "XF35mmF1.4 R"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf35mmf14-r.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf35mmf14-r.json",
+      "sha256": "ff2f387d79c91b9e4177aa7cb9b49989d37e622db73b7f2da065324168773f87"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf50-140mmf28-r-lm-ois-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF50-140mmF2.8 R LM OIS WR",
+        "aliases": [
+          "Fujifilm XF50-140mmF2.8 R LM OIS WR",
+          "XF50-140mmF2.8 R LM OIS WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf50-140mmf28-r-lm-ois-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf50-140mmf28-r-lm-ois-wr.json",
+      "sha256": "c1f6f04dec7cd395581274227adae0b3f647228748777f74caac428162d151df"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf500mmf56-r-lm-ois-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF500mmF5.6 R LM OIS WR",
+        "aliases": [
+          "Fujifilm XF500mmF5.6 R LM OIS WR",
+          "XF500mmF5.6 R LM OIS WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf500mmf56-r-lm-ois-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf500mmf56-r-lm-ois-wr.json",
+      "sha256": "3ac20ce668f418a9153c6e108607085244a9e484a33d4b4aa329639af93cf24d"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf55-200mmf35-48-r-lm-ois",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF55-200mmF3.5-4.8 R LM OIS",
+        "aliases": [
+          "Fujifilm XF55-200mmF3.5-4.8 R LM OIS",
+          "XF55-200mmF3.5-4.8 R LM OIS"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf55-200mmf35-48-r-lm-ois.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf55-200mmf35-48-r-lm-ois.json",
+      "sha256": "d58967c62331b20f2bc0018e737c9e9b83159749a81a5becce19dc26e2af4f7f"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf56mmf12-r-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF56mmF1.2 R WR",
+        "aliases": [
+          "Fujifilm XF56mmF1.2 R WR",
+          "XF56mmF1.2 R WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf56mmf12-r-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf56mmf12-r-wr.json",
+      "sha256": "ca7cf77e9bb5dafb44397645dcfb2a3758c94915645db4281f9cd1cc33d3eb09"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf60mmf24-r-macro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF60mmF2.4 R Macro",
+        "aliases": [
+          "Fujifilm XF60mmF2.4 R Macro",
+          "XF60mmF2.4 R Macro"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf60mmf24-r-macro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf60mmf24-r-macro.json",
+      "sha256": "9d778636f8bd459cb2291aeb22e22fbcd9b20d6d476dcc2041de89110ea29195"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf70-300mmf4-56-r-lm-ois-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF70-300mmF4-5.6 R LM OIS WR",
+        "aliases": [
+          "Fujifilm XF70-300mmF4-5.6 R LM OIS WR",
+          "XF70-300mmF4-5.6 R LM OIS WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf70-300mmf4-56-r-lm-ois-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf70-300mmf4-56-r-lm-ois-wr.json",
+      "sha256": "9d4720558014ca4814b65eef9588d587ed9cf4690b1e02447041ffe9b7d7b69b"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf8-16mmf28-r-lm-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF8-16mmF2.8 R LM WR",
+        "aliases": [
+          "Fujifilm XF8-16mmF2.8 R LM WR",
+          "XF8-16mmF2.8 R LM WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf8-16mmf28-r-lm-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf8-16mmf28-r-lm-wr.json",
+      "sha256": "688ea93ebef04afd27d298cb19341fed1ba300019547cd20ff1d1cde1ae84330"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf80mmf28-r-lm-ois-wr-macro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF80mmF2.8 R LM OIS WR Macro",
+        "aliases": [
+          "Fujifilm XF80mmF2.8 R LM OIS WR Macro",
+          "XF80mmF2.8 R LM OIS WR Macro"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf80mmf28-r-lm-ois-wr-macro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf80mmf28-r-lm-ois-wr-macro.json",
+      "sha256": "81d4e4ac3802561ef2b343626103e50e20e0ecc3f72f5aaa18aa2664383b6bf3"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf90mmf2-r-lm-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF90mmF2 R LM WR",
+        "aliases": [
+          "Fujifilm XF90mmF2 R LM WR",
+          "XF90mmF2 R LM WR"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf90mmf2-r-lm-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf90mmf2-r-lm-wr.json",
+      "sha256": "44c20bedb58bb91ee03487ab32cf94865176ae025b60aeb34166e19a76dee72f"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xq1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XQ1",
+        "aliases": [
+          "Fujifilm XQ1",
+          "XQ1"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/xq1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xq1.json",
+      "sha256": "c659f03475e56ac8ce89999b9f86b46e662f83a55aadcea86f75c8ff1efc2373"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xq2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-13",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XQ2",
+        "aliases": [
+          "Fujifilm XQ2",
+          "XQ2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/xq2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xq2.json",
+      "sha256": "a1f9ba6a8f523d3e16240c8356f462bf5502fba8e4e24c2161c27fcb131cae3b"
     }
   ]
 }

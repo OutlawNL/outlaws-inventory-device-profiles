@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "fujifilm-x10",
+  "profile_version": 1,
+  "origin": "official",
+  "status": "verified",
+  "updated": "2026-09-13",
+  "device": {
+    "vendor": "Fujifilm",
+    "model": "X10",
+    "aliases": [
+      "Fujifilm X10",
+      "X10"
+    ],
+    "category": "Camera"
+  },
+  "firmware": {
+    "strategy": "html_release",
+    "source": {
+      "type": "html",
+      "url": "https://www.fujifilm-x.com/global/support/download/firmware/cameras/x10/"
+    },
+    "extraction": {
+      "scope": "first_release_first_page",
+      "version": {
+        "labels": [
+          "Version:"
+        ],
+        "pattern": "([0-9]+\\.[0-9]+)",
+        "group": 1
+      },
+      "release_date": {
+        "labels": [
+          "Last Updated:"
+        ],
+        "formats": [
+          "%m.%d.%Y"
+        ]
+      },
+      "whats_new": {
+        "start_labels": [
+          "What's New"
+        ],
+        "end_labels": [
+          "Notes:"
+        ],
+        "max_items": 10
+      },
+      "html": {
+        "title_selector": ".support-header__name",
+        "header_selector": ".support-header__data",
+        "release_selector": ".accordion-item",
+        "release_version_selector": ".accordion-title",
+        "release_version_pattern": "Ver\\.([0-9]+\\.[0-9]+)",
+        "summary_selector": ".accordion-content > ol > li"
+      }
+    },
+    "validation": {
+      "version_pattern": "[0-9]+\\.[0-9]+",
+      "document_titles": [
+        "X10 Firmware update"
+      ]
+    }
+  }
+}

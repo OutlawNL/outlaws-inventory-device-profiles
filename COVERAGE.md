@@ -1,6 +1,6 @@
-# Device Profile coverage — 12 September 2026
+# Device Profile coverage — 13 September 2026
 
-Catalog v6 contains 109 profiles: 106 DJI and three Fujifilm. This is a reviewed consumer/hobbyist scope, not a claim to cover every DJI product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+Catalog v9 contains 184 profiles: 106 DJI and 78 Fujifilm X-system products. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
 
 99 consumer download pages and 109 linked Release Notes PDFs were retrieved from DJI's public download index. The catalog covers products with verified source discovery, device-specific extraction, release dates and release details, including inexpensive legacy additions (Phantom and original Osmo).
 
@@ -12,7 +12,15 @@ Catalog v6 contains 109 profiles: 106 DJI and three Fujifilm. This is a reviewed
 - A product-specific Release Notes page is the declared source, not a guarantee that every DJI page is mutually consistent. A related product can list a newer accessory version. Values are never combined across documents; a detected version below the installed version remains Unknown under the existing app comparison policy.
 - Fujifilm FinePix S200EXR: exact user-confirmed model. The official product site lists it as discontinued and provides manuals, but no authoritative latest-firmware page/version was confirmed in this review. Do not use F200EXR or S205EXR data. Preserve existing lifecycle/manual values.
 - Fujifilm XF150–600mmF5.6–8 R LM OIS WR: no model-specific firmware release found in the reviewed lens firmware index. User reports baseline 1.0. This is not recorded as a manufacturer-confirmed latest version. Existing explicit overrides remain intact.
+- Fujifilm GFX, GF and ETERNA are deliberately deferred. They can be added later from their own official pages without changing the app or the X-system profiles.
+- Fujifilm X70 and XF35mmF2 R WR are also deferred: their header version and date were present, but the detail pages did not expose an unambiguous release section for a trustworthy release summary. They are not guessed from header-only data.
 - Older devices are included when their official documents fit the verified rules with little additional work. No fixed age cut-off or inferred support-end date is applied.
+
+## Fujifilm X-system scope added in v9
+
+The Fujifilm camera and lens firmware indexes were used to discover product pages. Each included profile is device-specific and reads its own official detail page at check time. The release adds 50 cameras and 25 XF/XC lenses; together with the existing X-T5, XF16–80 and XF18–55 profiles, this gives 51 cameras and 27 lenses.
+
+Included camera families: X-H, X-Pro, X-T, X-S, X-E, X-M, X-A, X100, XQ and other fixed-lens X products listed by Fujifilm. Included lenses: every cleanly extractable XF or XC X-mount lens from the reviewed official firmware index. The exact runtime list is in `catalog/index.json`.
 
 ## Verified catalog entries
 
