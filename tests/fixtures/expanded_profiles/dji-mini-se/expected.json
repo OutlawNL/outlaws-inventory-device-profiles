@@ -1,7 +1,0 @@
-{
-  "latest": "01.01.0000",
-  "release_date": "2021-06-30",
-  "summary": "Added Flyaway Coverage in DJI Care Refresh series service (requires remote controller firmware v01.00.0060 or later).\nImproved flight stability and greatly reduced quantity of compass calibration prompts.\nOptimized gimbal FPV mode to improve flying experience.\nOptimized logic for Return to Home (RTH). The default RTH altitude is adjusted to 100 m.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/mini-se/20210630/DJI_Mini_SE_Release_Notes_EN.pdf"
-}

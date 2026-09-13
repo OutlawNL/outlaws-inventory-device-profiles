@@ -1,7 +1,0 @@
-{
-  "latest": "01.00.03.60",
-  "release_date": "2021-12-08",
-  "summary": "Enlarged controllable tilt angle for shooting from lower position.\nOptimized gimbal stabilization in certain scenarios.\nFixed occasional issue: gimbal did not rotate when recording pano.\nFixed some minor bugs.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/DJI_OM_5/20211208/DJI_OM_5_Release_Notes_en.pdf"
-}

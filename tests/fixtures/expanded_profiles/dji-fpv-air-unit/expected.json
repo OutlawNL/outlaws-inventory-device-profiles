@@ -1,7 +1,0 @@
-{
-  "latest": "01.01.00.00",
-  "release_date": "2022-12-08",
-  "summary": "Added support to use with DJl Goggles 2 (recording from the air unit is currently not supported).\nAdded support to use with DJl FPV Remote Controller 2.\nAdded support to use Canvas Mode. This function is only supported when the air unit is used with DJI Goggles 2. Refer to the Canvas Mode section of the User Manual to enable OSD and set PID parameters in Canvas Mode. Notice:\nAfter updating, the air unit will not support DJI Goggles V2/V1 and the DJI FPV remote controller. When using DJI Goggles V2/V1 and the DJI FPV remote controller, downgrade the air unit to v01.00.06.08.\nRestart the air unit, goggles, and remote controller once the update is complete.\nIf the firmware update fails, restart the device and DJI Assistant 2 (Consumer Drones Series), and try updating again.\nUpdate the Air Unit (Lite) when there is good ventilation. Make sure that both the goggles and remote controller are powered off before updating the Air Unit (Lite). DO NOT touch the Air Unit (Lite) during update since the temperature rises. If update fails, wait for the Air Unit (Lite) to cool down and try to update again.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/DJI_Digital_FPV_System/20221208/DJI_Digital_FPV_System_Release_Notes_EN.pdf"
-}

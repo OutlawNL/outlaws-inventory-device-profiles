@@ -1,0 +1,2116 @@
+{
+  "schema_version": 1,
+  "catalog_version": 8,
+  "generated": "2026-09-12",
+  "repository": "OutlawNL/outlaws-inventory-device-profiles",
+  "profiles": [
+    {
+      "schema_version": 1,
+      "id": "dji-action-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Action 2",
+        "aliases": [
+          "DJI Action 2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/action-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-action-2.json",
+      "sha256": "c95914f0c7a4ea5aae585377c1c14e8cea2ae1ce932994b04e77a444a58f11a1"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-air-2s",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Air 2S",
+        "aliases": [
+          "DJI Air 2S"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/air-2s.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-air-2s.json",
+      "sha256": "1d1b1b539fb7f0ca08635aa09764e3d359fda420459455d72e94879afd28b3c5"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-air-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Air 3",
+        "aliases": [
+          "DJI Air 3"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/air-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-air-3.json",
+      "sha256": "33d52cf7310592c538ca8700ece8e84c990d5dea070bf5d13cf95d08a9ba5f10"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-air-3s",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Air 3S",
+        "aliases": [
+          "DJI Air 3S"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/air-3s.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-air-3s.json",
+      "sha256": "6aa504d3696bb376dddc2ea3e090015303b305bd7d3e180001bb70ecab9d8b85"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-avata-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Avata 2",
+        "aliases": [
+          "DJI Avata 2"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/avata-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-avata-2.json",
+      "sha256": "3f132a7a593918e3752a151de2682851bbbade350030c62f2f6296f9591e60ff"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-avata-360",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Avata 360",
+        "aliases": [
+          "DJI Avata 360"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/avata-360.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-avata-360.json",
+      "sha256": "836425b06fd7d3ca31da7e32fc07f74904ba4c8dd5f73db9317fdd507f77751b"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-avata",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Avata",
+        "aliases": [
+          "DJI Avata"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/avata.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-avata.json",
+      "sha256": "fa32c42e4e029a56d8e434245a15e90ebb6c61d6f78a36c402188a80ccbc13c7"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-flip",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Flip",
+        "aliases": [
+          "DJI Flip"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/flip.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-flip.json",
+      "sha256": "1610d03c4778ce0d631bb81bf0d77be30615a53ba1d95175ed5b121d8f58a7fd"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-fpv-air-unit",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "FPV Air Unit",
+        "aliases": [
+          "DJI FPV Air Unit",
+          "DJI Digital FPV Air Unit"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/fpv-air-unit.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-fpv-air-unit.json",
+      "sha256": "833f604407d07b11e8843449ff8694251e1e8534572d9cd92a34dfcc17c9aa57"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-fpv-remote-controller-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "FPV Remote Controller 3",
+        "aliases": [
+          "DJI FPV Remote Controller 3"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/fpv-remote-controller-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-fpv-remote-controller-3.json",
+      "sha256": "12fdde4bf2d0472a95f9455eac9b701f13a065d446d0a6b6a0e5fd05e643b430"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-fpv",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "FPV",
+        "aliases": [
+          "DJI FPV"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/fpv.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-fpv.json",
+      "sha256": "8928967338655ff41095048ecd0987ba51c509a0423cb15a21e8e1e9f46591b9"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-goggles-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Goggles 2",
+        "aliases": [
+          "DJI Goggles 2"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/goggles-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-goggles-2.json",
+      "sha256": "8f08e1b700e8fad4e4f871fb3391e3a983be79db322dacfcc8c521ea62eca611"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-goggles-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Goggles 3",
+        "aliases": [
+          "DJI Goggles 3"
+        ],
+        "category": "FPV Goggles"
+      },
+      "profile_path": "profiles/dji/goggles-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-goggles-3.json",
+      "sha256": "76f11531047d1087df5bb04aecd1956245bd54a0a2ed5d8ea8cb643ec5d0ba5e"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-goggles-integra",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Goggles Integra",
+        "aliases": [
+          "DJI Goggles Integra"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/goggles-integra.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-goggles-integra.json",
+      "sha256": "ae4c55a5ec50605cce8cc92a572a8e10fece033830900154e2d85fd77a0f6514"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-goggles-n3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Goggles N3",
+        "aliases": [
+          "DJI Goggles N3"
+        ],
+        "category": "FPV Goggles"
+      },
+      "profile_path": "profiles/dji/goggles-n3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-goggles-n3.json",
+      "sha256": "20d79f533f7fa44a0f58e4652724a65f713e1a1b4df33ca43c54d1af049e7e20"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-goggles-re",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Goggles RE",
+        "aliases": [
+          "DJI Goggles RE"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/goggles-re.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-goggles-re.json",
+      "sha256": "deceae7340eef90cd50e7a2f3815bf31887b73a4aefee2ad032e7418973c3f4b"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-lidar-range-finder-rs",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "LiDAR Range Finder (RS)",
+        "aliases": [
+          "DJI LiDAR Range Finder (RS)"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/lidar-range-finder-rs.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-lidar-range-finder-rs.json",
+      "sha256": "3491e3364bee7acd78a6666842f632d61ae428dedb73f393f9088dcfb7baa341"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-lito-1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Lito 1",
+        "aliases": [
+          "DJI Lito 1"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/lito-1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-lito-1.json",
+      "sha256": "ba187bf06ff00b99f5f1cceb2b362b7ad4db8e12f6abc39d88d1cec20e537e3f"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-lito-x1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Lito X1",
+        "aliases": [
+          "DJI Lito X1"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/lito-x1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-lito-x1.json",
+      "sha256": "08184399ae044af6cb14026bb0c8e9cf5fef16a8af4bd8ce954f6accc37816a1"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-2-pro-zoom",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic 2 Pro/Zoom",
+        "aliases": [
+          "DJI Mavic 2 Pro/Zoom",
+          "Mavic 2 Pro",
+          "DJI Mavic 2 Pro",
+          "Mavic 2 Zoom",
+          "DJI Mavic 2 Zoom"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-2-pro-zoom.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-2-pro-zoom.json",
+      "sha256": "ebcd9d9eefe860b3d79ba5b28fa67f8375119b7de3d87ed919e23a78f64b049f"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-3-classic",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic 3 Classic",
+        "aliases": [
+          "DJI Mavic 3 Classic"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-3-classic.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-3-classic.json",
+      "sha256": "1b627861c3051d08d37f9cd9bb4632cd32df0370a2e6353b805533479070db7f"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-3-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic 3 Pro",
+        "aliases": [
+          "DJI Mavic 3 Pro"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-3-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-3-pro.json",
+      "sha256": "222427f46fd42765b0b0b6c416e3480aff4f54af3b827daab2bff72426e4e562"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic 3",
+        "aliases": [
+          "DJI Mavic 3"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-3.json",
+      "sha256": "45d400573fc39b26b2b0f34410a6db3866eee30ec3b1c9c678e73a62ea711c42"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-4-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic 4 Pro",
+        "aliases": [
+          "DJI Mavic 4 Pro"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-4-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-4-pro.json",
+      "sha256": "94ca4a05aaf1c70718b8cf55b618a6f87498eac6e027d4708777930b8bdfff1c"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-air-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic Air 2",
+        "aliases": [
+          "DJI Mavic Air 2"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-air-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-air-2.json",
+      "sha256": "4aed2d09a12cf454c7d7f5549aeae71c3785902867c87332d45683276bb2bc83"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-air",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic Air",
+        "aliases": [
+          "DJI Mavic Air"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-air.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-air.json",
+      "sha256": "6a74a471a48944b8b0e93d60695097adeea83d6d370f78d76f2c378f87b9251d"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-mini",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic Mini",
+        "aliases": [
+          "DJI Mavic Mini"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-mini.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-mini.json",
+      "sha256": "1c5cae30e192c86f95c2b6e307481d51322bba56d0aba3f3541df444e7e63e9b"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-pro-platinum",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic Pro Platinum",
+        "aliases": [
+          "DJI Mavic Pro Platinum"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-pro-platinum.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-pro-platinum.json",
+      "sha256": "0f7c7fd118d8c2fc9b2a48c7335ce6010b0edb33d64890930f7cb9a87306a297"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mavic-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mavic Pro",
+        "aliases": [
+          "DJI Mavic Pro"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mavic-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mavic-pro.json",
+      "sha256": "31f0e70a2922150ee2294e2465234e8c86225a909bb10fd6fe0ae61751873999"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mic-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mic 2",
+        "aliases": [
+          "DJI Mic 2"
+        ],
+        "category": "Microphone"
+      },
+      "profile_path": "profiles/dji/mic-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mic-2.json",
+      "sha256": "8a349377fc66179a97c0c4914c57cd08f314a63ffc198df97c04534e3985cb24"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mic-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mic 3",
+        "aliases": [
+          "DJI Mic 3"
+        ],
+        "category": "Microphone"
+      },
+      "profile_path": "profiles/dji/mic-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mic-3.json",
+      "sha256": "d6a520754d4bc32df94d0a9faf9751a0d6b667d1eaffb4401417570d623503b3"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mic-mini-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mic Mini 2",
+        "aliases": [
+          "DJI Mic Mini 2"
+        ],
+        "category": "Microphone"
+      },
+      "profile_path": "profiles/dji/mic-mini-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mic-mini-2.json",
+      "sha256": "375b25cac3ab8175249042d4a3ba443b5e60b92327986947881a297ad8a1c5c6"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mic-mini-2s",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mic Mini 2S",
+        "aliases": [
+          "DJI Mic Mini 2S"
+        ],
+        "category": "Microphone"
+      },
+      "profile_path": "profiles/dji/mic-mini-2s.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mic-mini-2s.json",
+      "sha256": "fe0abd945bb2ad51236b164eab84cdf51924d041312bd0df314cbb9c325d6235"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mic-mini",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mic Mini",
+        "aliases": [
+          "DJI Mic Mini"
+        ],
+        "category": "Microphone"
+      },
+      "profile_path": "profiles/dji/mic-mini.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mic-mini.json",
+      "sha256": "7e0b09321cd7ce47c95959e1d48cb6d96d2d0ac08d6780bb3ea6a1ab5f201288"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mic-series-mobile-receiver",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mic Series Mobile Receiver",
+        "aliases": [
+          "DJI Mic Series Mobile Receiver"
+        ],
+        "category": "Microphone"
+      },
+      "profile_path": "profiles/dji/mic-series-mobile-receiver.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mic-series-mobile-receiver.json",
+      "sha256": "1633ece1819035b1801c5afccd8106406f37bc7d6e884fb219f1cd03a475fe62"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mic",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mic",
+        "aliases": [
+          "DJI Mic"
+        ],
+        "category": "Microphone"
+      },
+      "profile_path": "profiles/dji/mic.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mic.json",
+      "sha256": "262cc80cdc86cc5135c30a763bb8a154dade7135d6fe13bc477b46cf7b86c657"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-2-se",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini 2 SE",
+        "aliases": [
+          "DJI Mini 2 SE"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-2-se.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-2-se.json",
+      "sha256": "673544a8a8240dc76589a963fba812f8c65536d2af216333f314fbf873c5481e"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini 2",
+        "aliases": [
+          "DJI Mini 2"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-2.json",
+      "sha256": "fac25d5a814576a3a7756b8af99c2bef046828050598482565255dbbee7e5553"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-3-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini 3 Pro",
+        "aliases": [
+          "DJI Mini 3 Pro"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-3-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-3-pro.json",
+      "sha256": "b1537313e008839d188b74b05833d1bd8a0a9e4e9a4d5d610337ada19c1e6d49"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini 3",
+        "aliases": [
+          "DJI Mini 3"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-3.json",
+      "sha256": "ff310973a52237224c3edd2e9192e5ee00df40f9c7e2b22a4a233e7f9640f3ae"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-4-pro",
+      "profile_version": 4,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini 4 Pro",
+        "aliases": [
+          "DJI Mini 4 Pro"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-4-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-4-pro.json",
+      "sha256": "c651e01fc3fc76a0c4b15d4f4b6d3b756b93b093c4eac287ccdc0c668bf53aa4"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-4k",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini 4K",
+        "aliases": [
+          "DJI Mini 4K"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-4k.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-4k.json",
+      "sha256": "95bc12b3e649ce3e1f77cf7505b6e2d16a15e5914a04f91f238dde4f70684aa4"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-5-pro",
+      "profile_version": 3,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini 5 Pro",
+        "aliases": [
+          "DJI Mini 5 Pro"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-5-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-5-pro.json",
+      "sha256": "59d4c20d6e1c009967ebd9296adf6a1de64f896f7049f0ce0d43c0e23f23b764"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-mini-se",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Mini SE",
+        "aliases": [
+          "DJI Mini SE"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/mini-se.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-mini-se.json",
+      "sha256": "58aa4b4c09f92d25bcdac3f6bba2d508e768db70a8a3547112b801c13808dd97"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-neo-2",
+      "profile_version": 4,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Neo 2",
+        "aliases": [
+          "DJI Neo 2"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/neo-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-neo-2.json",
+      "sha256": "a8ab1eca36354ada213edb6a7d3962e26cef44a115d481e6f2419e881b398799"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-neo",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Neo",
+        "aliases": [
+          "DJI Neo"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/neo.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-neo.json",
+      "sha256": "a378cd679437fffced70ad1078982ff4c6c01406b4a1e937f4bfb949e152d207"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-o3-air-unit",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "O3 Air Unit",
+        "aliases": [
+          "DJI O3 Air Unit"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/o3-air-unit.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-o3-air-unit.json",
+      "sha256": "efb4213c155a909ca11036b63e09f90a05e16f41be58f9df8273cb26205503fb"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-o4-air-unit-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "O4 Air Unit Pro",
+        "aliases": [
+          "DJI O4 Air Unit Pro"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/o4-air-unit-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-o4-air-unit-pro.json",
+      "sha256": "0ffcbc2e94441dc3e3dd4b9cd8417d5fae8b5733758c53f0f178bfcf15020b8e"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-o4-air-unit",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "O4 Air Unit",
+        "aliases": [
+          "DJI O4 Air Unit",
+          "O4 Air Unit Lite",
+          "DJI O4 Air Unit Lite"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/o4-air-unit.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-o4-air-unit.json",
+      "sha256": "f585d976055d395338497920f6e3913bb496c31f896c0488aecfb9dcf85f9130"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-o4-wide-air-unit",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "O4 Wide Air Unit",
+        "aliases": [
+          "DJI O4 Wide Air Unit"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/o4-wide-air-unit.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-o4-wide-air-unit.json",
+      "sha256": "5df6e4b218b97a9389c5dbc1ff0a60c9291c2a371831e8d43222bd5414fc7a63"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-om-4",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "OM 4",
+        "aliases": [
+          "DJI OM 4"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/om-4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-om-4.json",
+      "sha256": "c28bbecda892be9f90dc05491baf45c79b7a083df129eb39d734cfb3e8abcfbc"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-om-5",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "OM 5",
+        "aliases": [
+          "DJI OM 5"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/om-5.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-om-5.json",
+      "sha256": "ea89019cc664ed62646ca13fa3200f7c65c1bf372e0be9777ffb5abbe08aa182"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-360-ii",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo 360 II",
+        "aliases": [
+          "DJI Osmo 360 II"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-360-ii.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-360-ii.json",
+      "sha256": "686a60d0bcedfe01b7292dea98d454d43afb9835181997a68dfdcbd871c4cdb6"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-360",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo 360",
+        "aliases": [
+          "DJI Osmo 360"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-360.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-360.json",
+      "sha256": "f526b8bbf78ac55b999a3d287c8ddb05d0e50194c5c127648ddf216ab89186da"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action-3",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action 3",
+        "aliases": [
+          "DJI Osmo Action 3",
+          "Action 3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-action-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-3.json",
+      "sha256": "de543dead53924ed8428ce3eeb3dbfab6ed71716f8232c034294fbb06ff3928d"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action-4",
+      "profile_version": 3,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action 4",
+        "aliases": [
+          "DJI Osmo Action 4",
+          "Action 4"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-action-4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-4.json",
+      "sha256": "7a59b309ae4e8094b0d9c41d56e1e60a27013597d5dc5383019e2b40d9d27822"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action-5-pro",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action 5 Pro",
+        "aliases": [
+          "DJI Osmo Action 5 Pro",
+          "Action 5 Pro"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-action-5-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-5-pro.json",
+      "sha256": "ca0eb8e2184f242fc78d39d951730f0077f4b1e769ed52604d9255d3ca1275c9"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action-6",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action 6",
+        "aliases": [
+          "DJI Osmo Action 6",
+          "Action 6"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-action-6.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action-6.json",
+      "sha256": "ecbddaadbef71a267bef4719ec8a9d155a2bbf25805f051fa9111d00d44797bc"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-action",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Action",
+        "aliases": [
+          "DJI Osmo Action"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-action.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-action.json",
+      "sha256": "e1040eac1301820f18b93c7357aefd28e52fa5a056011c32832beba37d5dc6a6"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 2",
+        "aliases": [
+          "DJI Osmo Mobile 2"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-2.json",
+      "sha256": "7d61d37bf943a38be84ab75a105bf16fe2516d195ed096718898ec713574c8bf"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 3",
+        "aliases": [
+          "DJI Osmo Mobile 3"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-3.json",
+      "sha256": "f19798292c0995949cd381bf8eb54baea28a6c75505121ae4e4941ed6375c2e2"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-6",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 6",
+        "aliases": [
+          "DJI Osmo Mobile 6"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-6.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-6.json",
+      "sha256": "625bcd7d1554632adf7d23a9c64ea699ffe48bcf56d4a855935497ab81a6c5b0"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-7",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 7",
+        "aliases": [
+          "DJI Osmo Mobile 7",
+          "OM 7"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-7.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-7.json",
+      "sha256": "7959b89718036f446033520dbfc87633a6fd581ba21687e65437bcd6aac48f29"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-7p",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 7P",
+        "aliases": [
+          "DJI Osmo Mobile 7P",
+          "OM 7P"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-7p.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-7p.json",
+      "sha256": "06529fe814e9fb084cc1c3007e3a935dece0904331e5b8364c782c5ac308291b"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-8",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 8",
+        "aliases": [
+          "DJI Osmo Mobile 8"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-8.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-8.json",
+      "sha256": "6fd09f18511a35f76e93eb9e33f5be192723008432a8d29039ddacffc327338a"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-8p",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile 8P",
+        "aliases": [
+          "DJI Osmo Mobile 8P"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-8p.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-8p.json",
+      "sha256": "831b39fac27db0cbb82e0b428b6ad99456192f7930f133447baead92ec6e014a"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile-se",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile SE",
+        "aliases": [
+          "DJI Osmo Mobile SE"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile-se.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile-se.json",
+      "sha256": "918a4034c4c4c4482026149b06eba853ffd05896656cb737745bb164b22d322d"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-mobile",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Mobile",
+        "aliases": [
+          "DJI Osmo Mobile"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/osmo-mobile.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-mobile.json",
+      "sha256": "ce071f7c7d0260cfe4c2c2f662b5a41e433c581d490c3ce7c7d4f8774e0413e7"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-nano",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Nano",
+        "aliases": [
+          "DJI Osmo Nano"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-nano.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-nano.json",
+      "sha256": "739c3b080484d629a1a338a47c3a8373f35cad26856edd215221a91c95d1b777"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-plus",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo+",
+        "aliases": [
+          "DJI Osmo+",
+          "Osmo Plus",
+          "DJI Osmo Plus"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-plus.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-plus.json",
+      "sha256": "7853c256d606c970667f6b7defb3ecbc3eaf0659a46cf6036455370be7ca94c9"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-pocket-3",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Pocket 3",
+        "aliases": [
+          "DJI Osmo Pocket 3",
+          "Pocket 3"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-pocket-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-pocket-3.json",
+      "sha256": "846a1665ff308dc505420fe644783fbd2b5bc560687d86a0b53fb5cfe2f70bad"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-pocket-4",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Pocket 4",
+        "aliases": [
+          "DJI Osmo Pocket 4"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-pocket-4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-pocket-4.json",
+      "sha256": "79fb6c0fa2cf8e9abdc875b1e7412c9ba4bd6aee57bd2b7a012839d5c2697aa4"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-pocket-4p",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Pocket 4P",
+        "aliases": [
+          "DJI Osmo Pocket 4P"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-pocket-4p.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-pocket-4p.json",
+      "sha256": "226d754c77ee898639b9c2658f1e517bb81491561340780cb84101b1060f85b6"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo-pocket",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo Pocket",
+        "aliases": [
+          "DJI Osmo Pocket"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo-pocket.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo-pocket.json",
+      "sha256": "0b827dc6ce106b6b4a390beeff3db928096e6089a3c1a1edab9c891246123651"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-osmo",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Osmo",
+        "aliases": [
+          "DJI Osmo"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/osmo.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-osmo.json",
+      "sha256": "bad9c36697f97aa361855caffa55b0bcd21b0fc65977fa53db2cd0fc09ee565b"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-3-advanced",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 3 Advanced",
+        "aliases": [
+          "DJI Phantom 3 Advanced"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/phantom-3-advanced.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-3-advanced.json",
+      "sha256": "bd394bc3a0d701505c7538deb8762a16aea99575cc67a68ea036ca006c37bde5"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-3-professional",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 3 Professional",
+        "aliases": [
+          "DJI Phantom 3 Professional"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/phantom-3-professional.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-3-professional.json",
+      "sha256": "21f33f067991d6f3140b4b1e8be1ee40c238d330157fb2eac6e089bfeb5e2f5f"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-3-se",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 3 SE",
+        "aliases": [
+          "DJI Phantom 3 SE"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/phantom-3-se.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-3-se.json",
+      "sha256": "646ef12197213c66c57776447a551c5d1802175476f8b287e055e258d679e962"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-3-standard",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 3 Standard",
+        "aliases": [
+          "DJI Phantom 3 Standard"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/phantom-3-standard.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-3-standard.json",
+      "sha256": "b6c41ac56b18dc6da4f029885fdc3a1f6662a84817aa8dd670bf0c7ea433a6cf"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-4-advanced-advanced",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 4 Advanced/Advanced+",
+        "aliases": [
+          "DJI Phantom 4 Advanced/Advanced+",
+          "Phantom 4 Advanced",
+          "Phantom 4 Advanced+",
+          "DJI Phantom 4 Advanced",
+          "DJI Phantom 4 Advanced+"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/phantom-4-advanced-advanced.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-4-advanced-advanced.json",
+      "sha256": "9147cc3230fe630873ff4655a32c8e791649b0b879694a7a31b6682b978cffdc"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-4-pro-pro-v2-0",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 4 Pro/Pro+ V2.0",
+        "aliases": [
+          "DJI Phantom 4 Pro/Pro+ V2.0",
+          "Phantom 4 Pro V2.0",
+          "Phantom 4 Pro+ V2.0",
+          "DJI Phantom 4 Pro V2.0",
+          "DJI Phantom 4 Pro+ V2.0"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/phantom-4-pro-pro-v2-0.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-4-pro-pro-v2-0.json",
+      "sha256": "6c9621730429683c505f21441ad28551cfcfb1b9f00c18a90cef855df378278d"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-4-pro-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 4 Pro/Pro+",
+        "aliases": [
+          "DJI Phantom 4 Pro/Pro+",
+          "Phantom 4 Pro",
+          "Phantom 4 Pro+",
+          "DJI Phantom 4 Pro",
+          "DJI Phantom 4 Pro+"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/phantom-4-pro-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-4-pro-pro.json",
+      "sha256": "c2bd58727d9bd6b977e96438013eacedeaf0b2d61705a9932d9ff121e39870fd"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-phantom-4",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Phantom 4",
+        "aliases": [
+          "DJI Phantom 4"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/phantom-4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-phantom-4.json",
+      "sha256": "0a2b2a2dc15a4a12ca5626a9ee12b214c84cd036bde25ce781f2576b021867de"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-pocket-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Pocket 2",
+        "aliases": [
+          "DJI Pocket 2"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/pocket-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-pocket-2.json",
+      "sha256": "09d732110709ef61f3b9d84867f24cb600d6f5836485bfa23104de7ba183f17f"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rc-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RC 2",
+        "aliases": [
+          "DJI RC 2"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/rc-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rc-2.json",
+      "sha256": "5e2f6cbefdb332f3a39b30f1fc2dcc02558e3c1873a17bdb4d58ba6834d2e605"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rc-motion-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RC Motion 2",
+        "aliases": [
+          "DJI RC Motion 2"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/rc-motion-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rc-motion-2.json",
+      "sha256": "46c3f0a452be418bcdbfef81318a01c4ea5f3d02b6d767cbb9b84e75d5ee727f"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rc-motion-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RC Motion 3",
+        "aliases": [
+          "DJI RC Motion 3"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/rc-motion-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rc-motion-3.json",
+      "sha256": "211b70d7d38f50532800fde5ecb31b5e8e8b4986b24da514b1101d0515432b35"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rc-pro-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RC Pro 2",
+        "aliases": [
+          "DJI RC Pro 2"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/rc-pro-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rc-pro-2.json",
+      "sha256": "ed66b21583c6648318e876ee4191d0b6d90ab807a7a7f27f7162ab0e7d2ddbbf"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rc-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RC Pro",
+        "aliases": [
+          "DJI RC Pro"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/rc-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rc-pro.json",
+      "sha256": "442baf78ec2dc255be59a8ba53479842a57edeecc562a36459d4432a93c5697f"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rc",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RC",
+        "aliases": [
+          "DJI RC"
+        ],
+        "category": "Accessory"
+      },
+      "profile_path": "profiles/dji/rc.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rc.json",
+      "sha256": "afdb5cf62235b4c6e5ae5ed5a713f718a32342933a45993343bfa9ffd1fddd50"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-ronin-raveneye-image-transmission-system",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Ronin RavenEye Image Transmission System",
+        "aliases": [
+          "DJI Ronin RavenEye Image Transmission System"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/ronin-raveneye-image-transmission-system.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-ronin-raveneye-image-transmission-system.json",
+      "sha256": "7e4abf4f5c94975ceeae9153c60daf623eaa8774905df7e8fd7ea35c67993fc4"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-ronin-s",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Ronin-S",
+        "aliases": [
+          "DJI Ronin-S"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/ronin-s.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-ronin-s.json",
+      "sha256": "424cf945e6c30927ae769520144cbbe61990f08763a5d23474d4168dcc45a51d"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-ronin-sc",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Ronin-SC",
+        "aliases": [
+          "DJI Ronin-SC"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/ronin-sc.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-ronin-sc.json",
+      "sha256": "1e88b5733f27fc2c13d257ff511ece475d75fe592491cad0a42aadf620e6efd5"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 2",
+        "aliases": [
+          "DJI RS 2"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-2.json",
+      "sha256": "03cf10325939673d99add2caf65114f3b142843aab3b00ed70bbc99d5260ba24"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-3-mini",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 3 Mini",
+        "aliases": [
+          "DJI RS 3 Mini"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-3-mini.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-3-mini.json",
+      "sha256": "a8a7d0c43d17a5615b4acf7348df4769d6c77eb795d5b800f8a96c273e37bf39"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-3-pro",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 3 Pro",
+        "aliases": [
+          "DJI RS 3 Pro"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-3-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-3-pro.json",
+      "sha256": "e83ab8dd1ada1dfe1124b89fed017475933b3d1ba699064ecbefe857b6ec47e0"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-3",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 3",
+        "aliases": [
+          "DJI RS 3"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-3.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-3.json",
+      "sha256": "83ec7f93a3202aeb92d369894f35a2698a1dcad1cd9982306cf6206deab8e5d8"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-4-mini",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 4 Mini",
+        "aliases": [
+          "DJI RS 4 Mini"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-4-mini.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-4-mini.json",
+      "sha256": "f485dd9181a627711718d7dad459d9267319775f96ce0798a0c27e2c92242610"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-4-pro",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 4 Pro",
+        "aliases": [
+          "DJI RS 4 Pro"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-4-pro.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-4-pro.json",
+      "sha256": "d9e2392dc96cf784a0fbd84094b68dd104dadcb311893ad667deace288c8b008"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-4",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 4",
+        "aliases": [
+          "DJI RS 4"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-4.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-4.json",
+      "sha256": "bd70f7bf17c5d1556fe499f66a98afe8f9c623b78459aaa6b0c394b6189735f3"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-5",
+      "profile_version": 2,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-11",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS 5",
+        "aliases": [
+          "DJI RS 5"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-5.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-5.json",
+      "sha256": "1ba4d2e647723cbe5bed1686d1deb00791d3f13f1410d2ef03ff3cbfa0ee41b8"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-enhanced-intelligent-tracking-module",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS Enhanced Intelligent Tracking Module",
+        "aliases": [
+          "DJI RS Enhanced Intelligent Tracking Module"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-enhanced-intelligent-tracking-module.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-enhanced-intelligent-tracking-module.json",
+      "sha256": "3f6c5c12ca25d76d6a362e496268fcb9991e17f26ad851c5fa92c16aa5ec58e6"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rs-intelligent-tracking-module",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RS Intelligent Tracking Module",
+        "aliases": [
+          "DJI RS Intelligent Tracking Module"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rs-intelligent-tracking-module.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rs-intelligent-tracking-module.json",
+      "sha256": "8d6fc64a0126a3768b8c6accdac11cd23a2b2567a90ce17109fe64c87aca9db1"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-rsc-2",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "RSC 2",
+        "aliases": [
+          "DJI RSC 2"
+        ],
+        "category": "Gimbal"
+      },
+      "profile_path": "profiles/dji/rsc-2.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-rsc-2.json",
+      "sha256": "060d3fed1a6bd2dba4cc89c8b9cd320b034aa0ebc90a80836416dfaf9bde21ed"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-smart-controller",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Smart Controller",
+        "aliases": [
+          "DJI Smart Controller"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/dji/smart-controller.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-smart-controller.json",
+      "sha256": "2e619623077854837e3fb7e690119a14913eb3db4a1932e8ad6073d4c63d4653"
+    },
+    {
+      "schema_version": 1,
+      "id": "dji-spark",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "DJI",
+        "model": "Spark",
+        "aliases": [
+          "DJI Spark"
+        ],
+        "category": "Drone"
+      },
+      "profile_path": "profiles/dji/spark.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/dji-spark.json",
+      "sha256": "b2d960de312ee93f4e201e872fd7438a68a38cd28acf2a7c64c02f6688e06945"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-x-t5",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "X-T5",
+        "aliases": [
+          "Fujifilm X-T5",
+          "X-T5"
+        ],
+        "category": "Camera"
+      },
+      "profile_path": "profiles/fujifilm/x-t5.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-x-t5.json",
+      "sha256": "86b2c4baa946ebc2a893c396f83c54ba12c5bb380af91fa2aa1b165dd5239dee"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf16-80mmf4-r-ois-wr",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF16-80mmF4 R OIS WR",
+        "aliases": [
+          "Fujifilm XF16-80mmF4 R OIS WR",
+          "XF16-80mmF4 R OIS WR",
+          "XF 16-80mmF4 R OIS WR",
+          "XF 16-80",
+          "XF16-80"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf16-80mmf4-r-ois-wr.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf16-80mmf4-r-ois-wr.json",
+      "sha256": "87e509dc530b881e0120e3d20fab93fb6554363ce18777154645cef4fdb5c511"
+    },
+    {
+      "schema_version": 1,
+      "id": "fujifilm-xf18-55mmf28-4-r-lm-ois",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-09-12",
+      "device": {
+        "vendor": "Fujifilm",
+        "model": "XF18-55mmF2.8-4 R LM OIS",
+        "aliases": [
+          "Fujifilm XF18-55mmF2.8-4 R LM OIS",
+          "XF18-55mmF2.8-4 R LM OIS",
+          "XF 18-55mmF2.8-4 R LM OIS",
+          "XF 18-55",
+          "XF18-55"
+        ],
+        "category": "Lens"
+      },
+      "profile_path": "profiles/fujifilm/xf18-55mmf28-4-r-lm-ois.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xf18-55mmf28-4-r-lm-ois.json",
+      "sha256": "3906fcd6067fcc5b45141984f5cc2a5cbcae256dd0180e811c6f4751586f884f"
+    }
+  ]
+}

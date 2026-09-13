@@ -1,7 +1,0 @@
-{
-  "latest": "01.02.02.02",
-  "release_date": "2026-06-16",
-  "summary": "Added support for DJI OM Multifunctional Module 2.\nAdded gimbal control for zooming and switching between the front and rear cameras in the native iOS camera app. To use this feature, update the gimbal to the latest firmware, reconnect to your phone via Bluetooth, and go to Settings > Accessibility on your phone to enable Zoom.\nFixed some known issues.",
-  "error": "",
-  "url": "https://terra-1-g.djicdn.com/6189933d30024fc1b331bffe4fe41837/osmo-mobile-8/RN/20260616/DJI_Osmo_Mobile_8_Release_Notes_en_1.pdf"
-}

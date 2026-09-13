@@ -1,7 +1,0 @@
-{
-  "url": "https://dl.djicdn.com/downloads/DJI_RS4_Mini/20260121/final/DJI_RS_4_Mini_Release_Notes_20260121_EN_final.pdf",
-  "latest": "01.04.00.00",
-  "release_date": "2026-01-21",
-  "summary": "Added support for DJI RS Enhanced Intelligent Tracking Module (firmware V01.00.03.07 or later required).\nAdded support for Panasonic S1RM2, S1M2, and S1M2ES Bluetooth control. For details, refer to the camera compatibility list on the official website.\nFixed an issue where hot-swapping the camera control cable could cause connection failure.",
-  "error": ""
-}

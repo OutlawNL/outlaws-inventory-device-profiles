@@ -1,7 +1,0 @@
-{
-  "latest": "01.02.00.00",
-  "release_date": "2023-02-21",
-  "summary": "Fixed issue: some cameras could not connect to the DJI RS 3 Mini via Bluetooth Shutter in open environments.\nOptimized gimbal stabilization performance.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/DJI_RS_3_Mini/RN/20230221/DJI_RS_3_Mini_Release_Notes_en.pdf"
-}

@@ -1,7 +1,0 @@
-{
-  "latest": "01.00.07.20",
-  "release_date": "2020-11-19",
-  "summary": "Added support for AI Life when using a Huawei phone (requires EMUI v11.0 or above and AI Life v11.0.3.303 or above). If no prompt appears after updating the firmware, the system of the phone needs to be updated to EMUI v11.0 or above.\nFixed some minor bugs. Improved user experience.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/DJI OM 4/20201119/DJI_OM_4_Release_Notes_en.pdf"
-}

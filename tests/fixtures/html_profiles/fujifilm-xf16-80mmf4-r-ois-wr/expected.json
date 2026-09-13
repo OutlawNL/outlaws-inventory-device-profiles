@@ -1,6 +1,0 @@
-{
-  "latest": "1.21",
-  "release_date": "2024-08-15",
-  "summary": "A firmware bug is fixed that the noise occurs during zoom operation in the rare cases.\nA minor bug is fixed.",
-  "error": ""
-}

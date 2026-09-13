@@ -1,7 +1,0 @@
-{
-  "latest": "01.00.0128",
-  "release_date": "2017-06-08",
-  "summary": "Updated No-Fly Zone Management.\nOptimized No-Fly Zone Return to Home.\nFor increased safety, the flight is restricted to a height of 30 m and distance of 50 m when not connected or logged into the app during flight, including DJI GO 4 and all apps compatible with DJI aircraft.\nOptimized gimbal performance to improve its stability during flight.\nOptimized obstacle sensing to reduce detection errors at high altitudes.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/Phantom_4_Advanced/20170609/Phantom_4_Advanced_Release_Notes_EN.pdf"
-}

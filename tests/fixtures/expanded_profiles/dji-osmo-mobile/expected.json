@@ -1,7 +1,0 @@
-{
-  "latest": "1.6.0.80",
-  "release_date": "2017-06-05",
-  "summary": "Fixed an occasional issue where the gimbal centered itself two seconds before completing a motion timelapse.\nFixed an occasional issue where the gimbal would drift during a motion timelapse.\nFixed an occasional issue where the gimbal shook slightly when reaching its maximum tilt or yaw angle.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/osmo+mobile/20170605/Osmo+Mobile+Release_Notes.pdf"
-}

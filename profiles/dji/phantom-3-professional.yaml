@@ -1,0 +1,57 @@
+schema_version: 1
+id: dji-phantom-3-professional
+profile_version: 1
+origin: official
+status: verified
+updated: '2026-09-12'
+device:
+  vendor: DJI
+  model: Phantom 3 Professional
+  aliases:
+  - DJI Phantom 3 Professional
+  category: Drone
+firmware:
+  strategy: release_notes_pdf
+  source:
+    type: html
+    url: https://www.dji.com/global/downloads/products/phantom-3-pro
+  discovery:
+    document_type: pdf
+    item_selector: div[class^="style__document-item___"], li.groups-download-item
+    title_contains:
+    - Phantom 3 Professional Release Notes
+    url_contains:
+    - Phantom+3+Professional+Release+Notes_
+    url_excludes: []
+    url_pattern: Phantom\+3\+Professional\+Release\+Notes_\.pdf$
+  extraction:
+    version:
+      labels:
+      - All-in-One
+      pattern: (?:[Vv]\s*)?([0-9]+(?:\.[0-9]+){2,3})
+      group: 1
+      max_lines: 12
+      header_pattern: ^1\. All-in-One firmware version updated to (v[0-9]+(?:\.[0-9]+){2})\.$
+    release_date:
+      labels:
+      - 'Date:'
+      formats:
+      - '%Y.%m.%d'
+      max_lines: 12
+      header_pattern: ^(\d{4}\.\d{1,2}\.\d{1,2})$
+    whats_new:
+      start_labels:
+      - What's New
+      - What's New?
+      end_labels:
+      - Notes
+      - 'Notes:'
+      - https://www.dji.com/mic-mini
+      max_items: 10
+    scope: first_release_first_page
+    pdf_text:
+      x_tolerance: 1
+  validation:
+    version_pattern: ^[0-9]+(?:\.[0-9]+){2,3}$
+    document_titles:
+    - PHANTOM 3 PROFESSIONAL Release Notes

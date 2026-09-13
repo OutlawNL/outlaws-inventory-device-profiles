@@ -1,7 +1,0 @@
-{
-  "latest": "02.00.72.87",
-  "release_date": "2023-01-04",
-  "summary": "Added auto power off feature for receiver. The receiver will power off automatically if disconnected from transmitter for more than 30 minutes.\nAdded LED off option for transmitter. Go to TX Settings > LED Brightness > Off to turn off the transmitter LED and reduce the light affect during recording.\nFixed issue: transmitter audio data was occasionally lost when recording for a long time.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/DJI_Mic/20230104/DJI_Mic_Release_Notes_en.pdf"
-}

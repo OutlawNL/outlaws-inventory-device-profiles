@@ -1,7 +1,0 @@
-{
-  "latest": "1.11.2.70",
-  "release_date": "2017-08-31",
-  "summary": "1. Fixed an issue where videos could not be opened when recorded under multiple light sources. 2. Fixed an issue where some frames were overexposed when recording in 1080p 60 fps.",
-  "error": "",
-  "url": "https://dl.djicdn.com/downloads/osmo/20170831/Osmo_Release_Notes.pdf"
-}
