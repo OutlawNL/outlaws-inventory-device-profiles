@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": 9,
-  "generated": "2026-09-13",
+  "catalog_version": 10,
+  "generated": "2026-10-01",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
     {
@@ -3611,6 +3611,27 @@
       "profile_path": "profiles/fujifilm/xq2.yaml",
       "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/fujifilm-xq2.json",
       "sha256": "a1f9ba6a8f523d3e16240c8356f462bf5502fba8e4e24c2161c27fcb131cae3b"
+    },
+    {
+      "schema_version": 1,
+      "id": "sennheiser-momentum-4-wireless",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-10-01",
+      "device": {
+        "vendor": "Sennheiser",
+        "model": "MOMENTUM 4 Wireless",
+        "aliases": [
+          "Sennheiser MOMENTUM 4 Wireless",
+          "MOMENTUM 4",
+          "Momentum 4"
+        ],
+        "category": "Audio"
+      },
+      "profile_path": "profiles/sennheiser/momentum-4-wireless.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/sennheiser-momentum-4-wireless.json",
+      "sha256": "b60fe0e0ab59b6ab82d061581769757a507009c52614d3787d8beac72a22ebf8"
     }
   ]
 }

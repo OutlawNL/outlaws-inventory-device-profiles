@@ -92,7 +92,8 @@
           "enum": [
             "release_notes_pdf",
             "dji_release_notes_pdf",
-            "html_release"
+            "html_release",
+            "html_release_table"
           ]
         },
         "source": {
@@ -264,6 +265,28 @@
                   "minLength": 1,
                   "maxLength": 240
                 }
+              }
+            },
+            "html_table": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title_selector",
+                "table_selector",
+                "product_column",
+                "product_value",
+                "version_column",
+                "date_column",
+                "summary_column"
+              ],
+              "properties": {
+                "title_selector": {"type": "string", "minLength": 1, "maxLength": 240},
+                "table_selector": {"type": "string", "minLength": 1, "maxLength": 240},
+                "product_column": {"type": "string", "minLength": 1, "maxLength": 120},
+                "product_value": {"type": "string", "minLength": 1, "maxLength": 160},
+                "version_column": {"type": "string", "minLength": 1, "maxLength": 120},
+                "date_column": {"type": "string", "minLength": 1, "maxLength": 120},
+                "summary_column": {"type": "string", "minLength": 1, "maxLength": 120}
               }
             }
           }

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "sennheiser-momentum-4-wireless",
+  "profile_version": 1,
+  "origin": "official",
+  "status": "verified",
+  "updated": "2026-10-01",
+  "device": {
+    "vendor": "Sennheiser",
+    "model": "MOMENTUM 4 Wireless",
+    "aliases": [
+      "Sennheiser MOMENTUM 4 Wireless",
+      "MOMENTUM 4",
+      "Momentum 4"
+    ],
+    "category": "Audio"
+  },
+  "firmware": {
+    "strategy": "html_release_table",
+    "source": {
+      "type": "html",
+      "url": "https://www.reddit.com/user/sennheiserconsumer/comments/1ine3u0/latest_firmware_systems_release_for_sennheiser/"
+    },
+    "extraction": {
+      "version": {
+        "labels": [
+          "Android"
+        ],
+        "pattern": "([0-9]+(?:\\.[0-9]+)+)",
+        "group": 1
+      },
+      "release_date": {
+        "labels": [
+          "Release Date"
+        ],
+        "formats": [
+          "%d/%m/%Y"
+        ]
+      },
+      "whats_new": {
+        "start_labels": [
+          "Release Notes"
+        ],
+        "end_labels": [
+          "__PROFILE_END__"
+        ],
+        "max_items": 3
+      },
+      "html_table": {
+        "title_selector": "h1",
+        "table_selector": "table",
+        "product_column": "Product",
+        "product_value": "MOMENTUM 4 Wireless",
+        "version_column": "Android",
+        "date_column": "Release Date",
+        "summary_column": "Release Notes"
+      }
+    },
+    "validation": {
+      "version_pattern": "[0-9]+(?:\\.[0-9]+)+",
+      "document_titles": [
+        "📢 Latest Firmware Systems Release for Sennheiser Products 📢",
+        "Latest Firmware Systems Release for Sennheiser Products"
+      ]
+    }
+  }
+}
