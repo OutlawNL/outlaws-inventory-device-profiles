@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "sennheiser-momentum-4-wireless",
-  "profile_version": 1,
+  "profile_version": 2,
   "origin": "official",
   "status": "verified",
   "updated": "2026-10-01",
@@ -19,7 +19,7 @@
     "strategy": "html_release_table",
     "source": {
       "type": "html",
-      "url": "https://www.reddit.com/user/sennheiserconsumer/comments/1ine3u0/latest_firmware_systems_release_for_sennheiser/"
+      "url": "https://www.reddit.com/user/sennheiserconsumer/comments/1ine3u0/latest_firmware_systems_release_for_sennheiser/.rss"
     },
     "extraction": {
       "version": {
@@ -47,7 +47,8 @@
         "max_items": 3
       },
       "html_table": {
-        "title_selector": "h1",
+        "title_selector": "entry > title",
+        "content_selector": "entry > content",
         "table_selector": "table",
         "product_column": "Product",
         "product_value": "MOMENTUM 4 Wireless",

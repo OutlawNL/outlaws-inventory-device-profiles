@@ -281,6 +281,7 @@
               ],
               "properties": {
                 "title_selector": {"type": "string", "minLength": 1, "maxLength": 240},
+                "content_selector": {"type": "string", "minLength": 1, "maxLength": 240},
                 "table_selector": {"type": "string", "minLength": 1, "maxLength": 240},
                 "product_column": {"type": "string", "minLength": 1, "maxLength": 120},
                 "product_value": {"type": "string", "minLength": 1, "maxLength": 160},
@@ -338,6 +339,24 @@
         }
       },
       "allOf": [
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "const": "html_release_table"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "extraction": {
+                "required": [
+                  "html_table"
+                ]
+              }
+            }
+          }
+        },
         {
           "if": {
             "properties": {
