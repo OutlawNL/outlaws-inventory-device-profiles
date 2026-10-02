@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "catalog_version": 11,
+  "catalog_version": 12,
   "generated": "2026-10-01",
   "files": {
     "catalog/profiles/dji-action-2.json": "c95914f0c7a4ea5aae585377c1c14e8cea2ae1ce932994b04e77a444a58f11a1",
@@ -187,8 +187,8 @@
     "catalog/profiles/fujifilm-xf90mmf2-r-lm-wr.json": "44c20bedb58bb91ee03487ab32cf94865176ae025b60aeb34166e19a76dee72f",
     "catalog/profiles/fujifilm-xq1.json": "c659f03475e56ac8ce89999b9f86b46e662f83a55aadcea86f75c8ff1efc2373",
     "catalog/profiles/fujifilm-xq2.json": "a1f9ba6a8f523d3e16240c8356f462bf5502fba8e4e24c2161c27fcb131cae3b",
-    "catalog/profiles/sennheiser-momentum-4-wireless.json": "c1a793656dec45c114c4367b3dafee450d57807b4bf64f7265a6a59c6dd7aa43",
-    "catalog/index.json": "575d5aba863c9c7d83957d36e6eb045de6ed3f886c066bd5e5a22e80364ee378"
+    "catalog/profiles/sennheiser-momentum-4-wireless.json": "07629a00eba4aa1e1a65815ada11472593a2efb71869d4fc3d69f6acb02b337c",
+    "catalog/index.json": "f8a950afd4baa32e6cf671ae0324eccf0a3c68e37fc4a7eb6890e4315fdf2085"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

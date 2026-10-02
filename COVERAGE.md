@@ -1,6 +1,6 @@
 # Device Profile coverage — 1 October 2026
 
-Catalog v11 contains 185 profiles: 106 DJI, 78 Fujifilm X-system products and Sennheiser MOMENTUM 4 Wireless. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+Catalog v12 contains 185 profiles: 106 DJI, 78 Fujifilm X-system products and Sennheiser MOMENTUM 4 Wireless. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
 
 99 consumer download pages and 109 linked Release Notes PDFs were retrieved from DJI's public download index. The catalog covers products with verified source discovery, device-specific extraction, release dates and release details, including inexpensive legacy additions (Phantom and original Osmo).
 
@@ -15,7 +15,6 @@ Catalog v11 contains 185 profiles: 106 DJI, 78 Fujifilm X-system products and Se
 - Fujifilm GFX, GF and ETERNA are deliberately deferred. They can be added later from their own official pages without changing the app or the X-system profiles.
 - Fujifilm X70 and XF35mmF2 R WR are also deferred: their header version and date were present, but the detail pages did not expose an unambiguous release section for a trustworthy release summary. They are not guessed from header-only data.
 - Older devices are included when their official documents fit the verified rules with little additional work. No fixed age cut-off or inferred support-end date is applied.
-- Sennheiser MOMENTUM 4 Wireless is sourced from Sennheiser Consumer's maintained release table through the public Reddit Atom/RSS feed. The profile expects one exact release title, table and product row; an edited or ambiguous source remains Unknown rather than borrowing a version from another model.
 
 ## Fujifilm X-system scope added in v9
 

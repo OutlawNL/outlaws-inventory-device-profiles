@@ -1,6 +1,6 @@
 schema_version: 1
 id: sennheiser-momentum-4-wireless
-profile_version: 2
+profile_version: 4
 origin: official
 status: verified
 updated: '2026-10-01'
@@ -35,8 +35,9 @@ firmware:
       - __PROFILE_END__
       max_items: 3
     html_table:
-      title_selector: entry > title
-      content_selector: entry > content
+      entry_selector: feed > entry:first-of-type
+      title_selector: title
+      content_selector: content
       table_selector: table
       product_column: Product
       product_value: MOMENTUM 4 Wireless

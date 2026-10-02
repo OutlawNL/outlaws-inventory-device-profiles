@@ -270,16 +270,9 @@
             "html_table": {
               "type": "object",
               "additionalProperties": false,
-              "required": [
-                "title_selector",
-                "table_selector",
-                "product_column",
-                "product_value",
-                "version_column",
-                "date_column",
-                "summary_column"
-              ],
+              "required": ["title_selector", "table_selector", "product_column", "product_value", "version_column", "date_column", "summary_column"],
               "properties": {
+                "entry_selector": {"type": "string", "minLength": 1, "maxLength": 240},
                 "title_selector": {"type": "string", "minLength": 1, "maxLength": 240},
                 "content_selector": {"type": "string", "minLength": 1, "maxLength": 240},
                 "table_selector": {"type": "string", "minLength": 1, "maxLength": 240},
@@ -341,20 +334,10 @@
       "allOf": [
         {
           "if": {
-            "properties": {
-              "strategy": {
-                "const": "html_release_table"
-              }
-            }
+            "properties": {"strategy": {"const": "html_release_table"}}
           },
           "then": {
-            "properties": {
-              "extraction": {
-                "required": [
-                  "html_table"
-                ]
-              }
-            }
+            "properties": {"extraction": {"required": ["html_table"]}}
           }
         },
         {

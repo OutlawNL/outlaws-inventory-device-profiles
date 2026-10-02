@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "catalog_version": 11,
+  "catalog_version": 12,
   "generated": "2026-10-01",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
@@ -3615,7 +3615,7 @@
     {
       "schema_version": 1,
       "id": "sennheiser-momentum-4-wireless",
-      "profile_version": 2,
+      "profile_version": 4,
       "origin": "official",
       "status": "verified",
       "updated": "2026-10-01",
@@ -3631,7 +3631,7 @@
       },
       "profile_path": "profiles/sennheiser/momentum-4-wireless.yaml",
       "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/sennheiser-momentum-4-wireless.json",
-      "sha256": "c1a793656dec45c114c4367b3dafee450d57807b4bf64f7265a6a59c6dd7aa43"
+      "sha256": "07629a00eba4aa1e1a65815ada11472593a2efb71869d4fc3d69f6acb02b337c"
     }
   ]
 }
