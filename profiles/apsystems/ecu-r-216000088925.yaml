@@ -1,0 +1,52 @@
+schema_version: 1
+id: apsystems-ecu-r-216000088925
+profile_version: 1
+origin: official
+status: verified
+updated: '2026-10-07'
+device:
+  vendor: APsystems
+  model: ECU-R
+  aliases:
+    - APsystems ECU-R
+  category: Network
+  serial_number_range:
+    minimum: '216000088925'
+firmware:
+  strategy: html_release
+  source:
+    type: html
+    url: https://file.apsystemsema.com:8083/apsystems/resource/ecu/ecu_version_list.html
+  extraction:
+    version:
+      labels:
+        - Firmware Version
+      header_pattern: '^V(.+)$'
+      pattern: '^(.+)$'
+      group: 1
+    release_date:
+      labels:
+        - Release Date
+      header_pattern: '^(20[0-9]{2}-[0-9]{2}-[0-9]{2})$'
+      formats:
+        - '%Y-%m-%d'
+    whats_new:
+      start_labels:
+        - __PROFILE_BODY__
+      end_labels:
+        - __PROFILE_END__
+      max_items: 3
+    html:
+      title_selector: h1
+      section_selector: section.card
+      section_match_selector: .serial
+      section_match_pattern: '^SN 216000088925~$'
+      header_selector: .release:first-of-type .release-head
+      release_selector: .release
+      release_version_selector: .version
+      release_version_pattern: '^V(.+)$'
+      summary_selector: ul.changes > li
+  validation:
+    version_pattern: '[0-9]+(?:\.[0-9]+)+(?:[A-Z])?'
+    document_titles:
+      - ECU Release Notes

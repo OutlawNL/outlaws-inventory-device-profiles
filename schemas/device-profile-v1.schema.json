@@ -76,6 +76,23 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 80
+        },
+        "serial_number_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "minimum"
+          ],
+          "properties": {
+            "minimum": {
+              "type": "string",
+              "pattern": "^[0-9]{6,30}$"
+            },
+            "maximum": {
+              "type": "string",
+              "pattern": "^[0-9]{6,30}$"
+            }
+          }
         }
       }
     },
@@ -264,23 +281,82 @@
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 240
+                },
+                "section_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "section_match_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "section_match_pattern": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
                 }
               }
             },
             "html_table": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["title_selector", "table_selector", "product_column", "product_value", "version_column", "date_column", "summary_column"],
+              "required": [
+                "title_selector",
+                "table_selector",
+                "product_column",
+                "product_value",
+                "version_column",
+                "date_column",
+                "summary_column"
+              ],
               "properties": {
-                "entry_selector": {"type": "string", "minLength": 1, "maxLength": 240},
-                "title_selector": {"type": "string", "minLength": 1, "maxLength": 240},
-                "content_selector": {"type": "string", "minLength": 1, "maxLength": 240},
-                "table_selector": {"type": "string", "minLength": 1, "maxLength": 240},
-                "product_column": {"type": "string", "minLength": 1, "maxLength": 120},
-                "product_value": {"type": "string", "minLength": 1, "maxLength": 160},
-                "version_column": {"type": "string", "minLength": 1, "maxLength": 120},
-                "date_column": {"type": "string", "minLength": 1, "maxLength": 120},
-                "summary_column": {"type": "string", "minLength": 1, "maxLength": 120}
+                "entry_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "title_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "content_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "table_selector": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "product_column": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "product_value": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "version_column": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "date_column": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "summary_column": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                }
               }
             }
           }
@@ -334,10 +410,20 @@
       "allOf": [
         {
           "if": {
-            "properties": {"strategy": {"const": "html_release_table"}}
+            "properties": {
+              "strategy": {
+                "const": "html_release_table"
+              }
+            }
           },
           "then": {
-            "properties": {"extraction": {"required": ["html_table"]}}
+            "properties": {
+              "extraction": {
+                "required": [
+                  "html_table"
+                ]
+              }
+            }
           }
         },
         {

@@ -1,8 +1,9 @@
 {
   "schema_version": 1,
-  "catalog_version": 12,
-  "generated": "2026-10-01",
+  "catalog_version": 13,
+  "generated": "2026-10-07",
   "files": {
+    "catalog/profiles/apsystems-ecu-r-216000088925.json": "a83220efd1278afccf1a3ddfb58c454f33e821b6df3c50431b7814476dddeee9",
     "catalog/profiles/dji-action-2.json": "c95914f0c7a4ea5aae585377c1c14e8cea2ae1ce932994b04e77a444a58f11a1",
     "catalog/profiles/dji-air-2s.json": "1d1b1b539fb7f0ca08635aa09764e3d359fda420459455d72e94879afd28b3c5",
     "catalog/profiles/dji-air-3.json": "33d52cf7310592c538ca8700ece8e84c990d5dea070bf5d13cf95d08a9ba5f10",
@@ -188,7 +189,7 @@
     "catalog/profiles/fujifilm-xq1.json": "c659f03475e56ac8ce89999b9f86b46e662f83a55aadcea86f75c8ff1efc2373",
     "catalog/profiles/fujifilm-xq2.json": "a1f9ba6a8f523d3e16240c8356f462bf5502fba8e4e24c2161c27fcb131cae3b",
     "catalog/profiles/sennheiser-momentum-4-wireless.json": "07629a00eba4aa1e1a65815ada11472593a2efb71869d4fc3d69f6acb02b337c",
-    "catalog/index.json": "f8a950afd4baa32e6cf671ae0324eccf0a3c68e37fc4a7eb6890e4315fdf2085"
+    "catalog/index.json": "30bba00bb158887e1135af584c1331d2c01c24e9a1f573ddc20f249c236a2ce0"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

@@ -1,9 +1,31 @@
 {
   "schema_version": 1,
-  "catalog_version": 12,
-  "generated": "2026-10-01",
+  "catalog_version": 13,
+  "generated": "2026-10-07",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
+    {
+      "schema_version": 1,
+      "id": "apsystems-ecu-r-216000088925",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-10-07",
+      "device": {
+        "vendor": "APsystems",
+        "model": "ECU-R",
+        "aliases": [
+          "APsystems ECU-R"
+        ],
+        "category": "Network",
+        "serial_number_range": {
+          "minimum": "216000088925"
+        }
+      },
+      "profile_path": "profiles/apsystems/ecu-r-216000088925.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/apsystems-ecu-r-216000088925.json",
+      "sha256": "a83220efd1278afccf1a3ddfb58c454f33e821b6df3c50431b7814476dddeee9"
+    },
     {
       "schema_version": 1,
       "id": "dji-action-2",
