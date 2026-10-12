@@ -110,7 +110,8 @@
             "release_notes_pdf",
             "dji_release_notes_pdf",
             "html_release",
-            "html_release_table"
+            "html_release_table",
+            "json_html_release_table"
           ]
         },
         "source": {
@@ -123,12 +124,21 @@
           "properties": {
             "type": {
               "enum": [
-                "html"
+                "html",
+                "json"
               ]
             },
             "url": {
               "type": "string",
               "pattern": "^https://"
+            },
+            "json_title_path": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_]*(?:\\.[A-Za-z][A-Za-z0-9_]*)*$"
+            },
+            "json_content_path": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_]*(?:\\.[A-Za-z][A-Za-z0-9_]*)*$"
             }
           }
         },
@@ -327,6 +337,16 @@
                   "minLength": 1,
                   "maxLength": 240
                 },
+                "optional_leading_columns": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "uniqueItems": true
+                },
                 "table_selector": {
                   "type": "string",
                   "minLength": 1,
@@ -412,7 +432,10 @@
           "if": {
             "properties": {
               "strategy": {
-                "const": "html_release_table"
+                "enum": [
+                  "html_release_table",
+                  "json_html_release_table"
+                ]
               }
             }
           },
@@ -422,6 +445,30 @@
                 "required": [
                   "html_table"
                 ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "const": "json_html_release_table"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source": {
+                "required": [
+                  "json_title_path",
+                  "json_content_path"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "json"
+                  }
+                }
               }
             }
           }

@@ -1,6 +1,10 @@
-# Device Profile coverage — 1 October 2026
+# Device Profile coverage — 12 October 2026
 
-Catalog v12 contains 185 profiles: 106 DJI, 78 Fujifilm X-system products and Sennheiser MOMENTUM 4 Wireless. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+Catalog v14 contains 187 profiles: 106 DJI, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R and myenergi zappi V2.1. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+
+## myenergi zappi V2.1
+
+The profile reads the official `Current firmware versions` Zendesk article through its public JSON API. The normal Help Centre pages are protected by Cloudflare and can return HTTP 403 to a non-browser request. The API response contains the same maintained product/version/release-date table and is fetched with a single exact Zappi V2.1 / multiphase row match. It requires Outlaw's Inventory v0.18.27 or newer.
 
 99 consumer download pages and 109 linked Release Notes PDFs were retrieved from DJI's public download index. The catalog covers products with verified source discovery, device-specific extraction, release dates and release details, including inexpensive legacy additions (Phantom and original Osmo).
 
