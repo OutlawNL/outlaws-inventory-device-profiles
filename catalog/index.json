@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "catalog_version": 15,
+  "catalog_version": 16,
   "generated": "2026-10-22",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
@@ -3652,6 +3652,26 @@
       "profile_path": "profiles/hiby/r1.yaml",
       "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/hiby-r1.json",
       "sha256": "283cf68f386f30ff5fa90b5eb4912345ad4b9e2b3c107636569ca9ec49352722"
+    },
+    {
+      "schema_version": 1,
+      "id": "m-vave-fm-1",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-10-22",
+      "device": {
+        "vendor": "M-VAVE",
+        "model": "FM-1",
+        "aliases": [
+          "M-VAVE FM-1",
+          "FM1"
+        ],
+        "category": "Audio"
+      },
+      "profile_path": "profiles/m-vave/fm-1.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/m-vave-fm-1.json",
+      "sha256": "05468e132a9f727a6bb98776292ef3993015f8fedba05d31087d9cf128029733"
     },
     {
       "schema_version": 1,

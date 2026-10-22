@@ -1,6 +1,11 @@
 # Device Profile coverage — 22 October 2026
 
-Catalog v15 contains 188 profiles: 106 DJI, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R, myenergi zappi V2.1 and HiBy R1. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+Catalog v16 contains 189 profiles: 106 DJI, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R, myenergi zappi V2.1, HiBy R1 and M-VAVE FM-1. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+
+
+## M-VAVE FM-1
+
+The profile is constrained to the exact **FM-1** item in M-VAVE’s PC Firmware list. It reads the official version and date from that single item and does not attempt to parse the mixed-language release-note text. On 22 October 2026 it reports version 16, released 21 October 2026.
 
 ## HiBy R1
 

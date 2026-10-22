@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "m-vave-fm-1",
+  "profile_version": 1,
+  "origin": "official",
+  "status": "verified",
+  "updated": "2026-10-22",
+  "device": {
+    "vendor": "M-VAVE",
+    "model": "FM-1",
+    "aliases": [
+      "M-VAVE FM-1",
+      "FM1"
+    ],
+    "category": "Audio"
+  },
+  "firmware": {
+    "strategy": "html_release",
+    "source": {
+      "type": "html",
+      "url": "https://www.m-vave.com/download"
+    },
+    "extraction": {
+      "scope": "first_release_first_page",
+      "version": {
+        "labels": [
+          "Version"
+        ],
+        "header_pattern": "^Version\\nV([0-9]+) · [0-9_]+$",
+        "pattern": "^([0-9]+)$",
+        "group": 1
+      },
+      "release_date": {
+        "labels": [
+          "Version"
+        ],
+        "header_pattern": "^Version\\nV[0-9]+ · ([0-9]{4}_[0-9]{2}_[0-9]{2})$",
+        "formats": [
+          "%Y_%m_%d"
+        ]
+      },
+      "whats_new": {
+        "start_labels": [
+          "__PROFILE_BODY__"
+        ],
+        "end_labels": [
+          "__PROFILE_END__"
+        ],
+        "max_items": 3
+      },
+      "html": {
+        "title_selector": ".download-item-info > h3:-soup-contains-own('FM-1')",
+        "section_selector": ".download-item",
+        "section_match_selector": ".download-item-info > h3",
+        "section_match_pattern": "^FM-1$",
+        "header_selector": ".download-item-info > p",
+        "release_selector": ".download-item-info",
+        "release_version_selector": "p",
+        "release_version_pattern": "^Version V([0-9]+) · [0-9_]+$",
+        "summary_selector": "ul > li"
+      }
+    },
+    "validation": {
+      "version_pattern": "[0-9]+",
+      "document_titles": [
+        "FM-1"
+      ]
+    }
+  }
+}
