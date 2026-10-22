@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": 14,
-  "generated": "2026-10-12",
+  "catalog_version": 15,
+  "generated": "2026-10-22",
   "files": {
     "catalog/profiles/apsystems-ecu-r-216000088925.json": "a83220efd1278afccf1a3ddfb58c454f33e821b6df3c50431b7814476dddeee9",
     "catalog/profiles/dji-action-2.json": "c95914f0c7a4ea5aae585377c1c14e8cea2ae1ce932994b04e77a444a58f11a1",
@@ -188,9 +188,10 @@
     "catalog/profiles/fujifilm-xf90mmf2-r-lm-wr.json": "44c20bedb58bb91ee03487ab32cf94865176ae025b60aeb34166e19a76dee72f",
     "catalog/profiles/fujifilm-xq1.json": "c659f03475e56ac8ce89999b9f86b46e662f83a55aadcea86f75c8ff1efc2373",
     "catalog/profiles/fujifilm-xq2.json": "a1f9ba6a8f523d3e16240c8356f462bf5502fba8e4e24c2161c27fcb131cae3b",
+    "catalog/profiles/hiby-r1.json": "283cf68f386f30ff5fa90b5eb4912345ad4b9e2b3c107636569ca9ec49352722",
     "catalog/profiles/myenergi-zappi-v2-1.json": "ed563f02a7de4ab5a28973de45bbeac5de57ff42571e128192a9682ec847d7eb",
     "catalog/profiles/sennheiser-momentum-4-wireless.json": "07629a00eba4aa1e1a65815ada11472593a2efb71869d4fc3d69f6acb02b337c",
-    "catalog/index.json": "6202aba5f6dbcc48e4b21e39ac413925e7a0f05caf6245ea24d8f406ff264a8a"
+    "catalog/index.json": "204442fcd3a35e7c40f62943417d67aadcb1a2b9321f7951c12bf889f90839ee"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

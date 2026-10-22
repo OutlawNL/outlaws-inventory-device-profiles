@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "hiby-r1",
+  "profile_version": 1,
+  "origin": "official",
+  "status": "verified",
+  "updated": "2026-10-22",
+  "device": {
+    "vendor": "HiBy",
+    "model": "R1",
+    "aliases": [
+      "HiBy R1"
+    ],
+    "category": "Audio"
+  },
+  "firmware": {
+    "strategy": "html_release",
+    "source": {
+      "type": "html",
+      "url": "https://store.hiby.com/apps/help-center"
+    },
+    "extraction": {
+      "scope": "first_release_first_page",
+      "version": {
+        "labels": [
+          "R1 Firmware"
+        ],
+        "header_pattern": "^R1 Firmware V(.+) Update$",
+        "pattern": "^(.+)$",
+        "group": 1
+      },
+      "release_date": {
+        "labels": [
+          "Release Date"
+        ],
+        "formats": [
+          "%Y-%m-%d"
+        ],
+        "optional": true
+      },
+      "whats_new": {
+        "start_labels": [
+          "__PROFILE_BODY__"
+        ],
+        "end_labels": [
+          "__PROFILE_END__"
+        ],
+        "max_items": 3
+      },
+      "html": {
+        "title_selector": "a[data-section-id='704064'] .s4com-section-title",
+        "header_selector": "#hc-r1-firmware-v20-update-question",
+        "release_selector": ".s4com-articles",
+        "release_version_selector": ".s4com-article-title",
+        "release_version_pattern": "^R1 Firmware V(.+) Update$",
+        "summary_selector": ".s4com-article-body > p:not(:first-child)"
+      }
+    },
+    "validation": {
+      "version_pattern": "[0-9]+(?:\\.[0-9]+)+",
+      "document_titles": [
+        "HiBy R1 Firmware Download & Guidance"
+      ]
+    }
+  }
+}

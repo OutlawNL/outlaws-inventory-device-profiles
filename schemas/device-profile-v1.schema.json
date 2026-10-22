@@ -585,6 +585,10 @@
           "maximum": 30,
           "default": 12
         },
+        "optional": {
+          "type": "boolean",
+          "default": false
+        },
         "header_pattern": {
           "type": "string",
           "minLength": 1,

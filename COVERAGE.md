@@ -1,6 +1,10 @@
-# Device Profile coverage — 12 October 2026
+# Device Profile coverage — 22 October 2026
 
-Catalog v14 contains 187 profiles: 106 DJI, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R and myenergi zappi V2.1. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+Catalog v15 contains 188 profiles: 106 DJI, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R, myenergi zappi V2.1 and HiBy R1. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+
+## HiBy R1
+
+The profile reads the exact R1 firmware section of HiBy’s official Help Center. The generic parser deliberately avoids using the short model token `R1`, because it is too ambiguous for a broad page. This profile instead validates the R1 section title and the current, exact `R1 Firmware V… Update` release heading. On 22 October 2026 it reports version 2.0.
 
 ## myenergi zappi V2.1
 
