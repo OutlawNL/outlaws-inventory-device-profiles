@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": 16,
-  "generated": "2026-10-22",
+  "catalog_version": 17,
+  "generated": "2026-10-23",
   "files": {
     "catalog/profiles/apsystems-ecu-r-216000088925.json": "a83220efd1278afccf1a3ddfb58c454f33e821b6df3c50431b7814476dddeee9",
     "catalog/profiles/dji-action-2.json": "c95914f0c7a4ea5aae585377c1c14e8cea2ae1ce932994b04e77a444a58f11a1",
@@ -90,7 +90,7 @@
     "catalog/profiles/dji-pocket-2.json": "09d732110709ef61f3b9d84867f24cb600d6f5836485bfa23104de7ba183f17f",
     "catalog/profiles/dji-rc-2.json": "5e2f6cbefdb332f3a39b30f1fc2dcc02558e3c1873a17bdb4d58ba6834d2e605",
     "catalog/profiles/dji-rc-motion-2.json": "46c3f0a452be418bcdbfef81318a01c4ea5f3d02b6d767cbb9b84e75d5ee727f",
-    "catalog/profiles/dji-rc-motion-3.json": "211b70d7d38f50532800fde5ecb31b5e8e8b4986b24da514b1101d0515432b35",
+    "catalog/profiles/dji-rc-motion-3.json": "8a91ec3be8871f01d9a972f0ccdcc882963e285cf640dcf7cb5be92cc0ea4614",
     "catalog/profiles/dji-rc-pro-2.json": "ed66b21583c6648318e876ee4191d0b6d90ab807a7a7f27f7162ab0e7d2ddbbf",
     "catalog/profiles/dji-rc-pro.json": "442baf78ec2dc255be59a8ba53479842a57edeecc562a36459d4432a93c5697f",
     "catalog/profiles/dji-rc.json": "afdb5cf62235b4c6e5ae5ed5a713f718a32342933a45993343bfa9ffd1fddd50",
@@ -192,7 +192,7 @@
     "catalog/profiles/m-vave-fm-1.json": "05468e132a9f727a6bb98776292ef3993015f8fedba05d31087d9cf128029733",
     "catalog/profiles/myenergi-zappi-v2-1.json": "ed563f02a7de4ab5a28973de45bbeac5de57ff42571e128192a9682ec847d7eb",
     "catalog/profiles/sennheiser-momentum-4-wireless.json": "07629a00eba4aa1e1a65815ada11472593a2efb71869d4fc3d69f6acb02b337c",
-    "catalog/index.json": "f3ae19f2e467a7ec778762d8b1fd60d0bf08b02bc8e52494471c199492a2b9de"
+    "catalog/index.json": "13962dab879790e728211ebd521fdea3c94009fecf6156f896cebf3d6dc265f2"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

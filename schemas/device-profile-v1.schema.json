@@ -210,6 +210,11 @@
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 200
+                },
+                "normalization": {
+                  "enum": [
+                    "dji_four_component"
+                  ]
                 }
               }
             },
