@@ -1,9 +1,11 @@
 {
   "schema_version": 1,
-  "catalog_version": 17,
-  "generated": "2026-10-23",
+  "catalog_version": 18,
+  "generated": "2026-11-08",
   "files": {
     "catalog/profiles/apsystems-ecu-r-216000088925.json": "a83220efd1278afccf1a3ddfb58c454f33e821b6df3c50431b7814476dddeee9",
+    "catalog/profiles/behringer-x-touch-one.json": "3bb57bbe6de9d8382db58dff8364e03ddb767c2cf3cf9ee941259255c758ee15",
+    "catalog/profiles/behringer-x-touch.json": "667d4ffa60005efc96cdfa7de7d8c5b5937af58749e98fcc215beec56d40c58d",
     "catalog/profiles/dji-action-2.json": "c95914f0c7a4ea5aae585377c1c14e8cea2ae1ce932994b04e77a444a58f11a1",
     "catalog/profiles/dji-air-2s.json": "1d1b1b539fb7f0ca08635aa09764e3d359fda420459455d72e94879afd28b3c5",
     "catalog/profiles/dji-air-3.json": "33d52cf7310592c538ca8700ece8e84c990d5dea070bf5d13cf95d08a9ba5f10",
@@ -192,7 +194,7 @@
     "catalog/profiles/m-vave-fm-1.json": "05468e132a9f727a6bb98776292ef3993015f8fedba05d31087d9cf128029733",
     "catalog/profiles/myenergi-zappi-v2-1.json": "ed563f02a7de4ab5a28973de45bbeac5de57ff42571e128192a9682ec847d7eb",
     "catalog/profiles/sennheiser-momentum-4-wireless.json": "07629a00eba4aa1e1a65815ada11472593a2efb71869d4fc3d69f6acb02b337c",
-    "catalog/index.json": "13962dab879790e728211ebd521fdea3c94009fecf6156f896cebf3d6dc265f2"
+    "catalog/index.json": "b381b948a5fa0b3b38c1e38661e1c06d29aafff9c67cbedf8c3bb18e2f42da36"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

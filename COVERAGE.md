@@ -1,6 +1,10 @@
-# Device Profile coverage — 22 October 2026
+# Device Profile coverage — 8 November 2026
 
-Catalog v16 contains 189 profiles: 106 DJI, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R, myenergi zappi V2.1, HiBy R1 and M-VAVE FM-1. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+Catalog v18 contains 191 profiles: 106 DJI, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R, myenergi zappi V2.1, HiBy R1, M-VAVE FM-1, Behringer X-TOUCH ONE and Behringer X-TOUCH. This is a reviewed consumer/hobbyist scope, not a claim to cover every product ever sold. DJI Enterprise, Agriculture, industrial payloads and software-only tools are excluded.
+
+## Behringer X-TOUCH controllers
+
+The X-TOUCH ONE and X-TOUCH profiles read the standard JSON-LD metadata embedded in each official Behringer product page. Each match requires the exact product name, SKU and a `Firmware` software entry; the highest declared numeric version is selected. On 8 November 2026 the pages declare 1.11.0 for X-TOUCH ONE and 1.25.0 for X-TOUCH. Behringer publishes neither a release date nor release notes in this source, so the profiles intentionally leave those fields empty.
 
 
 ## M-VAVE FM-1
@@ -39,6 +43,8 @@ Included camera families: X-H, X-Pro, X-T, X-S, X-E, X-M, X-A, X100, XQ and othe
 
 | Device | Source | Extraction |
 |---|---|---|
+| Behringer X-TOUCH | [Official page](https://behringer.com/en/products/0808-AAD) | json_ld_software_release |
+| Behringer X-TOUCH ONE | [Official page](https://behringer.com/en/products/0808-AAG) | json_ld_software_release |
 | DJI Action 2 | [Official page](https://www.dji.com/global/downloads/products/dji-action-2) | release_notes_pdf |
 | DJI Air 2S | [Official page](https://www.dji.com/global/downloads/products/air-2s) | release_notes_pdf |
 | DJI Air 3 | [Official page](https://www.dji.com/global/downloads/products/air-3) | release_notes_pdf |

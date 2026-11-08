@@ -111,7 +111,8 @@
             "dji_release_notes_pdf",
             "html_release",
             "html_release_table",
-            "json_html_release_table"
+            "json_html_release_table",
+            "json_ld_software_release"
           ]
         },
         "source": {
@@ -193,11 +194,6 @@
         "extraction": {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "version",
-            "release_date",
-            "whats_new"
-          ],
           "properties": {
             "version": {
               "$ref": "#/$defs/labeledValue"
@@ -383,6 +379,32 @@
                   "maxLength": 120
                 }
               }
+            },
+            "json_ld": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "product_name",
+                "product_sku",
+                "software_name"
+              ],
+              "properties": {
+                "product_name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "product_sku": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "software_name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                }
+              }
             }
           }
         },
@@ -437,6 +459,31 @@
           "if": {
             "properties": {
               "strategy": {
+                "const": "json_ld_software_release"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source": {
+                "properties": {
+                  "type": {
+                    "const": "html"
+                  }
+                }
+              },
+              "extraction": {
+                "required": [
+                  "json_ld"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "strategy": {
                 "enum": [
                   "html_release_table",
                   "json_html_release_table"
@@ -448,7 +495,9 @@
             "properties": {
               "extraction": {
                 "required": [
-                  "html_table"
+                  "html_table",
+                  "release_date",
+                  "whats_new"
                 ]
               }
             }
@@ -507,6 +556,9 @@
             "properties": {
               "extraction": {
                 "required": [
+                  "version",
+                  "release_date",
+                  "whats_new",
                   "html"
                 ]
               }

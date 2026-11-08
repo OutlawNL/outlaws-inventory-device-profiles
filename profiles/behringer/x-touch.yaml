@@ -1,0 +1,27 @@
+schema_version: 1
+id: behringer-x-touch
+profile_version: 1
+origin: official
+status: verified
+updated: '2026-11-08'
+device:
+  vendor: Behringer
+  model: X-TOUCH
+  aliases:
+    - Behringer X-TOUCH
+    - X-Touch
+  category: Audio
+firmware:
+  strategy: json_ld_software_release
+  source:
+    type: html
+    url: https://behringer.com/en/products/0808-AAD
+  extraction:
+    json_ld:
+      product_name: X-TOUCH
+      product_sku: 0808-AAD
+      software_name: Firmware
+  validation:
+    version_pattern: '^[0-9]+(?:\.[0-9]+){1,3}$'
+    document_titles:
+      - X-TOUCH

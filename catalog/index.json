@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": 17,
-  "generated": "2026-10-23",
+  "catalog_version": 18,
+  "generated": "2026-11-08",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
     {
@@ -25,6 +25,46 @@
       "profile_path": "profiles/apsystems/ecu-r-216000088925.yaml",
       "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/apsystems-ecu-r-216000088925.json",
       "sha256": "a83220efd1278afccf1a3ddfb58c454f33e821b6df3c50431b7814476dddeee9"
+    },
+    {
+      "schema_version": 1,
+      "id": "behringer-x-touch-one",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-11-08",
+      "device": {
+        "vendor": "Behringer",
+        "model": "X-TOUCH ONE",
+        "aliases": [
+          "Behringer X-TOUCH ONE",
+          "X-Touch One"
+        ],
+        "category": "Audio"
+      },
+      "profile_path": "profiles/behringer/x-touch-one.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/behringer-x-touch-one.json",
+      "sha256": "3bb57bbe6de9d8382db58dff8364e03ddb767c2cf3cf9ee941259255c758ee15"
+    },
+    {
+      "schema_version": 1,
+      "id": "behringer-x-touch",
+      "profile_version": 1,
+      "origin": "official",
+      "status": "verified",
+      "updated": "2026-11-08",
+      "device": {
+        "vendor": "Behringer",
+        "model": "X-TOUCH",
+        "aliases": [
+          "Behringer X-TOUCH",
+          "X-Touch"
+        ],
+        "category": "Audio"
+      },
+      "profile_path": "profiles/behringer/x-touch.yaml",
+      "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/behringer-x-touch.json",
+      "sha256": "667d4ffa60005efc96cdfa7de7d8c5b5937af58749e98fcc215beec56d40c58d"
     },
     {
       "schema_version": 1,
