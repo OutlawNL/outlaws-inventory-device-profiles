@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": 18,
-  "generated": "2026-11-08",
+  "catalog_version": 19,
+  "generated": "2026-11-10",
   "repository": "OutlawNL/outlaws-inventory-device-profiles",
   "profiles": [
     {
@@ -3716,10 +3716,10 @@
     {
       "schema_version": 1,
       "id": "myenergi-zappi-v2-1",
-      "profile_version": 1,
+      "profile_version": 2,
       "origin": "official",
       "status": "verified",
-      "updated": "2026-10-12",
+      "updated": "2026-11-09",
       "device": {
         "vendor": "myenergi",
         "model": "zappi 2.1",
@@ -3733,7 +3733,7 @@
       },
       "profile_path": "profiles/myenergi/zappi-v2-1.yaml",
       "profile_url": "https://raw.githubusercontent.com/OutlawNL/outlaws-inventory-device-profiles/main/catalog/profiles/myenergi-zappi-v2-1.json",
-      "sha256": "ed563f02a7de4ab5a28973de45bbeac5de57ff42571e128192a9682ec847d7eb"
+      "sha256": "aeaad8a1cab5a801c3390ae690e8fdbb148468161083730420cbe704ee803fbe"
     },
     {
       "schema_version": 1,

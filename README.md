@@ -1,12 +1,14 @@
-# Outlaw's Inventory Device Profiles — catalog v18
+# Outlaw's Inventory Device Profiles — catalog v19
 
 191 external profiles: 106 DJI consumer/hobbyist devices, 78 Fujifilm X-system products, Sennheiser MOMENTUM 4 Wireless, APsystems ECU-R, myenergi zappi V2.1, HiBy R1, M-VAVE FM-1 and two Behringer X-TOUCH controllers. See [coverage and exceptions](COVERAGE.md).
 
-Requires Outlaw's Inventory v0.18.31 or newer. Publish/synchronize this catalog after upgrading the app. Profiles download on demand only for matched devices.
+Requires Outlaw's Inventory v0.18.32 or newer. Publish/synchronize this catalog after upgrading the app. Profiles download on demand only for matched devices.
 
-Build and validate with `python scripts/build_catalog.py --catalog-version 18` (PyYAML and jsonschema required). Runtime JSON and index are generated from YAML; do not edit generated profiles directly.
+Build and validate with `python scripts/build_catalog.py --catalog-version 19` (PyYAML and jsonschema required). Runtime JSON and index are generated from YAML; do not edit generated profiles directly.
 
 The catalog is published at the existing repository root. Preserve `catalog/index.json`, `catalog/profiles/`, profiles, schemas and manifest. Firmware versions are fetched from the declared official source at check time.
+
+Catalog v19 repairs the verified myenergi zappi V2.1 / multiphase profile for Myenergi's new Help Centre card layout. It reads the one exact `zappi-v21` row in the existing official JSON API and currently detects firmware 5.794, released 9 June 2026.
 
 Catalog v18 adds verified Behringer X-TOUCH ONE and X-TOUCH profiles. They read only the official product page's JSON-LD Firmware metadata for the exact product name and SKU. The pages currently declare firmware 1.11.0 and 1.25.0 respectively; Behringer does not publish release dates or release notes there.
 

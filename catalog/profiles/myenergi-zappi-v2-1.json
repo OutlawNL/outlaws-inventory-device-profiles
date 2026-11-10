@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "id": "myenergi-zappi-v2-1",
-  "profile_version": 1,
+  "profile_version": 2,
   "origin": "official",
   "status": "verified",
-  "updated": "2026-10-12",
+  "updated": "2026-11-09",
   "device": {
     "vendor": "myenergi",
     "model": "zappi 2.1",
@@ -17,7 +17,7 @@
     "category": "Network"
   },
   "firmware": {
-    "strategy": "json_html_release_table",
+    "strategy": "json_html_release",
     "source": {
       "type": "json",
       "url": "https://support.myenergi.com/api/v2/help_center/en-gb/articles/360020109017.json",
@@ -27,17 +27,19 @@
     "extraction": {
       "version": {
         "labels": [
-          "Firmware Version"
+          "Firmware"
         ],
+        "header_pattern": "(?s)^zappi V2\\.1 / Multiphase\\n(?:.*?\\n)?Firmware\\n([0-9]+(?:\\.[0-9]+)+)\\nReleased\\n",
         "pattern": "([0-9]+(?:\\.[0-9]+)+)",
         "group": 1
       },
       "release_date": {
         "labels": [
-          "Release Date"
+          "Released"
         ],
+        "header_pattern": "(?s)^zappi V2\\.1 / Multiphase\\n(?:.*?\\n)?Firmware\\n[0-9]+(?:\\.[0-9]+)+\\nReleased\\n([0-9]{1,2} [A-Za-z]{3} [0-9]{4})(?=\\n|$)",
         "formats": [
-          "%d/%m/%Y"
+          "%d %b %Y"
         ]
       },
       "whats_new": {
@@ -49,17 +51,13 @@
         ],
         "max_items": 3
       },
-      "html_table": {
-        "title_selector": "h1",
-        "table_selector": "table",
-        "optional_leading_columns": [
-          "Image"
-        ],
-        "product_column": "Product",
-        "product_value": "zappi V2.1 / Multiphase (Serials starting 2)",
-        "version_column": "Firmware Version (linked to release note)",
-        "date_column": "Release Date",
-        "summary_column": "Update Instructions"
+      "html": {
+        "title_selector": "h1:first-child",
+        "header_selector": "li#zappi-v21",
+        "release_selector": "li#zappi-v21",
+        "release_version_selector": ".mf-fw .mf-fwn > a",
+        "release_version_pattern": "([0-9]+(?:\\.[0-9]+)+)",
+        "summary_selector": ".mf-release-notes"
       }
     },
     "validation": {

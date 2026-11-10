@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "catalog_version": 18,
-  "generated": "2026-11-08",
+  "catalog_version": 19,
+  "generated": "2026-11-10",
   "files": {
     "catalog/profiles/apsystems-ecu-r-216000088925.json": "a83220efd1278afccf1a3ddfb58c454f33e821b6df3c50431b7814476dddeee9",
     "catalog/profiles/behringer-x-touch-one.json": "3bb57bbe6de9d8382db58dff8364e03ddb767c2cf3cf9ee941259255c758ee15",
@@ -192,9 +192,9 @@
     "catalog/profiles/fujifilm-xq2.json": "a1f9ba6a8f523d3e16240c8356f462bf5502fba8e4e24c2161c27fcb131cae3b",
     "catalog/profiles/hiby-r1.json": "283cf68f386f30ff5fa90b5eb4912345ad4b9e2b3c107636569ca9ec49352722",
     "catalog/profiles/m-vave-fm-1.json": "05468e132a9f727a6bb98776292ef3993015f8fedba05d31087d9cf128029733",
-    "catalog/profiles/myenergi-zappi-v2-1.json": "ed563f02a7de4ab5a28973de45bbeac5de57ff42571e128192a9682ec847d7eb",
+    "catalog/profiles/myenergi-zappi-v2-1.json": "aeaad8a1cab5a801c3390ae690e8fdbb148468161083730420cbe704ee803fbe",
     "catalog/profiles/sennheiser-momentum-4-wireless.json": "07629a00eba4aa1e1a65815ada11472593a2efb71869d4fc3d69f6acb02b337c",
-    "catalog/index.json": "b381b948a5fa0b3b38c1e38661e1c06d29aafff9c67cbedf8c3bb18e2f42da36"
+    "catalog/index.json": "4fe790b54a119afefb31a4d6bca95e9e46da1f46eb53e58054dde05dd47c92b7"
   },
   "signature": null,
   "signature_status": "not-signed-yet"

@@ -111,6 +111,7 @@
             "dji_release_notes_pdf",
             "html_release",
             "html_release_table",
+            "json_html_release",
             "json_html_release_table",
             "json_ld_software_release"
           ]
@@ -507,7 +508,10 @@
           "if": {
             "properties": {
               "strategy": {
-                "const": "json_html_release_table"
+                "enum": [
+                  "json_html_release",
+                  "json_html_release_table"
+                ]
               }
             }
           },
@@ -548,7 +552,10 @@
           "if": {
             "properties": {
               "strategy": {
-                "const": "html_release"
+                "enum": [
+                  "html_release",
+                  "json_html_release"
+                ]
               }
             }
           },
